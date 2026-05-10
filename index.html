@@ -3,247 +3,100 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="全球资产雷达：跟踪股票、基金、黄金、债券、商品和汇率的关键影响因素，并按短中长期辅助决策。"
-    />
-    <title>全球资产雷达</title>
+    <meta name="description" content="全球资产雷达首页：把全球股市、基金、黄金、债券和商品的影响因素整理成短中长期决策视图。" />
+    <title>全球资产雷达 | 今日雷达</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <div class="app-shell">
-      <aside class="sidebar" aria-label="主导航">
-        <a class="brand" href="#top" aria-label="全球资产雷达首页">
-          <span class="brand-mark">GM</span>
-          <span>
-            <strong>全球资产雷达</strong>
-            <small>Market Decision Radar</small>
-          </span>
-        </a>
+  <body data-page="home">
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">GM</span>
+        <span><strong>全球资产雷达</strong><small>Global Market Radar</small></span>
+      </a>
+      <nav class="top-nav" aria-label="主导航">
+        <a data-nav="home" href="index.html"><i data-lucide="radar"></i>今日雷达</a>
+        <a data-nav="signals" href="signals.html"><i data-lucide="layers-3"></i>影响因素</a>
+        <a data-nav="assets" href="assets.html"><i data-lucide="candlestick-chart"></i>资产看板</a>
+        <a data-nav="agent" href="agent.html"><i data-lucide="brain-circuit"></i>Agent 分析</a>
+        <a data-nav="brief" href="brief.html"><i data-lucide="newspaper"></i>市场日报</a>
+        <a data-nav="sources" href="sources.html"><i data-lucide="database"></i>信源分层</a>
+      </nav>
+    </header>
 
-        <nav class="nav-list">
-          <a class="active" href="#radar"><i data-lucide="radar"></i>今日雷达</a>
-          <a href="#signals"><i data-lucide="layers-3"></i>影响因素</a>
-          <a href="#assets"><i data-lucide="candlestick-chart"></i>资产看板</a>
-          <a href="#agent"><i data-lucide="brain-circuit"></i>Agent 分析</a>
-          <a href="#brief"><i data-lucide="newspaper"></i>市场日报</a>
-        </nav>
-
-        <div class="sidebar-note">
-          <span class="status-dot"></span>
-          <p>示例原型数据。正式版应接入行情、央行、宏观、新闻和资金流数据源。</p>
+    <main class="page-shell">
+      <section class="hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow">GLOBAL MARKET RADAR</p>
+          <h1>把全球市场信息，拆成可决策的影响因素。</h1>
+          <p class="lead">按信源等级、影响周期、资产方向和重要性排序，帮助你判断股票、基金、黄金、债券、商品和汇率正在被什么力量推动。</p>
+          <div class="hero-actions">
+            <a class="primary-link" href="signals.html"><i data-lucide="sparkles"></i>查看精选影响因素</a>
+            <a class="secondary-link" href="agent.html"><i data-lucide="split"></i>进入 Agent 分析</a>
+          </div>
         </div>
-      </aside>
 
-      <main class="main" id="top">
-        <header class="topbar">
-          <div>
-            <p class="eyebrow">全球股票 · 基金 · 黄金 · 债券 · 期货</p>
-            <h1>把市场噪音整理成可决策的影响因素</h1>
+        <aside class="market-pulse" aria-label="今日市场状态">
+          <div class="pulse-head">
+            <span>今日市场状态</span>
+            <strong>中性偏谨慎</strong>
           </div>
-          <div class="top-actions">
-            <button class="icon-button" type="button" title="刷新示例数据" aria-label="刷新示例数据" id="refreshBtn">
-              <i data-lucide="refresh-cw"></i>
-            </button>
-            <button class="primary-button" type="button">
-              <i data-lucide="sparkles"></i>
-              生成今日判断
-            </button>
+          <div class="risk-band"><span style="width: 68%"></span></div>
+          <div class="pulse-grid">
+            <div><small>主导因子</small><b>美债收益率</b></div>
+            <div><small>风险热度</small><b>74 / 100</b></div>
+            <div><small>资金偏好</small><b>防守资产</b></div>
+            <div><small>确认信号</small><b>CPI / 就业</b></div>
           </div>
-        </header>
-
-        <section class="ticker-strip" aria-label="核心资产快照">
-          <div><span>美股</span><strong class="down">承压</strong><small>利率敏感</small></div>
-          <div><span>A股/港股</span><strong class="flat">观察</strong><small>政策验证</small></div>
-          <div><span>黄金</span><strong class="up">偏强</strong><small>避险+央行买盘</small></div>
-          <div><span>美债</span><strong class="flat">震荡</strong><small>等待通胀数据</small></div>
-          <div><span>美元</span><strong class="up">偏强</strong><small>降息预期回落</small></div>
-        </section>
-
-        <section class="market-grid" id="radar">
-          <div class="overview-panel">
-            <div class="section-heading">
-              <div>
-                <p class="eyebrow">Today</p>
-                <h2>今日市场雷达</h2>
-              </div>
-              <span class="score-pill">风险热度 74</span>
-            </div>
-
-            <div class="risk-meter" aria-label="风险偏好仪表盘">
-              <div class="meter-track"><span style="width: 74%"></span></div>
-              <div class="meter-labels"><span>Risk-off</span><span>中性</span><span>Risk-on</span></div>
-            </div>
-
-            <div class="factor-cloud">
-              <span>美债收益率</span>
-              <span>通胀预期</span>
-              <span>美元流动性</span>
-              <span>黄金 ETF 流入</span>
-              <span>AI 龙头财报</span>
-              <span>地缘风险</span>
-            </div>
-
-            <div class="horizon-board">
-              <article>
-                <i data-lucide="zap"></i>
-                <h3>短期 1天-2周</h3>
-                <p>市场在交易利率和突发数据，追高风险升高，适合降低杠杆和等待确认。</p>
-              </article>
-              <article>
-                <i data-lucide="calendar-range"></i>
-                <h3>中期 1-6个月</h3>
-                <p>关注降息路径、盈利修复和资金流向，股票和债券仍需看数据拐点。</p>
-              </article>
-              <article>
-                <i data-lucide="mountain"></i>
-                <h3>长期 1-5年</h3>
-                <p>黄金、AI、能源转型和财政赤字是长期主线，配置逻辑重于短线波动。</p>
-              </article>
-            </div>
+          <div class="mini-chart" aria-hidden="true">
+            <span style="height: 36%"></span><span style="height: 52%"></span><span style="height: 44%"></span><span style="height: 67%"></span><span style="height: 58%"></span><span style="height: 78%"></span><span style="height: 61%"></span>
           </div>
+        </aside>
+      </section>
 
-          <aside class="decision-panel" id="agent">
-            <div class="section-heading compact">
-              <div>
-                <p class="eyebrow">Agent</p>
-                <h2>决策摘要</h2>
-              </div>
-              <i data-lucide="bot"></i>
-            </div>
+      <section class="asset-strip" aria-label="核心资产快照">
+        <article><span>美股</span><strong class="tone-down">承压</strong><small>利率敏感，关注财报指引</small></article>
+        <article><span>A股 / 港股</span><strong class="tone-flat">观察</strong><small>政策验证和资金流更关键</small></article>
+        <article><span>黄金</span><strong class="tone-up">偏强</strong><small>避险、央行买盘和实际利率</small></article>
+        <article><span>美债</span><strong class="tone-flat">震荡</strong><small>等待通胀与就业确认</small></article>
+        <article><span>美元</span><strong class="tone-up">短期偏强</strong><small>降息预期回落时受益</small></article>
+      </section>
 
-            <div class="stance-list">
-              <div><span>股票</span><strong class="flat">中性偏谨慎</strong></div>
-              <div><span>债券</span><strong class="flat">等待确认</strong></div>
-              <div><span>黄金</span><strong class="up">中期偏多</strong></div>
-              <div><span>美元</span><strong class="up">短期偏强</strong></div>
-              <div><span>商品</span><strong class="flat">结构分化</strong></div>
-            </div>
+      <section class="section-block">
+        <div class="section-title">
+          <div><p class="eyebrow">MODULES</p><h2>独立模块</h2></div>
+          <p>每个模块都是单独页面，首页只保留总览和入口。</p>
+        </div>
+        <div class="module-grid">
+          <a class="module-card" href="signals.html"><i data-lucide="filter"></i><strong>影响因素</strong><span>新闻、数据、政策、资金流自动归类和排序。</span></a>
+          <a class="module-card" href="assets.html"><i data-lucide="layout-dashboard"></i><strong>资产看板</strong><span>股票、基金、黄金、债券、商品和汇率的影响矩阵。</span></a>
+          <a class="module-card" href="agent.html"><i data-lucide="bot"></i><strong>Agent 分析</strong><span>短期、中期、长期观点和情景推演。</span></a>
+          <a class="module-card" href="brief.html"><i data-lucide="file-text"></i><strong>市场日报</strong><span>每天生成一份结构化市场复盘和观察清单。</span></a>
+          <a class="module-card" href="sources.html"><i data-lucide="shield-check"></i><strong>信源分层</strong><span>S 到 D 级信源，区分事实、观点和传闻。</span></a>
+        </div>
+      </section>
 
-            <div class="agent-memo">
-              <h3>当前主线</h3>
-              <p>市场核心矛盾是“降息预期”和“经济韧性”之间的摇摆。若通胀或就业继续强于预期，风险资产估值会受到压制；若数据转弱，债券和黄金的胜率提高。</p>
-            </div>
-
-            <button class="secondary-button" type="button">
-              <i data-lucide="split"></i>
-              查看三种情景推演
-            </button>
-          </aside>
-        </section>
-
-        <section class="workspace-grid" id="signals">
-          <div class="feed-panel">
-            <div class="section-heading">
-              <div>
-                <p class="eyebrow">Signals</p>
-                <h2>精选影响因素</h2>
-              </div>
-              <div class="segmented" aria-label="时间周期筛选">
-                <button class="active" data-filter="all" type="button">全部</button>
-                <button data-filter="short" type="button">短期</button>
-                <button data-filter="mid" type="button">中期</button>
-                <button data-filter="long" type="button">长期</button>
-              </div>
-            </div>
-
-            <div class="search-row">
-              <label class="search-box">
-                <i data-lucide="search"></i>
-                <input id="searchInput" type="search" placeholder="搜索资产、新闻、因素，例如 黄金 / CPI / 美债" />
-              </label>
-              <select id="assetSelect" aria-label="资产筛选">
-                <option value="all">全部资产</option>
-                <option value="equity">股票</option>
-                <option value="bond">债券</option>
-                <option value="gold">黄金</option>
-                <option value="fx">汇率</option>
-                <option value="commodity">商品</option>
-              </select>
-            </div>
-
-            <div class="signal-list" id="signalList"></div>
+      <section class="two-column">
+        <div class="section-block">
+          <div class="section-title"><div><p class="eyebrow">KEY DRIVERS</p><h2>今日最重要</h2></div></div>
+          <div class="compact-feed">
+            <article><b>美国就业韧性压低降息预期</b><span>S级 · 官方数据 · 影响股票、债券、黄金、美元</span></article>
+            <article><b>黄金 ETF 资金持续回流</b><span>A级 · 资金流 · 中期支撑黄金和资源资产</span></article>
+            <article><b>AI 龙头财报进入验证期</b><span>S级 · 财报 · 决定科技股估值能否延续</span></article>
           </div>
+        </div>
 
-          <aside class="side-stack">
-            <section class="watch-panel">
-              <div class="section-heading compact">
-                <div>
-                  <p class="eyebrow">Watch</p>
-                  <h2>未来观察点</h2>
-                </div>
-                <i data-lucide="bell-ring"></i>
-              </div>
-              <ul class="watch-list" id="watchList"></ul>
-            </section>
-
-            <section class="matrix-panel">
-              <div class="section-heading compact">
-                <div>
-                  <p class="eyebrow">Rank</p>
-                  <h2>因子权重</h2>
-                </div>
-                <i data-lucide="bar-chart-3"></i>
-              </div>
-              <div class="weight-list">
-                <div><span>货币政策</span><meter value="88" max="100"></meter><strong>88</strong></div>
-                <div><span>通胀</span><meter value="82" max="100"></meter><strong>82</strong></div>
-                <div><span>企业盈利</span><meter value="76" max="100"></meter><strong>76</strong></div>
-                <div><span>资金流</span><meter value="71" max="100"></meter><strong>71</strong></div>
-                <div><span>地缘风险</span><meter value="68" max="100"></meter><strong>68</strong></div>
-              </div>
-            </section>
-          </aside>
-        </section>
-
-        <section class="assets-section" id="assets">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">Assets</p>
-              <h2>资产影响矩阵</h2>
-            </div>
-            <p class="section-note">把同一条消息映射到不同资产，避免只看单一市场。</p>
+        <div class="section-block">
+          <div class="section-title"><div><p class="eyebrow">HORIZON</p><h2>决策周期</h2></div></div>
+          <div class="horizon-list">
+            <article><span>短期</span><b>1天-2周</b><p>关注突发数据、央行讲话、收益率和美元波动。</p></article>
+            <article><span>中期</span><b>1-6个月</b><p>关注降息路径、盈利修复、资金流和信用条件。</p></article>
+            <article><span>长期</span><b>1-5年</b><p>关注债务周期、人口结构、技术周期和货币体系变化。</p></article>
           </div>
-          <div class="asset-grid" id="assetGrid"></div>
-        </section>
+        </div>
+      </section>
+    </main>
 
-        <section class="brief-section" id="brief">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">Daily Brief</p>
-              <h2>AI 市场日报模板</h2>
-            </div>
-            <button class="secondary-button" type="button">
-              <i data-lucide="rss"></i>
-              RSS / API 接入
-            </button>
-          </div>
-          <div class="brief-grid">
-            <article>
-              <h3>宏观与利率</h3>
-              <p>跟踪央行、通胀、就业、PMI、财政发债和实际利率，判断估值压力与流动性方向。</p>
-            </article>
-            <article>
-              <h3>股票与基金</h3>
-              <p>跟踪盈利预期、行业景气、ETF 流入流出、风险偏好和估值分位。</p>
-            </article>
-            <article>
-              <h3>黄金与商品</h3>
-              <p>跟踪实际利率、美元、央行购金、库存、供需缺口和地缘避险。</p>
-            </article>
-            <article>
-              <h3>风险与情景</h3>
-              <p>输出乐观、基准、悲观三种情景，以及会改变判断的关键触发条件。</p>
-            </article>
-          </div>
-        </section>
-
-        <footer class="footer">
-          <p>研究辅助原型，不构成个性化投资建议。正式版本需要接入实时数据、回测、风险控制和人工复核。</p>
-        </footer>
-      </main>
-    </div>
-
+    <footer class="site-footer">研究辅助原型，不构成个性化投资建议。正式版需要接入实时数据、回测、风控和人工复核。</footer>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script src="app.js"></script>
   </body>

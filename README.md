@@ -11,11 +11,17 @@
 - Agent 决策摘要
 - 资产影响矩阵
 - AI 市场日报模板
+- 信源分层与重要性评分模型
 
 ## 文件
 
-- `index.html`：页面结构
-- `styles.css`：视觉样式和响应式布局
+- `index.html`：今日雷达首页
+- `signals.html`：精选影响因素
+- `assets.html`：资产看板
+- `agent.html`：Agent 分析中心
+- `brief.html`：AI 市场日报模板
+- `sources.html`：信源分层和评分逻辑
+- `styles.css`：共享视觉样式和响应式布局
 - `app.js`：示例数据、筛选和渲染逻辑
 
 ## 后续可以接入的数据

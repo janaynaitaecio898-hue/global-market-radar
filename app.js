@@ -19,7 +19,7 @@ const signals = [
     tags: ["黄金", "资金流", "避险"],
     impact: ["黄金偏正面", "美元对冲", "资源股关注"],
     digest:
-      "黄金的中期逻辑不仅来自避险，还包括实际利率、央行储备多元化和ETF资金回流。短线仍需警惕美元反弹。",
+      "黄金的中期逻辑不仅来自避险，还包括实际利率、央行储备多元化和 ETF 资金回流。短线仍需警惕美元反弹。",
   },
   {
     title: "大型科技公司财报指引分化，AI 资本开支仍是主线",
@@ -30,7 +30,7 @@ const signals = [
     tags: ["美股", "AI", "盈利"],
     impact: ["纳指分化", "半导体波动", "主动基金调仓"],
     digest:
-      "市场不再只奖励AI故事，而是开始看收入兑现、毛利率和资本开支回报。指数层面需要警惕少数龙头拥挤交易。",
+      "市场不再只奖励 AI 故事，而是开始看收入兑现、毛利率和资本开支回报。指数层面需要警惕少数龙头拥挤交易。",
   },
   {
     title: "财政赤字和长期发债压力抬升期限溢价",
@@ -56,45 +56,69 @@ const signals = [
   },
 ];
 
-const watches = [
-  ["美国 CPI", "决定降息预期和实际利率方向"],
-  ["美联储议息会议", "观察点阵图、声明措辞和新闻发布会"],
-  ["10年期美债收益率", "全球资产估值锚，影响股票、黄金和汇率"],
-  ["主要市场 ETF 资金流", "判断风险偏好是否真实回暖"],
-  ["地缘事件升级概率", "影响黄金、原油、美元和全球股市"],
+const assets = [
+  ["美股", "中性偏谨慎", "高估值板块对利率和盈利指引敏感。", "tone-flat"],
+  ["A股 / 港股", "观察政策验证", "需要看盈利修复、外资流入和地产风险缓和。", "tone-flat"],
+  ["债券基金", "等待确认", "若经济数据降温，久期资产胜率上升。", "tone-flat"],
+  ["黄金", "中期偏强", "实际利率、央行购金和避险需求共同支撑。", "tone-up"],
+  ["原油", "事件驱动", "库存、OPEC 和地缘冲突决定短线波动。", "tone-flat"],
+  ["美元", "短期偏强", "降息预期后移时美元通常获得支撑。", "tone-up"],
+  ["商品基金", "结构分化", "铜、油、农产品需分别看供需和库存。", "tone-flat"],
+  ["新兴市场", "谨慎选择", "美元和全球风险偏好是关键变量。", "tone-down"],
 ];
 
-const assets = [
-  ["美股", "中性偏谨慎", "高估值板块对利率和盈利指引敏感。"],
-  ["A股/港股", "观察政策验证", "需要看盈利修复、外资流入和地产风险缓和。"],
-  ["债券基金", "等待确认", "若经济数据降温，久期资产胜率上升。"],
-  ["黄金", "中期偏强", "实际利率、央行购金和避险需求共同支撑。"],
-  ["原油", "事件驱动", "库存、OPEC和地缘冲突决定短线波动。"],
-  ["美元", "短期偏强", "降息预期后移时美元通常获得支撑。"],
-  ["商品基金", "结构分化", "铜、油、农产品需分别看供需和库存。"],
-  ["新兴市场", "谨慎选择", "美元和全球风险偏好是关键变量。"],
+const scenarios = [
+  {
+    name: "乐观情景",
+    probability: "25%",
+    summary: "通胀温和回落，盈利继续修复，降息预期重新升温。",
+    result: "股票和债券同时受益，黄金保持配置价值。",
+  },
+  {
+    name: "基准情景",
+    probability: "50%",
+    summary: "经济保持韧性但通胀回落缓慢，市场在利率和盈利之间摇摆。",
+    result: "资产分化，适合降低追高，关注黄金、短债和现金流稳定资产。",
+  },
+  {
+    name: "悲观情景",
+    probability: "25%",
+    summary: "通胀再起或信用风险暴露，收益率和波动率同时上行。",
+    result: "风险资产承压，美元和避险资产受益，仓位控制优先。",
+  },
 ];
 
 let currentFilter = "all";
 
-function renderSignals() {
-  const keyword = document.querySelector("#searchInput").value.trim().toLowerCase();
-  const asset = document.querySelector("#assetSelect").value;
-  const list = document.querySelector("#signalList");
+function setActiveNav() {
+  const page = document.body.dataset.page;
+  document.querySelectorAll("[data-nav]").forEach((link) => {
+    link.classList.toggle("active", link.dataset.nav === page);
+  });
+}
 
+function horizonName(value) {
+  return { short: "短期影响", mid: "中期影响", long: "长期影响" }[value];
+}
+
+function renderSignals() {
+  const list = document.querySelector("#signalList");
+  if (!list) return;
+
+  const keyword = (document.querySelector("#searchInput")?.value || "").trim().toLowerCase();
+  const asset = document.querySelector("#assetSelect")?.value || "all";
   const filtered = signals.filter((item) => {
     const horizonMatch = currentFilter === "all" || item.horizon === currentFilter;
     const assetMatch = asset === "all" || item.asset.includes(asset);
-    const text = `${item.title} ${item.level} ${item.tags.join(" ")} ${item.impact.join(" ")} ${item.digest}`.toLowerCase();
-    const keywordMatch = !keyword || text.includes(keyword);
-    return horizonMatch && assetMatch && keywordMatch;
+    const haystack = `${item.title} ${item.level} ${item.tags.join(" ")} ${item.impact.join(" ")} ${item.digest}`.toLowerCase();
+    return horizonMatch && assetMatch && (!keyword || haystack.includes(keyword));
   });
 
   list.innerHTML = filtered
     .map(
       (item) => `
         <article class="signal-card">
-          <div class="signal-card-header">
+          <div class="signal-head">
             <h3>${item.title}</h3>
             <span class="score-pill">${item.score}</span>
           </div>
@@ -113,27 +137,15 @@ function renderSignals() {
     .join("");
 }
 
-function horizonName(value) {
-  return {
-    short: "短期影响",
-    mid: "中期影响",
-    long: "长期影响",
-  }[value];
-}
-
-function renderWatches() {
-  document.querySelector("#watchList").innerHTML = watches
-    .map(([name, reason]) => `<li><strong>${name}</strong><small>${reason}</small></li>`)
-    .join("");
-}
-
 function renderAssets() {
-  document.querySelector("#assetGrid").innerHTML = assets
+  const grid = document.querySelector("#assetGrid");
+  if (!grid) return;
+  grid.innerHTML = assets
     .map(
-      ([name, stance, detail]) => `
+      ([name, stance, detail, tone]) => `
         <article class="asset-card">
           <span class="tag">${name}</span>
-          <strong>${stance}</strong>
+          <strong class="${tone}">${stance}</strong>
           <p>${detail}</p>
         </article>
       `,
@@ -141,7 +153,24 @@ function renderAssets() {
     .join("");
 }
 
-function bindEvents() {
+function renderScenarios() {
+  const grid = document.querySelector("#scenarioGrid");
+  if (!grid) return;
+  grid.innerHTML = scenarios
+    .map(
+      (item) => `
+        <article class="scenario-card">
+          <span class="score-pill">${item.probability}</span>
+          <strong>${item.name}</strong>
+          <p>${item.summary}</p>
+          <p><b>资产结果：</b>${item.result}</p>
+        </article>
+      `,
+    )
+    .join("");
+}
+
+function bindFilters() {
   document.querySelectorAll(".segmented button").forEach((button) => {
     button.addEventListener("click", () => {
       document.querySelectorAll(".segmented button").forEach((item) => item.classList.remove("active"));
@@ -151,19 +180,15 @@ function bindEvents() {
     });
   });
 
-  document.querySelector("#searchInput").addEventListener("input", renderSignals);
-  document.querySelector("#assetSelect").addEventListener("change", renderSignals);
-  document.querySelector("#refreshBtn").addEventListener("click", () => {
-    renderSignals();
-    renderWatches();
-    renderAssets();
-  });
+  document.querySelector("#searchInput")?.addEventListener("input", renderSignals);
+  document.querySelector("#assetSelect")?.addEventListener("change", renderSignals);
 }
 
+setActiveNav();
 renderSignals();
-renderWatches();
 renderAssets();
-bindEvents();
+renderScenarios();
+bindFilters();
 
 if (window.lucide) {
   window.lucide.createIcons();

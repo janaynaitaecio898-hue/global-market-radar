@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>市场日报 | 全球资产雷达</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="brief">
+    <header class="site-header">
+      <a class="brand" href="index.html"><span class="brand-mark">GM</span><span><strong>全球资产雷达</strong><small>Global Market Radar</small></span></a>
+      <nav class="top-nav" aria-label="主导航">
+        <a data-nav="home" href="index.html"><i data-lucide="radar"></i>今日雷达</a>
+        <a data-nav="signals" href="signals.html"><i data-lucide="layers-3"></i>影响因素</a>
+        <a data-nav="assets" href="assets.html"><i data-lucide="candlestick-chart"></i>资产看板</a>
+        <a data-nav="agent" href="agent.html"><i data-lucide="brain-circuit"></i>Agent 分析</a>
+        <a data-nav="brief" href="brief.html"><i data-lucide="newspaper"></i>市场日报</a>
+        <a data-nav="sources" href="sources.html"><i data-lucide="database"></i>信源分层</a>
+      </nav>
+    </header>
+
+    <main class="page-shell">
+      <section class="page-hero compact">
+        <div>
+          <p class="eyebrow">DAILY BRIEF</p>
+          <h1>AI 市场日报</h1>
+          <p class="lead">每天把全球市场拆成宏观利率、股票基金、黄金商品、汇率债券、风险事件和明日观察点。</p>
+        </div>
+        <div class="hero-stat"><span>日报结构</span><strong>6</strong><small>板块</small></div>
+      </section>
+
+      <section class="brief-layout">
+        <article class="brief-lead">
+          <p class="eyebrow">TODAY SUMMARY</p>
+          <h2>今日结论</h2>
+          <p>市场仍围绕“降息预期是否过于乐观”定价。短期风险来自强数据推高收益率，中期机会来自增长放缓后的债券和黄金配置价值。</p>
+        </article>
+        <div class="brief-cards">
+          <article><span>01</span><b>宏观与利率</b><p>通胀、就业、PMI、财政发债、实际利率。</p></article>
+          <article><span>02</span><b>股票与基金</b><p>财报、盈利指引、ETF流、估值分位。</p></article>
+          <article><span>03</span><b>黄金与商品</b><p>实际利率、央行购金、库存、地缘风险。</p></article>
+          <article><span>04</span><b>债券与汇率</b><p>收益率曲线、信用利差、美元指数、日元。</p></article>
+          <article><span>05</span><b>风险事件</b><p>银行、地产、地缘、流动性和政策冲击。</p></article>
+          <article><span>06</span><b>明日观察</b><p>最可能改变市场判断的数据和事件。</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">日报模块后续可以接 RSS、API、邮件、飞书或 Telegram 推送。</footer>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
