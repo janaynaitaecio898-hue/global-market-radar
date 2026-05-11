@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-11T15:34:33.012088+00:00",
+  "generated_at": "2026-05-11T20:02:33.949664+00:00",
   "items": [
     {
       "id": "eia_energy-the-united-states-set-record-energy-production-in-2025-again",
@@ -54,9 +54,35 @@
       "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
     },
     {
+      "id": "treasury_press-economic-fury-ramps-up-pressure-on-iran-s-islamic-revolutionary-",
+      "date": "5月11日",
+      "time": "20:02",
+      "source": "U.S. Treasury Press Releases",
+      "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0498",
+      "avatar": "T",
+      "score": 90,
+      "category": "commodity",
+      "horizon": "short",
+      "asset": "commodity equity bond",
+      "title": "Economic Fury Ramps Up Pressure on Iran’s Islamic Revolutionary Guard Corps Oil Operations",
+      "summary": "Economic Fury Ramps Up Pressure on Iran’s Islamic Revolutionary Guard Corps Oil Operations.",
+      "tags": [
+        "Commodities",
+        "S-rank source",
+        "Equities, Bonds, Commodities"
+      ],
+      "reason": "Official/high-priority source: U.S. Treasury Press Releases. The item may affect Equities, Bonds, Commodities. Score is based on source rank, keyword hits, freshness, and asset coverage.",
+      "sourceRank": "S-rank",
+      "absorbed": "Not fully priced",
+      "shortTerm": "Watch whether this item triggers short-term price confirmation in Equities, Bonds, Commodities.",
+      "midTerm": "Combine follow-up data and flows to judge whether the Commodities theme persists.",
+      "longTerm": "Long-term relevance depends on whether it changes the rate, earnings, inflation, or risk-premium baseline.",
+      "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
+    },
+    {
       "id": "treasury_press-u-s-department-of-the-treasury-hosts-convening-with-state-insura",
       "date": "5月11日",
-      "time": "15:34",
+      "time": "20:02",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0493",
       "avatar": "T",
@@ -80,35 +106,9 @@
       "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
     },
     {
-      "id": "treasury_press-economic-fury-targets-iraqi-oil-official-iran-backed-terrorist-m",
-      "date": "5月11日",
-      "time": "15:34",
-      "source": "U.S. Treasury Press Releases",
-      "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0492",
-      "avatar": "T",
-      "score": 90,
-      "category": "commodity",
-      "horizon": "short",
-      "asset": "commodity equity bond",
-      "title": "Economic Fury Targets Iraqi Oil Official, Iran-Backed Terrorist Militias in Iraq",
-      "summary": "Economic Fury Targets Iraqi Oil Official, Iran-Backed Terrorist Militias in Iraq.",
-      "tags": [
-        "Commodities",
-        "S-rank source",
-        "Equities, Bonds, Commodities"
-      ],
-      "reason": "Official/high-priority source: U.S. Treasury Press Releases. The item may affect Equities, Bonds, Commodities. Score is based on source rank, keyword hits, freshness, and asset coverage.",
-      "sourceRank": "S-rank",
-      "absorbed": "Not fully priced",
-      "shortTerm": "Watch whether this item triggers short-term price confirmation in Equities, Bonds, Commodities.",
-      "midTerm": "Combine follow-up data and flows to judge whether the Commodities theme persists.",
-      "longTerm": "Long-term relevance depends on whether it changes the rate, earnings, inflation, or risk-premium baseline.",
-      "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
-    },
-    {
       "id": "treasury_press-remarks-by-u-s-secretary-of-the-treasury-scott-bessent-at-univer",
       "date": "5月11日",
-      "time": "15:34",
+      "time": "20:02",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0497",
       "avatar": "T",
@@ -134,7 +134,7 @@
     {
       "id": "treasury_press-remarks-by-secretary-of-the-treasury-scott-bessent-before-the-ex",
       "date": "5月11日",
-      "time": "15:34",
+      "time": "20:02",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0481",
       "avatar": "T",
@@ -160,7 +160,7 @@
     {
       "id": "treasury_press-assistant-secretary-chris-pilkerton-s-remarks-at-aci-cfius-confe",
       "date": "5月11日",
-      "time": "15:34",
+      "time": "20:02",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0467",
       "avatar": "T",
@@ -186,7 +186,7 @@
     {
       "id": "treasury_press-economic-fury-disrupts-networks-supplying-weapons-and-uav-compon",
       "date": "5月11日",
-      "time": "15:34",
+      "time": "20:02",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0496",
       "avatar": "T",
@@ -212,7 +212,7 @@
     {
       "id": "treasury_press-remarks-and-statements",
       "date": "5月11日",
-      "time": "15:34",
+      "time": "20:02",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/statements-remarks",
       "avatar": "T",
@@ -238,7 +238,7 @@
     {
       "id": "treasury_press-view-all-remarks-and-statements",
       "date": "5月11日",
-      "time": "15:34",
+      "time": "20:02",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/statements-remarks",
       "avatar": "T",
