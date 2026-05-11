@@ -1,11 +1,13 @@
 {
-  "generated_at": "2026-05-11T10:56:39.251576+00:00",
+  "generated_at": "2026-05-11T12:33:01.823050+00:00",
   "version": "1.1",
-  "status": "degraded",
+  "status": "live",
   "notes": [
-    "v1.1 enables sources.json official-source ingestion.",
-    "GitHub Actions fetches RSS/official pages and generates signals, daily, assets, scenarios, and market_snapshot data.",
-    "Market quotes and source ingestion degrade safely if an upstream source is unavailable."
+    "Generated 24 market signals from configured official sources.",
+    "Market quotes degrade to fallback values if a source is unavailable.",
+    "Signals are classified by source rank, keywords, asset coverage, and freshness."
   ],
-  "source_errors": []
+  "source_errors": [
+    "bls_latest: HTTP Error 403: Forbidden"
+  ]
 }

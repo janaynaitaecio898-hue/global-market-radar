@@ -1,32 +1,57 @@
 {
-  "generated_at": "2026-05-11T00:00:00Z",
-  "title": "5月11日",
-  "summary": "今日最高优先级事件是：美国就业数据强于预期，降息预期继续后移。系统按信源等级、关键词、影响资产范围和新鲜度生成本日报。",
+  "generated_at": "2026-05-11T12:33:01.823050+00:00",
+  "title": "5/11",
+  "summary": "Top priority event: Federal Reserve Board announces approval of related applications by Columbia Bank MHC, and Columbia Financial, Inc.. The report is generated from source rank, keywords, asset coverage, and freshness.",
   "sections": [
     {
-      "title": "宏观",
-      "items": ["美国就业数据强于预期，降息预期继续后移"]
+      "title": "Macro",
+      "items": [
+        "Federal Reserve Board announces approval of related applications by Columbia Bank MHC, and Columbia Financial, Inc.",
+        "Federal Reserve issues FOMC statement",
+        "Federal Reserve Board announces approval of application by OceanFirst Financial Corp.",
+        "Federal Reserve Board announces approval of application by Banco de Credito del Peru"
+      ]
     },
     {
-      "title": "黄金",
-      "items": ["黄金 ETF 连续净流入，央行购金逻辑仍在发酵"]
+      "title": "Bonds",
+      "items": [
+        "U.S. Department of the Treasury Hosts Convening with State Insurance Commissioners on Private Credit and the Insurance Sector",
+        "Remarks by U.S. Secretary of the Treasury Scott Bessent at University of South Carolina Commencement",
+        "Remarks by Secretary of the Treasury Scott Bessent Before the EXIM Annual Conference",
+        "Economic Fury Disrupts Networks Supplying Weapons and UAV Components to Iran"
+      ]
     },
     {
-      "title": "股票",
-      "items": ["大型科技公司财报指引分化，AI 资本开支进入验证期"]
+      "title": "Commodities",
+      "items": [
+        "Economic Fury Targets Iraqi Oil Official, Iran-Backed Terrorist Militias in Iraq",
+        "Coal distributions for non-electric power use decline in the South"
+      ]
     },
     {
-      "title": "债券",
-      "items": ["财政赤字和长期发债压力抬升期限溢价"]
+      "title": "Equities",
+      "items": [
+        "Assistant Secretary Chris Pilkerton's Remarks at ACI CFIUS Conference",
+        "One-fifth of U.S. renewable diesel and SAF production was exported in 2H25",
+        "SEC Charges 21 Individuals with Alleged Wide-Reaching Insider Trading Scheme",
+        "SEC Divisions of Investment Management and Corporation Finance Issue Staff Guidance Supporting Retirement Plans for Small Businesses"
+      ]
     },
     {
-      "title": "商品",
-      "items": ["原油库存下降叠加地缘风险，能源价格风险溢价上升"]
-    },
-    {
-      "title": "风险",
-      "items": ["波动率指数回升，市场对尾部风险重新定价"]
+      "title": "Risk",
+      "items": [
+        "Federal Reserve Board announces termination of enforcement actions with Crédit Agricole S.A. and Crédit Agricole Corporate and Investment Bank, Mega International Commercial Bank Co., Ltd, and the Goldman Sachs Group, Inc.",
+        "Federal Reserve Board issues enforcement action with former employee of First Financial Bank",
+        "Federal Reserve Board issues enforcement action with Community Bankshares, Inc.",
+        "Agencies finalize changes to enhance community bank leverage ratio"
+      ]
     }
   ],
-  "watch": ["CPI / 通胀数据", "美债收益率", "美元指数", "黄金 ETF 资金流", "主要央行表态"]
+  "watch": [
+    "CPI / inflation data",
+    "Treasury yields",
+    "US dollar index",
+    "Gold ETF flows",
+    "Major central-bank remarks"
+  ]
 }

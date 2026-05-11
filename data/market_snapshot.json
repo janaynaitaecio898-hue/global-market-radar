@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-05-11T10:56:39.251576+00:00",
+  "generated_at": "2026-05-11T12:33:01.823050+00:00",
   "quotes": [
     {
       "symbol": "spy.us",
       "name": "S&P 500 ETF",
       "asset": "equity",
-      "close": 520.0,
-      "date": "2026-05-11",
-      "time": "10:56",
-      "status": "fallback"
+      "close": 737.62,
+      "date": "2026-05-08",
+      "time": "22:00:20",
+      "status": "live"
     },
     {
       "symbol": "qqq.us",
@@ -23,19 +23,19 @@
       "symbol": "tlt.us",
       "name": "20+ Year Treasury ETF",
       "asset": "bond",
-      "close": 90.0,
-      "date": "2026-05-11",
-      "time": "10:56",
-      "status": "fallback"
+      "close": 86.08,
+      "date": "2026-05-08",
+      "time": "22:00:19",
+      "status": "live"
     },
     {
       "symbol": "gld.us",
       "name": "Gold ETF",
       "asset": "gold",
-      "close": 215.0,
-      "date": "2026-05-11",
-      "time": "10:56",
-      "status": "fallback"
+      "close": 433.77,
+      "date": "2026-05-08",
+      "time": "22:00:19",
+      "status": "live"
     },
     {
       "symbol": "uso.us",
@@ -56,11 +56,7 @@
       "status": "live"
     }
   ],
-  "status": "degraded",
-  "errors": [
-    "spy.us: No rows returned for spy.us",
-    "tlt.us: No rows returned for tlt.us",
-    "gld.us: No rows returned for gld.us"
-  ],
+  "status": "live",
+  "errors": [],
   "source": "Stooq delayed quote CSV with built-in fallback values"
 }
