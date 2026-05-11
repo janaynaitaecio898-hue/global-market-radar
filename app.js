@@ -1,70 +1,111 @@
 const signals = [
   {
-    title: "美国就业数据强于预期，降息预期继续后移",
-    level: "S级 · 官方数据",
+    date: "5月11日",
+    time: "10:40",
+    source: "Federal Reserve / BLS",
+    avatar: "F",
     score: 92,
+    category: "macro",
     horizon: "short",
     asset: "equity bond gold fx",
-    tags: ["货币政策", "就业", "美债收益率"],
-    impact: ["美股偏负面", "美债承压", "黄金短线承压", "美元偏强"],
-    digest:
-      "这类数据会直接影响美联储路径。若就业韧性持续，市场对降息的定价会被压缩，成长股和长久期资产更敏感。",
+    title: "美国就业数据强于预期，降息预期继续后移",
+    summary:
+      "就业韧性会直接影响美联储路径。若工资和岗位增长继续强于预期，市场对降息的定价会被压缩，成长股、长久期债券和黄金都更容易受到实际利率上行的扰动。",
+    tags: ["货币政策", "就业", "美债收益率", "美元"],
+    reason:
+      "这条信息影响的是全球资产估值锚。它不是单一数据点，而是在重定价降息路径，股票、债券、黄金和汇率都会被牵动。",
   },
   {
-    title: "黄金 ETF 连续净流入，央行购金逻辑仍在发酵",
-    level: "A级 · 资金流",
+    date: "5月11日",
+    time: "09:25",
+    source: "ETF Flow Monitor",
+    avatar: "E",
     score: 84,
+    category: "gold",
     horizon: "mid",
     asset: "gold commodity",
-    tags: ["黄金", "资金流", "避险"],
-    impact: ["黄金偏正面", "美元对冲", "资源股关注"],
-    digest:
-      "黄金的中期逻辑不仅来自避险，还包括实际利率、央行储备多元化和 ETF 资金回流。短线仍需警惕美元反弹。",
+    title: "黄金 ETF 连续净流入，央行购金逻辑仍在发酵",
+    summary:
+      "黄金的中期逻辑不仅来自避险，还包括实际利率、央行储备多元化和 ETF 资金回流。短线仍需警惕美元反弹，但中期配置需求没有明显消失。",
+    tags: ["黄金", "资金流", "央行购金", "避险"],
+    reason:
+      "黄金同时有避险、货币体系和资金流三条线索支撑。短线看美元，中期看实际利率，长期看央行储备结构变化。",
   },
   {
-    title: "大型科技公司财报指引分化，AI 资本开支仍是主线",
-    level: "S级 · 公司财报",
+    date: "5月11日",
+    time: "08:50",
+    source: "Earnings Watch",
+    avatar: "Q",
     score: 79,
+    category: "equity",
     horizon: "mid",
     asset: "equity",
-    tags: ["美股", "AI", "盈利"],
-    impact: ["纳指分化", "半导体波动", "主动基金调仓"],
-    digest:
-      "市场不再只奖励 AI 故事，而是开始看收入兑现、毛利率和资本开支回报。指数层面需要警惕少数龙头拥挤交易。",
+    title: "大型科技公司财报指引分化，AI 资本开支进入验证期",
+    summary:
+      "市场不再只奖励 AI 叙事，而是开始看收入兑现、毛利率和资本开支回报。指数层面需要警惕少数龙头拥挤交易，主动基金可能向盈利确定性更强的公司切换。",
+    tags: ["美股", "AI", "盈利", "基金调仓"],
+    reason:
+      "科技股估值已经包含很高预期，财报指引一旦分化，会影响纳指、半导体 ETF 和全球成长风格基金。",
   },
   {
-    title: "财政赤字和长期发债压力抬升期限溢价",
-    level: "A级 · 宏观趋势",
+    date: "5月10日",
+    time: "22:15",
+    source: "Treasury / Macro Desk",
+    avatar: "T",
     score: 76,
+    category: "bond",
     horizon: "long",
     asset: "bond equity gold fx",
-    tags: ["债务周期", "长期利率", "资产配置"],
-    impact: ["长债波动", "股市估值压力", "黄金长期受益"],
-    digest:
-      "如果财政赤字长期维持高位，长端利率中枢可能难以回到过去低位。长期配置需要重新评估股债相关性。",
+    title: "财政赤字和长期发债压力抬升期限溢价",
+    summary:
+      "如果财政赤字长期维持高位，长端利率中枢可能难以回到过去低位。长期配置需要重新评估股债相关性，以及黄金在组合中的风险对冲价值。",
+    tags: ["债务周期", "长期利率", "资产配置", "期限溢价"],
+    reason:
+      "这不是短线新闻，而是影响未来数年资产配置框架的慢变量。它会改变股票估值、债券久期和黄金长期逻辑。",
   },
   {
-    title: "原油库存下降叠加地缘风险，能源价格风险溢价上升",
-    level: "A级 · 商品供需",
+    date: "5月10日",
+    time: "20:30",
+    source: "Commodity Desk",
+    avatar: "O",
     score: 71,
+    category: "commodity",
     horizon: "short",
     asset: "commodity equity",
-    tags: ["原油", "地缘", "通胀"],
-    impact: ["原油偏强", "航空消费承压", "通胀预期抬升"],
-    digest:
-      "油价的短期冲击会通过通胀预期影响利率，也会改变能源股和消费股的相对表现。重点看库存与冲突升级概率。",
+    title: "原油库存下降叠加地缘风险，能源价格风险溢价上升",
+    summary:
+      "油价短期冲击会通过通胀预期影响利率，也会改变能源股、航空、消费和商品基金的相对表现。重点观察库存、OPEC 表态和冲突升级概率。",
+    tags: ["原油", "地缘", "通胀", "商品基金"],
+    reason:
+      "原油是通胀预期和风险偏好的连接点。它涨得太快，会重新压制降息预期，并拖累高估值风险资产。",
+  },
+  {
+    date: "5月10日",
+    time: "17:40",
+    source: "Risk Monitor",
+    avatar: "R",
+    score: 69,
+    category: "risk",
+    horizon: "short",
+    asset: "equity bond gold fx",
+    title: "波动率指数回升，市场对尾部风险重新定价",
+    summary:
+      "当 VIX 与美元同时上行，通常意味着市场从追逐收益转向管理风险。短线需要观察信用利差、日元波动和高收益债 ETF 是否同步承压。",
+    tags: ["波动率", "风险偏好", "信用利差", "美元"],
+    reason:
+      "这类信号不一定指向趋势反转，但能提醒仓位管理。尤其当多个风险指标同步恶化时，优先考虑防守。",
   },
 ];
 
 const assets = [
-  ["美股", "中性偏谨慎", "高估值板块对利率和盈利指引敏感。", "tone-flat"],
-  ["A股 / 港股", "观察政策验证", "需要看盈利修复、外资流入和地产风险缓和。", "tone-flat"],
-  ["债券基金", "等待确认", "若经济数据降温，久期资产胜率上升。", "tone-flat"],
-  ["黄金", "中期偏强", "实际利率、央行购金和避险需求共同支撑。", "tone-up"],
-  ["原油", "事件驱动", "库存、OPEC 和地缘冲突决定短线波动。", "tone-flat"],
-  ["美元", "短期偏强", "降息预期后移时美元通常获得支撑。", "tone-up"],
-  ["商品基金", "结构分化", "铜、油、农产品需分别看供需和库存。", "tone-flat"],
-  ["新兴市场", "谨慎选择", "美元和全球风险偏好是关键变量。", "tone-down"],
+  ["美股", "中性偏谨慎", "高估值板块对利率和盈利指引敏感，适合等待财报和收益率确认。", "watch"],
+  ["A股 / 港股", "观察政策验证", "需要看盈利修复、外资流入、地产风险缓和和政策落地强度。", "watch"],
+  ["债券基金", "等待确认", "如果经济数据降温且通胀回落，久期资产胜率会上升。", "watch"],
+  ["黄金", "中期偏强", "实际利率、央行购金和避险需求仍是核心支撑。", "positive"],
+  ["原油", "事件驱动", "库存、OPEC 和地缘冲突决定短线波动，注意对通胀的二次影响。", "watch"],
+  ["美元", "短期偏强", "降息预期后移时美元通常获得支撑，新兴市场承压。", "positive"],
+  ["商品基金", "结构分化", "铜、油、农产品要分别看供需、库存和中国需求。", "watch"],
+  ["新兴市场", "谨慎选择", "美元和全球风险偏好是关键变量，资金流更重要。", "negative"],
 ];
 
 const scenarios = [
@@ -78,7 +119,7 @@ const scenarios = [
     name: "基准情景",
     probability: "50%",
     summary: "经济保持韧性但通胀回落缓慢，市场在利率和盈利之间摇摆。",
-    result: "资产分化，适合降低追高，关注黄金、短债和现金流稳定资产。",
+    result: "资产分化，降低追高，关注黄金、短债和现金流稳定资产。",
   },
   {
     name: "悲观情景",
@@ -88,7 +129,10 @@ const scenarios = [
   },
 ];
 
-let currentFilter = "all";
+const state = {
+  category: "all",
+  horizon: "all",
+};
 
 function setActiveNav() {
   const page = document.body.dataset.page;
@@ -97,44 +141,61 @@ function setActiveNav() {
   });
 }
 
-function horizonName(value) {
-  return { short: "短期影响", mid: "中期影响", long: "长期影响" }[value];
+function matchesSearch(item) {
+  const input = document.querySelector("#searchInput");
+  const keyword = (input?.value || "").trim().toLowerCase();
+  if (!keyword) return true;
+  const text = `${item.title} ${item.source} ${item.summary} ${item.tags.join(" ")} ${item.reason}`.toLowerCase();
+  return text.includes(keyword);
 }
 
-function renderSignals() {
-  const list = document.querySelector("#signalList");
-  if (!list) return;
-
-  const keyword = (document.querySelector("#searchInput")?.value || "").trim().toLowerCase();
+function filteredSignals() {
   const asset = document.querySelector("#assetSelect")?.value || "all";
-  const filtered = signals.filter((item) => {
-    const horizonMatch = currentFilter === "all" || item.horizon === currentFilter;
+  return signals.filter((item) => {
+    const categoryMatch = state.category === "all" || item.category === state.category;
+    const horizonMatch = state.horizon === "all" || item.horizon === state.horizon;
     const assetMatch = asset === "all" || item.asset.includes(asset);
-    const haystack = `${item.title} ${item.level} ${item.tags.join(" ")} ${item.impact.join(" ")} ${item.digest}`.toLowerCase();
-    return horizonMatch && assetMatch && (!keyword || haystack.includes(keyword));
+    return categoryMatch && horizonMatch && assetMatch && matchesSearch(item);
   });
+}
 
-  list.innerHTML = filtered
-    .map(
-      (item) => `
-        <article class="signal-card">
-          <div class="signal-head">
-            <h3>${item.title}</h3>
-            <span class="score-pill">${item.score}</span>
+function renderFeed(targetId) {
+  const list = document.querySelector(targetId);
+  if (!list) return;
+  const items = filteredSignals();
+  if (!items.length) {
+    list.innerHTML = `<p class="empty-state">没有匹配的市场动态。</p>`;
+    return;
+  }
+
+  let currentDate = "";
+  list.innerHTML = items
+    .map((item) => {
+      const heading = item.date !== currentDate ? `<h2 class="date-heading">${item.date}</h2>` : "";
+      currentDate = item.date;
+      return `
+        ${heading}
+        <article class="feed-item">
+          <div class="feed-time">${item.time}<small>${horizonName(item.horizon)}</small></div>
+          <div class="feed-main">
+            <div class="item-topline">
+              <span class="avatar">${item.avatar}</span>
+              <span>${item.source}</span>
+              <span class="score">精选 ${item.score}</span>
+            </div>
+            <h3 class="feed-title"><a href="agent.html">${item.title}</a></h3>
+            <p class="summary">${item.summary}</p>
+            <div class="tags">${item.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}</div>
+            <p class="reason"><strong>推荐理由：</strong>${item.reason}</p>
           </div>
-          <div class="signal-meta">
-            <span class="source-pill">${item.level}</span>
-            <span class="impact-pill">${horizonName(item.horizon)}</span>
-            ${item.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
-          </div>
-          <div class="signal-impact">
-            ${item.impact.map((impact) => `<span class="tag">${impact}</span>`).join("")}
-          </div>
-          <p>${item.digest}</p>
         </article>
-      `,
-    )
+      `;
+    })
     .join("");
+}
+
+function horizonName(value) {
+  return { short: "短期", mid: "中期", long: "长期" }[value] || "全部";
 }
 
 function renderAssets() {
@@ -144,9 +205,11 @@ function renderAssets() {
     .map(
       ([name, stance, detail, tone]) => `
         <article class="asset-card">
-          <span class="tag">${name}</span>
-          <strong class="${tone}">${stance}</strong>
-          <p>${detail}</p>
+          <strong class="${tone}">${name}</strong>
+          <div>
+            <h2 class="${tone}">${stance}</h2>
+            <p>${detail}</p>
+          </div>
         </article>
       `,
     )
@@ -160,10 +223,10 @@ function renderScenarios() {
     .map(
       (item) => `
         <article class="scenario-card">
-          <span class="score-pill">${item.probability}</span>
-          <strong>${item.name}</strong>
+          <div class="meta-line">概率 ${item.probability}</div>
+          <h2>${item.name}</h2>
           <p>${item.summary}</p>
-          <p><b>资产结果：</b>${item.result}</p>
+          <p><strong>资产结果：</strong>${item.result}</p>
         </article>
       `,
     )
@@ -171,25 +234,34 @@ function renderScenarios() {
 }
 
 function bindFilters() {
-  document.querySelectorAll(".segmented button").forEach((button) => {
+  document.querySelectorAll("[data-category]").forEach((button) => {
     button.addEventListener("click", () => {
-      document.querySelectorAll(".segmented button").forEach((item) => item.classList.remove("active"));
+      document.querySelectorAll("[data-category]").forEach((item) => item.classList.remove("active"));
       button.classList.add("active");
-      currentFilter = button.dataset.filter;
-      renderSignals();
+      state.category = button.dataset.category;
+      renderFeed("#featuredList");
     });
   });
 
-  document.querySelector("#searchInput")?.addEventListener("input", renderSignals);
-  document.querySelector("#assetSelect")?.addEventListener("change", renderSignals);
+  document.querySelectorAll("[data-horizon]").forEach((button) => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll("[data-horizon]").forEach((item) => item.classList.remove("active"));
+      button.classList.add("active");
+      state.horizon = button.dataset.horizon;
+      renderFeed("#allSignalList");
+    });
+  });
+
+  document.querySelector("#searchInput")?.addEventListener("input", () => {
+    renderFeed("#featuredList");
+    renderFeed("#allSignalList");
+  });
+  document.querySelector("#assetSelect")?.addEventListener("change", () => renderFeed("#allSignalList"));
 }
 
 setActiveNav();
-renderSignals();
+renderFeed("#featuredList");
+renderFeed("#allSignalList");
 renderAssets();
 renderScenarios();
 bindFilters();
-
-if (window.lucide) {
-  window.lucide.createIcons();
-}

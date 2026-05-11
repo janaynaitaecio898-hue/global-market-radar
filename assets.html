@@ -8,47 +8,39 @@
   </head>
   <body data-page="assets">
     <header class="site-header">
-      <a class="brand" href="index.html"><span class="brand-mark">GM</span><span><strong>全球资产雷达</strong><small>Global Market Radar</small></span></a>
-      <nav class="top-nav" aria-label="主导航">
-        <a data-nav="home" href="index.html"><i data-lucide="radar"></i>今日雷达</a>
-        <a data-nav="signals" href="signals.html"><i data-lucide="layers-3"></i>影响因素</a>
-        <a data-nav="assets" href="assets.html"><i data-lucide="candlestick-chart"></i>资产看板</a>
-        <a data-nav="agent" href="agent.html"><i data-lucide="brain-circuit"></i>Agent 分析</a>
-        <a data-nav="brief" href="brief.html"><i data-lucide="newspaper"></i>市场日报</a>
-        <a data-nav="sources" href="sources.html"><i data-lucide="database"></i>信源分层</a>
-      </nav>
+      <div class="site-header-inner">
+        <a class="brand" href="index.html"><span class="brand-title">全球资产雷达</span><span class="brand-subtitle">Global Market Radar</span></a>
+        <nav class="site-nav" aria-label="主导航">
+          <a data-nav="home" href="index.html">精选</a>
+          <a data-nav="signals" href="signals.html">全部市场动态</a>
+          <a data-nav="brief" href="brief.html">市场日报</a>
+          <a data-nav="agent" href="agent.html">Agent 分析</a>
+          <a data-nav="assets" href="assets.html">资产看板</a>
+          <a data-nav="sources" href="sources.html">信源分层</a>
+        </nav>
+        <a class="login-link" href="agent.html">策略笔记</a>
+      </div>
     </header>
 
-    <main class="page-shell">
-      <section class="page-hero compact">
-        <div>
-          <p class="eyebrow">ASSET MAP</p>
-          <h1>资产影响矩阵</h1>
-          <p class="lead">同一条宏观消息对股票、债券、黄金、商品和汇率的影响并不相同，这里用矩阵方式拆开看。</p>
-        </div>
-        <div class="hero-stat"><span>覆盖资产</span><strong>8</strong><small>股票 / 基金 / 黄金 / 债券 / 商品</small></div>
+    <main class="page">
+      <section class="page-title">
+        <a class="site-name" href="index.html">全球资产雷达</a>
+        <h1>资产看板</h1>
+        <p>把同一条消息映射到股票、债券、黄金、商品、美元和基金组合</p>
       </section>
 
-      <section class="section-block">
-        <div class="asset-grid" id="assetGrid"></div>
-      </section>
+      <section class="asset-list" id="assetGrid"></section>
 
-      <section class="section-block">
-        <div class="section-title">
-          <div><p class="eyebrow">MATRIX</p><h2>核心因子影响方向</h2></div>
-        </div>
-        <div class="matrix-table" role="table" aria-label="核心因子影响方向">
-          <div class="matrix-row head"><span>因子</span><span>股票</span><span>债券</span><span>黄金</span><span>美元</span><span>商品</span></div>
-          <div class="matrix-row"><span>通胀强于预期</span><b class="tone-down">负</b><b class="tone-down">负</b><b class="tone-flat">分歧</b><b class="tone-up">正</b><b class="tone-up">正</b></div>
-          <div class="matrix-row"><span>降息预期升温</span><b class="tone-up">正</b><b class="tone-up">正</b><b class="tone-up">正</b><b class="tone-down">负</b><b class="tone-flat">分歧</b></div>
-          <div class="matrix-row"><span>地缘风险升级</span><b class="tone-down">负</b><b class="tone-up">正</b><b class="tone-up">正</b><b class="tone-up">正</b><b class="tone-up">正</b></div>
-          <div class="matrix-row"><span>盈利预期上修</span><b class="tone-up">正</b><b class="tone-flat">中性</b><b class="tone-down">弱</b><b class="tone-flat">中性</b><b class="tone-up">正</b></div>
-        </div>
+      <section class="matrix">
+        <h2>核心因子影响方向</h2>
+        <div class="matrix-row head"><span>因子</span><span>股票</span><span>债券</span><span>黄金</span><span>美元</span><span>商品</span></div>
+        <div class="matrix-row"><span>通胀强于预期</span><b class="negative">负</b><b class="negative">负</b><b>分歧</b><b class="positive">正</b><b class="positive">正</b></div>
+        <div class="matrix-row"><span>降息预期升温</span><b class="positive">正</b><b class="positive">正</b><b class="positive">正</b><b class="negative">负</b><b>分歧</b></div>
+        <div class="matrix-row"><span>地缘风险升级</span><b class="negative">负</b><b class="positive">正</b><b class="positive">正</b><b class="positive">正</b><b class="positive">正</b></div>
       </section>
     </main>
 
     <footer class="site-footer">矩阵用于快速归因，正式版本应结合实时价格、估值分位和仓位约束。</footer>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

@@ -8,61 +8,48 @@
   </head>
   <body data-page="agent">
     <header class="site-header">
-      <a class="brand" href="index.html"><span class="brand-mark">GM</span><span><strong>全球资产雷达</strong><small>Global Market Radar</small></span></a>
-      <nav class="top-nav" aria-label="主导航">
-        <a data-nav="home" href="index.html"><i data-lucide="radar"></i>今日雷达</a>
-        <a data-nav="signals" href="signals.html"><i data-lucide="layers-3"></i>影响因素</a>
-        <a data-nav="assets" href="assets.html"><i data-lucide="candlestick-chart"></i>资产看板</a>
-        <a data-nav="agent" href="agent.html"><i data-lucide="brain-circuit"></i>Agent 分析</a>
-        <a data-nav="brief" href="brief.html"><i data-lucide="newspaper"></i>市场日报</a>
-        <a data-nav="sources" href="sources.html"><i data-lucide="database"></i>信源分层</a>
-      </nav>
+      <div class="site-header-inner">
+        <a class="brand" href="index.html"><span class="brand-title">全球资产雷达</span><span class="brand-subtitle">Global Market Radar</span></a>
+        <nav class="site-nav" aria-label="主导航">
+          <a data-nav="home" href="index.html">精选</a>
+          <a data-nav="signals" href="signals.html">全部市场动态</a>
+          <a data-nav="brief" href="brief.html">市场日报</a>
+          <a data-nav="agent" href="agent.html">Agent 分析</a>
+          <a data-nav="assets" href="assets.html">资产看板</a>
+          <a data-nav="sources" href="sources.html">信源分层</a>
+        </nav>
+        <a class="login-link" href="agent.html">策略笔记</a>
+      </div>
     </header>
 
-    <main class="page-shell">
-      <section class="agent-hero">
-        <div>
-          <p class="eyebrow">AGENT ANALYSIS</p>
-          <h1>从信息收集到情景推演。</h1>
-          <p class="lead">Agent 不做单点喊单，而是输出当前主线、资产方向、三种情景、触发条件和风险提示。</p>
-        </div>
-        <div class="agent-verdict">
-          <span>基准结论</span>
-          <strong>防守中寻找结构机会</strong>
-          <p>若通胀和就业继续强于预期，风险资产估值承压；若数据转弱，债券和黄金的胜率提高。</p>
-        </div>
+    <main class="page">
+      <section class="page-title">
+        <a class="site-name" href="index.html">全球资产雷达</a>
+        <h1>Agent 分析</h1>
+        <p>对当下全球股票、基金、黄金、期货、债券市场做主线判断和情景推演</p>
       </section>
 
-      <section class="section-block">
-        <div class="section-title"><div><p class="eyebrow">SCENARIOS</p><h2>三种情景推演</h2></div></div>
-        <div class="scenario-grid" id="scenarioGrid"></div>
+      <section class="agent-panel">
+        <p class="label">当前主线</p>
+        <h2>防守中寻找结构机会</h2>
+        <p>当前不是单边进攻环境。市场在交易“强数据推迟降息”和“盈利仍有韧性”之间的冲突。短期应该降低追高，重点观察 CPI、就业、美债收益率和财报指引；中期继续关注黄金、短债和盈利确定性资产。</p>
       </section>
 
-      <section class="two-column">
-        <div class="section-block">
-          <div class="section-title"><div><p class="eyebrow">DECISION</p><h2>操作类型</h2></div></div>
-          <div class="decision-list">
-            <article><i data-lucide="pause-circle"></i><b>暂不行动</b><span>当信号冲突、赔率不清晰时，等待确认比频繁交易更重要。</span></article>
-            <article><i data-lucide="shield"></i><b>降低风险</b><span>当利率和美元同时上行，降低高估值、长久期资产暴露。</span></article>
-            <article><i data-lucide="repeat"></i><b>分批配置</b><span>长期方向清晰但短线波动大时，用分批方式降低择时压力。</span></article>
-            <article><i data-lucide="alert-triangle"></i><b>设置触发条件</b><span>提前定义改变判断的 CPI、收益率、汇率或财报信号。</span></article>
-          </div>
-        </div>
+      <section class="scenario-list" id="scenarioGrid"></section>
 
-        <div class="section-block">
-          <div class="section-title"><div><p class="eyebrow">PROMPT</p><h2>分析模板</h2></div></div>
-          <pre class="prompt-box">请基于今日全球宏观数据、央行信息、主要资产价格、资金流和高优先级新闻：
+      <section class="prompt-section">
+        <h2>Agent 分析提示词模板</h2>
+        <pre>请基于今日全球宏观数据、央行信息、主要资产价格、资金流和高优先级新闻：
 1. 判断当前市场主线
 2. 标注股票、债券、黄金、商品、美元方向
 3. 拆成短期、中期、长期影响
 4. 给出乐观、基准、悲观三种情景
-5. 列出会改变判断的关键触发条件</pre>
-        </div>
+5. 列出会改变判断的关键触发条件
+6. 输出不构成投资建议的风险提示</pre>
       </section>
     </main>
 
     <footer class="site-footer">Agent 分析用于研究辅助，不替代个人风险承受能力、仓位管理和专业投资顾问意见。</footer>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

@@ -8,43 +8,42 @@
   </head>
   <body data-page="sources">
     <header class="site-header">
-      <a class="brand" href="index.html"><span class="brand-mark">GM</span><span><strong>全球资产雷达</strong><small>Global Market Radar</small></span></a>
-      <nav class="top-nav" aria-label="主导航">
-        <a data-nav="home" href="index.html"><i data-lucide="radar"></i>今日雷达</a>
-        <a data-nav="signals" href="signals.html"><i data-lucide="layers-3"></i>影响因素</a>
-        <a data-nav="assets" href="assets.html"><i data-lucide="candlestick-chart"></i>资产看板</a>
-        <a data-nav="agent" href="agent.html"><i data-lucide="brain-circuit"></i>Agent 分析</a>
-        <a data-nav="brief" href="brief.html"><i data-lucide="newspaper"></i>市场日报</a>
-        <a data-nav="sources" href="sources.html"><i data-lucide="database"></i>信源分层</a>
-      </nav>
+      <div class="site-header-inner">
+        <a class="brand" href="index.html"><span class="brand-title">全球资产雷达</span><span class="brand-subtitle">Global Market Radar</span></a>
+        <nav class="site-nav" aria-label="主导航">
+          <a data-nav="home" href="index.html">精选</a>
+          <a data-nav="signals" href="signals.html">全部市场动态</a>
+          <a data-nav="brief" href="brief.html">市场日报</a>
+          <a data-nav="agent" href="agent.html">Agent 分析</a>
+          <a data-nav="assets" href="assets.html">资产看板</a>
+          <a data-nav="sources" href="sources.html">信源分层</a>
+        </nav>
+        <a class="login-link" href="agent.html">策略笔记</a>
+      </div>
     </header>
 
-    <main class="page-shell">
-      <section class="page-hero compact">
-        <div>
-          <p class="eyebrow">SOURCE LAYERS</p>
-          <h1>先判断信息质量，再判断市场影响。</h1>
-          <p class="lead">同样是“利好”或“利空”，官方数据、媒体转述、机构观点和社交传闻的权重完全不同。</p>
-        </div>
-        <div class="hero-stat"><span>最高权重</span><strong>S</strong><small>官方、一手、可核验</small></div>
+    <main class="page">
+      <section class="page-title">
+        <a class="site-name" href="index.html">全球资产雷达</a>
+        <h1>信源分层</h1>
+        <p>先判断信息质量，再判断市场影响。事实、观点、传闻必须分开处理。</p>
       </section>
 
-      <section class="source-grid">
-        <article><span>S</span><b>一手硬信息</b><p>央行决议、官方经济数据、监管文件、上市公司公告、真实市场价格。</p></article>
-        <article><span>A</span><b>高可信媒体</b><p>Reuters、Bloomberg、WSJ、FT、财新等，用于捕捉事件和市场反馈。</p></article>
-        <article><span>B</span><b>机构研究</b><p>投行、券商、基金经理和宏观研究员观点，适合中期判断。</p></article>
-        <article><span>C</span><b>社交情绪</b><p>X、雪球、Reddit、Discord 等，只作为情绪和线索。</p></article>
-        <article><span>D</span><b>未验证消息</b><p>传闻、截图、小作文，只进入待核验区，不参与高权重决策。</p></article>
+      <section class="source-list">
+        <article><strong>S</strong><h2>一手硬信息</h2><p>央行决议、官方经济数据、监管文件、上市公司公告、真实市场价格。</p></article>
+        <article><strong>A</strong><h2>高可信媒体</h2><p>Reuters、Bloomberg、WSJ、FT、财新等，用于捕捉事件和市场反馈。</p></article>
+        <article><strong>B</strong><h2>机构研究</h2><p>投行、券商、基金经理和宏观研究员观点，适合做中期判断。</p></article>
+        <article><strong>C</strong><h2>社交情绪</h2><p>X、雪球、Reddit、Discord 等，只作为情绪和线索。</p></article>
+        <article><strong>D</strong><h2>未验证消息</h2><p>传闻、截图、小作文，只进入待核验区，不参与高权重决策。</p></article>
       </section>
 
-      <section class="section-block">
-        <div class="section-title"><div><p class="eyebrow">SCORING</p><h2>重要性评分</h2></div></div>
-        <div class="formula">重要性 = 信源权重 × 意外程度 × 影响范围 × 持续性 × 市场敏感度 × 价格验证</div>
+      <section class="formula-box">
+        <h2>重要性评分</h2>
+        <p>重要性 = 信源权重 × 意外程度 × 影响范围 × 持续性 × 市场敏感度 × 价格验证</p>
       </section>
     </main>
 
     <footer class="site-footer">正式版本应保存原文链接、发布时间、抓取时间、摘要模型和核验状态。</footer>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

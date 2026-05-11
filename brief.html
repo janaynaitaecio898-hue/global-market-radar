@@ -8,46 +8,62 @@
   </head>
   <body data-page="brief">
     <header class="site-header">
-      <a class="brand" href="index.html"><span class="brand-mark">GM</span><span><strong>全球资产雷达</strong><small>Global Market Radar</small></span></a>
-      <nav class="top-nav" aria-label="主导航">
-        <a data-nav="home" href="index.html"><i data-lucide="radar"></i>今日雷达</a>
-        <a data-nav="signals" href="signals.html"><i data-lucide="layers-3"></i>影响因素</a>
-        <a data-nav="assets" href="assets.html"><i data-lucide="candlestick-chart"></i>资产看板</a>
-        <a data-nav="agent" href="agent.html"><i data-lucide="brain-circuit"></i>Agent 分析</a>
-        <a data-nav="brief" href="brief.html"><i data-lucide="newspaper"></i>市场日报</a>
-        <a data-nav="sources" href="sources.html"><i data-lucide="database"></i>信源分层</a>
-      </nav>
+      <div class="site-header-inner">
+        <a class="brand" href="index.html"><span class="brand-title">全球资产雷达</span><span class="brand-subtitle">Global Market Radar</span></a>
+        <nav class="site-nav" aria-label="主导航">
+          <a data-nav="home" href="index.html">精选</a>
+          <a data-nav="signals" href="signals.html">全部市场动态</a>
+          <a data-nav="brief" href="brief.html">市场日报</a>
+          <a data-nav="agent" href="agent.html">Agent 分析</a>
+          <a data-nav="assets" href="assets.html">资产看板</a>
+          <a data-nav="sources" href="sources.html">信源分层</a>
+        </nav>
+        <a class="login-link" href="agent.html">策略笔记</a>
+      </div>
     </header>
 
-    <main class="page-shell">
-      <section class="page-hero compact">
-        <div>
-          <p class="eyebrow">DAILY BRIEF</p>
-          <h1>AI 市场日报</h1>
-          <p class="lead">每天把全球市场拆成宏观利率、股票基金、黄金商品、汇率债券、风险事件和明日观察点。</p>
-        </div>
-        <div class="hero-stat"><span>日报结构</span><strong>6</strong><small>板块</small></div>
+    <main class="page">
+      <section class="page-title">
+        <a class="site-name" href="index.html">全球资产雷达</a>
+        <h1>市场日报</h1>
+        <p>每日把宏观、股票、债券、黄金、商品、汇率和风险事件压缩成一份可读报告</p>
       </section>
 
-      <section class="brief-layout">
-        <article class="brief-lead">
-          <p class="eyebrow">TODAY SUMMARY</p>
-          <h2>今日结论</h2>
-          <p>市场仍围绕“降息预期是否过于乐观”定价。短期风险来自强数据推高收益率，中期机会来自增长放缓后的债券和黄金配置价值。</p>
-        </article>
-        <div class="brief-cards">
-          <article><span>01</span><b>宏观与利率</b><p>通胀、就业、PMI、财政发债、实际利率。</p></article>
-          <article><span>02</span><b>股票与基金</b><p>财报、盈利指引、ETF流、估值分位。</p></article>
-          <article><span>03</span><b>黄金与商品</b><p>实际利率、央行购金、库存、地缘风险。</p></article>
-          <article><span>04</span><b>债券与汇率</b><p>收益率曲线、信用利差、美元指数、日元。</p></article>
-          <article><span>05</span><b>风险事件</b><p>银行、地产、地缘、流动性和政策冲击。</p></article>
-          <article><span>06</span><b>明日观察</b><p>最可能改变市场判断的数据和事件。</p></article>
-        </div>
-      </section>
+      <article class="daily-report">
+        <h2>5月11日</h2>
+        <section>
+          <h3>今日结论</h3>
+          <p>市场主线仍是“降息预期”和“经济韧性”的拉扯。短期看，美债收益率与美元偏强会压制成长股和黄金追高；中期看，若通胀继续回落，债券和黄金的配置价值会重新提高。</p>
+        </section>
+        <section>
+          <h3>宏观与利率</h3>
+          <ul>
+            <li>就业数据强于预期，市场对年内降息次数的定价下修。</li>
+            <li>10年期美债收益率仍是全球资产估值锚，短线需要重点观察是否突破关键区间。</li>
+          </ul>
+        </section>
+        <section>
+          <h3>股票与基金</h3>
+          <ul>
+            <li>高估值科技股对利率变化最敏感，AI 龙头财报进入兑现阶段。</li>
+            <li>主动基金更偏向盈利稳定和现金流强的板块，主题交易拥挤度上升。</li>
+          </ul>
+        </section>
+        <section>
+          <h3>黄金与商品</h3>
+          <ul>
+            <li>黄金中期逻辑仍在，但短期会受美元和实际利率扰动。</li>
+            <li>原油受库存与地缘风险共同影响，可能重新推高通胀预期。</li>
+          </ul>
+        </section>
+        <section>
+          <h3>明日观察</h3>
+          <p>CPI、核心服务通胀、美债拍卖、主要科技股财报指引、黄金 ETF 资金流。</p>
+        </section>
+      </article>
     </main>
 
     <footer class="site-footer">日报模块后续可以接 RSS、API、邮件、飞书或 Telegram 推送。</footer>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

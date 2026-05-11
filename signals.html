@@ -3,60 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>影响因素 | 全球资产雷达</title>
+    <title>全部市场动态 | 全球资产雷达</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-page="signals">
     <header class="site-header">
-      <a class="brand" href="index.html"><span class="brand-mark">GM</span><span><strong>全球资产雷达</strong><small>Global Market Radar</small></span></a>
-      <nav class="top-nav" aria-label="主导航">
-        <a data-nav="home" href="index.html"><i data-lucide="radar"></i>今日雷达</a>
-        <a data-nav="signals" href="signals.html"><i data-lucide="layers-3"></i>影响因素</a>
-        <a data-nav="assets" href="assets.html"><i data-lucide="candlestick-chart"></i>资产看板</a>
-        <a data-nav="agent" href="agent.html"><i data-lucide="brain-circuit"></i>Agent 分析</a>
-        <a data-nav="brief" href="brief.html"><i data-lucide="newspaper"></i>市场日报</a>
-        <a data-nav="sources" href="sources.html"><i data-lucide="database"></i>信源分层</a>
-      </nav>
+      <div class="site-header-inner">
+        <a class="brand" href="index.html"><span class="brand-title">全球资产雷达</span><span class="brand-subtitle">Global Market Radar</span></a>
+        <nav class="site-nav" aria-label="主导航">
+          <a data-nav="home" href="index.html">精选</a>
+          <a data-nav="signals" href="signals.html">全部市场动态</a>
+          <a data-nav="brief" href="brief.html">市场日报</a>
+          <a data-nav="agent" href="agent.html">Agent 分析</a>
+          <a data-nav="assets" href="assets.html">资产看板</a>
+          <a data-nav="sources" href="sources.html">信源分层</a>
+        </nav>
+        <a class="login-link" href="agent.html">策略笔记</a>
+      </div>
     </header>
 
-    <main class="page-shell">
-      <section class="page-hero compact">
-        <div>
-          <p class="eyebrow">SIGNAL FEED</p>
-          <h1>精选影响因素</h1>
-          <p class="lead">把新闻、数据、政策、财报和资金流统一归类，标注信息等级、影响周期、影响资产和是否已经被市场消化。</p>
+    <main class="page">
+      <section class="page-title">
+        <a class="site-name" href="index.html">全球资产雷达</a>
+        <h1>全部市场动态</h1>
+        <p>按资产、周期和信源筛选全球股市、基金、黄金、债券和商品信息</p>
+      </section>
+
+      <section class="filter-bar">
+        <div class="tabs" id="horizonTabs">
+          <button class="active" data-horizon="all" type="button">全部</button>
+          <button data-horizon="short" type="button">短期</button>
+          <button data-horizon="mid" type="button">中期</button>
+          <button data-horizon="long" type="button">长期</button>
         </div>
-        <div class="hero-stat">
-          <span>高优先级事件</span>
-          <strong>5</strong>
-          <small>示例数据</small>
+        <div class="filter-row">
+          <label class="select-line">
+            <span>资产</span>
+            <select id="assetSelect">
+              <option value="all">全部资产</option>
+              <option value="equity">股票</option>
+              <option value="bond">债券</option>
+              <option value="gold">黄金</option>
+              <option value="fx">汇率</option>
+              <option value="commodity">商品</option>
+            </select>
+          </label>
+          <label class="search-line">
+            <span>搜索</span>
+            <input id="searchInput" type="search" placeholder="美联储 / ETF / 原油 / 地缘" />
+          </label>
         </div>
       </section>
 
-      <section class="section-block">
-        <div class="toolbar">
-          <label class="search-box"><i data-lucide="search"></i><input id="searchInput" type="search" placeholder="搜索：黄金 / CPI / 美债 / AI 财报" /></label>
-          <select id="assetSelect" aria-label="资产筛选">
-            <option value="all">全部资产</option>
-            <option value="equity">股票</option>
-            <option value="bond">债券</option>
-            <option value="gold">黄金</option>
-            <option value="fx">汇率</option>
-            <option value="commodity">商品</option>
-          </select>
-          <div class="segmented" aria-label="周期筛选">
-            <button class="active" data-filter="all" type="button">全部</button>
-            <button data-filter="short" type="button">短期</button>
-            <button data-filter="mid" type="button">中期</button>
-            <button data-filter="long" type="button">长期</button>
-          </div>
-        </div>
-        <div class="signal-list" id="signalList"></div>
-      </section>
+      <section class="feed" id="allSignalList" aria-label="全部市场动态"></section>
     </main>
 
-    <footer class="site-footer">评分由“信源权重、意外程度、影响范围、持续性、市场敏感度、价格验证”组成。</footer>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <footer class="site-footer">每条信息都应保留原文链接、发布时间、抓取时间、摘要模型和核验状态。</footer>
     <script src="app.js"></script>
   </body>
 </html>
