@@ -1,6 +1,6 @@
 # Global Market Radar
 
-全球资产雷达原型：参考 AIHOT 的信息流、精选、日报和 Agent 接入思路，把全球股票、基金、黄金、债券、商品和汇率的关键影响因素整理成可决策的信息流。
+全球资产雷达：参考 AIHOT 的信息流、精选、日报和 Agent 接入思路，把全球股票、基金、黄金、债券、商品和汇率的关键影响因素整理成可决策的信息流。
 
 ## 当前包含
 
@@ -13,6 +13,8 @@
 - AI 市场日报模板
 - 信源分层与重要性评分模型
 - Agent / RSS / API 接入设计
+- GitHub Actions 定时数据生成
+- `data/*.json` 正式数据层
 
 ## 文件
 
@@ -26,6 +28,9 @@
 - `sources.html`：信源分层和评分逻辑
 - `styles.css`：共享视觉样式和响应式布局
 - `app.js`：示例数据、筛选和渲染逻辑
+- `scripts/generate_data.py`：正式版 v1 数据生成脚本
+- `.github/workflows/update-data.yml`：定时更新数据并提交到仓库
+- `data/*.json`：前端读取的结构化数据
 
 ## 后续可以接入的数据
 

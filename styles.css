@@ -135,6 +135,31 @@ select {
   margin-bottom: 28px;
 }
 
+.data-status {
+  display: grid;
+  gap: 4px;
+  margin: -8px 0 24px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--muted);
+}
+
+.data-status.live {
+  border-color: #c9e8d8;
+  background: #f2fbf6;
+}
+
+.data-status strong {
+  color: var(--ink);
+}
+
+.data-status span,
+.data-status small {
+  line-height: 1.5;
+}
+
 .tabs {
   display: flex;
   flex-wrap: wrap;
@@ -359,7 +384,8 @@ select {
 
 .scenario-list,
 .asset-list,
-.source-list {
+.source-list,
+.market-snapshot {
   display: grid;
   gap: 0;
   border-top: 1px solid var(--line);
@@ -403,6 +429,51 @@ select {
 .asset-card strong,
 .source-list strong {
   font-size: 24px;
+}
+
+.snapshot-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: baseline;
+  padding: 20px 0 12px;
+}
+
+.snapshot-head h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.snapshot-head span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.snapshot-grid article {
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+}
+
+.snapshot-grid span,
+.snapshot-grid small {
+  display: block;
+  color: var(--muted);
+}
+
+.snapshot-grid strong {
+  display: block;
+  margin: 8px 0 4px;
+  font-size: 22px;
 }
 
 .positive {
@@ -612,7 +683,8 @@ select {
   .asset-card,
   .source-list article,
   .filter-row,
-  .detail-grid {
+  .detail-grid,
+  .snapshot-grid {
     grid-template-columns: 1fr;
   }
 

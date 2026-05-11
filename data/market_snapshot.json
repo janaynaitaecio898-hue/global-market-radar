@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-05-11T00:00:00Z",
+  "status": "degraded",
+  "source": "Initial static seed. GitHub Actions will refresh market quotes.",
+  "errors": ["Initial data was seeded locally without live network access."],
+  "quotes": [
+    { "symbol": "spy.us", "name": "S&P 500 ETF", "asset": "equity", "close": 520.0, "date": "2026-05-11", "time": "00:00", "status": "fallback" },
+    { "symbol": "qqq.us", "name": "Nasdaq 100 ETF", "asset": "equity", "close": 445.0, "date": "2026-05-11", "time": "00:00", "status": "fallback" },
+    { "symbol": "tlt.us", "name": "20+ Year Treasury ETF", "asset": "bond", "close": 90.0, "date": "2026-05-11", "time": "00:00", "status": "fallback" },
+    { "symbol": "gld.us", "name": "Gold ETF", "asset": "gold", "close": 215.0, "date": "2026-05-11", "time": "00:00", "status": "fallback" },
+    { "symbol": "uso.us", "name": "Oil ETF", "asset": "commodity", "close": 75.0, "date": "2026-05-11", "time": "00:00", "status": "fallback" },
+    { "symbol": "uup.us", "name": "US Dollar ETF", "asset": "fx", "close": 29.0, "date": "2026-05-11", "time": "00:00", "status": "fallback" }
+  ]
+}

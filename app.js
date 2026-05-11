@@ -1,4 +1,4 @@
-const signals = [
+let signals = [
   {
     id: "us-jobs-rate-path",
     date: "5月11日",
@@ -145,7 +145,7 @@ const signals = [
   },
 ];
 
-const assets = [
+let assets = [
   ["美股", "中性偏谨慎", "高估值板块对利率和盈利指引敏感，适合等待财报和收益率确认。", "watch"],
   ["A股 / 港股", "观察政策验证", "需要看盈利修复、外资流入、地产风险缓和和政策落地强度。", "watch"],
   ["债券基金", "等待确认", "如果经济数据降温且通胀回落，久期资产胜率会上升。", "watch"],
@@ -156,7 +156,7 @@ const assets = [
   ["新兴市场", "谨慎选择", "美元和全球风险偏好是关键变量，资金流更重要。", "negative"],
 ];
 
-const scenarios = [
+let scenarios = [
   {
     name: "乐观情景",
     probability: "25%",
@@ -181,6 +181,14 @@ const state = {
   category: "all",
   horizon: "all",
 };
+
+let dataMeta = {
+  status: "fallback",
+  generated_at: null,
+  notes: ["Using bundled fallback data."],
+};
+
+let marketSnapshot = null;
 
 function setActiveNav() {
   const page = document.body.dataset.page;
@@ -325,6 +333,36 @@ function renderAssets() {
     .join("");
 }
 
+function renderMarketSnapshot() {
+  const root = document.querySelector("#marketSnapshot");
+  if (!root) return;
+
+  if (!marketSnapshot || !Array.isArray(marketSnapshot.quotes)) {
+    root.innerHTML = `<p class="empty-state">行情快照暂不可用。</p>`;
+    return;
+  }
+
+  root.innerHTML = `
+    <div class="snapshot-head">
+      <h2>核心资产快照</h2>
+      <span>${marketSnapshot.status === "live" ? "Live" : "Degraded"} · ${marketSnapshot.generated_at || ""}</span>
+    </div>
+    <div class="snapshot-grid">
+      ${marketSnapshot.quotes
+        .map(
+          (quote) => `
+            <article>
+              <span>${quote.name}</span>
+              <strong>${quote.close}</strong>
+              <small>${quote.symbol} · ${quote.status}</small>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+}
+
 function renderScenarios() {
   const grid = document.querySelector("#scenarioGrid");
   if (!grid) return;
@@ -368,10 +406,83 @@ function bindFilters() {
   document.querySelector("#assetSelect")?.addEventListener("change", () => renderFeed("#allSignalList"));
 }
 
-setActiveNav();
-renderFeed("#featuredList");
-renderFeed("#allSignalList");
-renderAssets();
-renderScenarios();
-renderDetail();
-bindFilters();
+async function fetchJson(path) {
+  const response = await fetch(`${path}?v=${Date.now()}`, { cache: "no-store" });
+  if (!response.ok) {
+    throw new Error(`${path} returned ${response.status}`);
+  }
+  return response.json();
+}
+
+async function loadProductionData() {
+  if (window.location.protocol === "file:") {
+    dataMeta = {
+      status: "fallback",
+      generated_at: null,
+      notes: ["Local file preview uses bundled fallback data. GitHub Pages reads data/*.json."],
+    };
+    return;
+  }
+
+  try {
+    const [signalsData, assetsData, scenariosData, metaData, marketData] = await Promise.all([
+      fetchJson("data/signals.json"),
+      fetchJson("data/assets.json"),
+      fetchJson("data/scenarios.json"),
+      fetchJson("data/meta.json"),
+      fetchJson("data/market_snapshot.json"),
+    ]);
+
+    if (Array.isArray(signalsData.items)) signals = signalsData.items;
+    if (Array.isArray(assetsData.items)) assets = assetsData.items;
+    if (Array.isArray(scenariosData.items)) scenarios = scenariosData.items;
+    dataMeta = {
+      status: metaData.status || "live",
+      generated_at: metaData.generated_at || signalsData.generated_at || null,
+      notes: metaData.notes || [],
+    };
+    marketSnapshot = marketData;
+  } catch (error) {
+    dataMeta = {
+      status: "fallback",
+      generated_at: null,
+      notes: [`Failed to load data/*.json: ${error.message}`],
+    };
+  }
+}
+
+function renderDataStatus() {
+  const title = document.querySelector(".page-title");
+  if (!title || document.querySelector(".data-status")) return;
+
+  const label =
+    dataMeta.status === "live"
+      ? "正式数据"
+      : dataMeta.status === "degraded"
+        ? "正式数据（部分降级）"
+        : "内置兜底数据";
+  const status = document.createElement("section");
+  status.className = `data-status ${dataMeta.status === "live" ? "live" : ""}`;
+  const generated = dataMeta.generated_at ? new Date(dataMeta.generated_at).toLocaleString() : "fallback";
+  status.innerHTML = `
+    <strong>${label}</strong>
+    <span>更新时间：${generated}</span>
+    <small>${(dataMeta.notes || []).join(" ")}</small>
+  `;
+  title.insertAdjacentElement("afterend", status);
+}
+
+async function init() {
+  setActiveNav();
+  await loadProductionData();
+  renderDataStatus();
+  renderFeed("#featuredList");
+  renderFeed("#allSignalList");
+  renderAssets();
+  renderMarketSnapshot();
+  renderScenarios();
+  renderDetail();
+  bindFilters();
+}
+
+init();

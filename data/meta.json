@@ -1,0 +1,10 @@
+{
+  "generated_at": "2026-05-11T00:00:00Z",
+  "version": "1.0",
+  "status": "degraded",
+  "notes": [
+    "正式版 v1 已启用 data/*.json 数据层。",
+    "GitHub Actions 会按计划运行 scripts/generate_data.py。",
+    "初始数据为静态种子，行情抓取将在 Actions 环境中刷新。"
+  ]
+}

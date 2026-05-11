@@ -48,15 +48,16 @@
         </article>
         <article>
           <h2>REST API</h2>
-          <p>给网页、脚本和 Agent 调用的结构化接口。第一版可以先提供只读匿名接口，后续再加限流和 token。</p>
-          <code>GET /api/signals?asset=gold&amp;horizon=mid</code>
-          <code>GET /api/daily/latest</code>
-          <code>GET /api/assets/summary</code>
+          <p>GitHub Pages 正式版 v1 先提供只读 JSON 数据文件。后续迁移到后端时，再升级为带查询参数、限流和 token 的 REST API。</p>
+          <code>GET /data/signals.json</code>
+          <code>GET /data/assets.json</code>
+          <code>GET /data/scenarios.json</code>
+          <code>GET /data/market_snapshot.json</code>
         </article>
       </section>
     </main>
 
-    <footer class="site-footer">接入页目前是产品设计占位，后续可以连接真实 RSS、API 和 Agent Skill。</footer>
+    <footer class="site-footer">正式版 v1 已启用静态 JSON 数据层；后续可以继续升级 RSS、REST API 和 Agent Skill。</footer>
     <script src="app.js"></script>
   </body>
 </html>
