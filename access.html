@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agent 接入 | 全球资产雷达</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="access">
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="brand" href="index.html"><span class="brand-title">全球资产雷达</span><span class="brand-subtitle">Global Market Radar</span></a>
+        <nav class="site-nav" aria-label="主导航">
+          <a data-nav="home" href="index.html">精选</a>
+          <a data-nav="signals" href="signals.html">全部市场动态</a>
+          <a data-nav="brief" href="brief.html">市场日报</a>
+          <a data-nav="agent" href="agent.html">Agent 分析</a>
+          <a data-nav="assets" href="assets.html">资产看板</a>
+          <a data-nav="access" href="access.html">Agent 接入</a>
+          <a data-nav="sources" href="sources.html">信源分层</a>
+        </nav>
+        <a class="login-link" href="agent.html">策略笔记</a>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="page-title">
+        <a class="site-name" href="index.html">全球资产雷达</a>
+        <h1>Agent 接入</h1>
+        <p>像 AIHOT 一样，把信息流变成 Agent、RSS 和 API 都能读取的市场决策数据源。</p>
+      </section>
+
+      <section class="access-list">
+        <article>
+          <h2>Market Radar Skill</h2>
+          <p>给 Agent 使用的技能入口：自动读取精选事件、按资产和周期过滤，并输出短中长期影响判断。</p>
+          <pre>使用全球资产雷达：
+1. 获取今日精选影响因素
+2. 按股票、债券、黄金、商品、汇率分类
+3. 输出当前市场主线和风险触发条件</pre>
+        </article>
+        <article>
+          <h2>RSS 订阅</h2>
+          <p>给人和自动化工具使用的轻量订阅源。可以分为精选、全部动态、日报、黄金、债券、风险事件。</p>
+          <code>/rss/featured.xml</code>
+          <code>/rss/daily.xml</code>
+          <code>/rss/gold.xml</code>
+        </article>
+        <article>
+          <h2>REST API</h2>
+          <p>给网页、脚本和 Agent 调用的结构化接口。第一版可以先提供只读匿名接口，后续再加限流和 token。</p>
+          <code>GET /api/signals?asset=gold&amp;horizon=mid</code>
+          <code>GET /api/daily/latest</code>
+          <code>GET /api/assets/summary</code>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">接入页目前是产品设计占位，后续可以连接真实 RSS、API 和 Agent Skill。</footer>
+    <script src="app.js"></script>
+  </body>
+</html>

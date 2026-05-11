@@ -1,5 +1,6 @@
 const signals = [
   {
+    id: "us-jobs-rate-path",
     date: "5月11日",
     time: "10:40",
     source: "Federal Reserve / BLS",
@@ -14,8 +15,16 @@ const signals = [
     tags: ["货币政策", "就业", "美债收益率", "美元"],
     reason:
       "这条信息影响的是全球资产估值锚。它不是单一数据点，而是在重定价降息路径，股票、债券、黄金和汇率都会被牵动。",
+    sourceRank: "S级",
+    absorbed: "部分消化",
+    shortTerm: "短期压制成长股、黄金和长久期债券，美元偏强。",
+    midTerm: "中期取决于后续 CPI 与就业是否连续强于预期。",
+    longTerm: "长期影响在于利率中枢是否维持高位。",
+    decision:
+      "避免在强数据后追高高估值资产；等待通胀和就业连续确认后再提高进攻仓位。",
   },
   {
+    id: "gold-etf-central-bank",
     date: "5月11日",
     time: "09:25",
     source: "ETF Flow Monitor",
@@ -30,8 +39,16 @@ const signals = [
     tags: ["黄金", "资金流", "央行购金", "避险"],
     reason:
       "黄金同时有避险、货币体系和资金流三条线索支撑。短线看美元，中期看实际利率，长期看央行储备结构变化。",
+    sourceRank: "A级",
+    absorbed: "尚未完全消化",
+    shortTerm: "短线受美元和实际利率扰动，容易震荡。",
+    midTerm: "中期若 ETF 和央行买盘延续，黄金仍有支撑。",
+    longTerm: "长期取决于全球储备多元化和财政赤字压力。",
+    decision:
+      "更适合分批配置或作为组合对冲，不适合只因单日上涨追入。",
   },
   {
+    id: "ai-earnings-capex",
     date: "5月11日",
     time: "08:50",
     source: "Earnings Watch",
@@ -46,8 +63,16 @@ const signals = [
     tags: ["美股", "AI", "盈利", "基金调仓"],
     reason:
       "科技股估值已经包含很高预期，财报指引一旦分化，会影响纳指、半导体 ETF 和全球成长风格基金。",
+    sourceRank: "S级",
+    absorbed: "等待财报验证",
+    shortTerm: "短期波动会集中在财报窗口和指引措辞。",
+    midTerm: "中期看 AI 投入能否兑现收入和毛利率。",
+    longTerm: "长期仍是生产率和资本开支周期主线。",
+    decision:
+      "降低单一龙头拥挤交易，关注盈利兑现和现金流质量。",
   },
   {
+    id: "fiscal-deficit-term-premium",
     date: "5月10日",
     time: "22:15",
     source: "Treasury / Macro Desk",
@@ -62,8 +87,16 @@ const signals = [
     tags: ["债务周期", "长期利率", "资产配置", "期限溢价"],
     reason:
       "这不是短线新闻，而是影响未来数年资产配置框架的慢变量。它会改变股票估值、债券久期和黄金长期逻辑。",
+    sourceRank: "A级",
+    absorbed: "长期定价中",
+    shortTerm: "短期通过长端收益率波动影响风险资产。",
+    midTerm: "中期会影响债券久期选择和股债相关性。",
+    longTerm: "长期可能抬高实际利率中枢，改变组合配置框架。",
+    decision:
+      "长期配置里降低对低利率回归的单一路径依赖，增加情景约束。",
   },
   {
+    id: "oil-inventory-geopolitics",
     date: "5月10日",
     time: "20:30",
     source: "Commodity Desk",
@@ -78,8 +111,16 @@ const signals = [
     tags: ["原油", "地缘", "通胀", "商品基金"],
     reason:
       "原油是通胀预期和风险偏好的连接点。它涨得太快，会重新压制降息预期，并拖累高估值风险资产。",
+    sourceRank: "A级",
+    absorbed: "快速交易中",
+    shortTerm: "短期推升能源和通胀预期，压制航空和消费。",
+    midTerm: "中期看库存、OPEC 供给纪律和地缘风险是否延续。",
+    longTerm: "长期取决于能源转型、供需投资周期和地缘格局。",
+    decision:
+      "把原油作为通胀风险监控指标，不把单一库存数据当趋势确认。",
   },
   {
+    id: "volatility-risk-repricing",
     date: "5月10日",
     time: "17:40",
     source: "Risk Monitor",
@@ -94,6 +135,13 @@ const signals = [
     tags: ["波动率", "风险偏好", "信用利差", "美元"],
     reason:
       "这类信号不一定指向趋势反转，但能提醒仓位管理。尤其当多个风险指标同步恶化时，优先考虑防守。",
+    sourceRank: "B级",
+    absorbed: "低度消化",
+    shortTerm: "短期提示市场风险偏好转弱，仓位和杠杆要更保守。",
+    midTerm: "中期需要观察信用利差、美元和日元是否同步恶化。",
+    longTerm: "长期意义有限，除非演化为流动性或信用事件。",
+    decision:
+      "当 VIX、美元、信用利差同时上行时，优先控制回撤。",
   },
 ];
 
@@ -183,7 +231,7 @@ function renderFeed(targetId) {
               <span>${item.source}</span>
               <span class="score">精选 ${item.score}</span>
             </div>
-            <h3 class="feed-title"><a href="agent.html">${item.title}</a></h3>
+            <h3 class="feed-title"><a href="detail.html?id=${item.id}">${item.title}</a></h3>
             <p class="summary">${item.summary}</p>
             <div class="tags">${item.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}</div>
             <p class="reason"><strong>推荐理由：</strong>${item.reason}</p>
@@ -192,6 +240,67 @@ function renderFeed(targetId) {
       `;
     })
     .join("");
+}
+
+function renderDetail() {
+  const root = document.querySelector("#detailRoot");
+  if (!root) return;
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+  const item = signals.find((signal) => signal.id === id) || signals[0];
+
+  root.innerHTML = `
+    <div class="detail-meta">
+      <span>${item.date} ${item.time}</span>
+      <span>${item.source}</span>
+      <span>${item.sourceRank}</span>
+      <span>精选 ${item.score}</span>
+    </div>
+    <h1>${item.title}</h1>
+    <p class="detail-summary">${item.summary}</p>
+    <div class="tags">${item.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}</div>
+
+    <section class="detail-section">
+      <h2>推荐理由</h2>
+      <p>${item.reason}</p>
+    </section>
+
+    <section class="detail-grid">
+      <article><strong>短期</strong><p>${item.shortTerm}</p></article>
+      <article><strong>中期</strong><p>${item.midTerm}</p></article>
+      <article><strong>长期</strong><p>${item.longTerm}</p></article>
+    </section>
+
+    <section class="detail-section">
+      <h2>资产影响</h2>
+      <div class="impact-list">
+        ${impactLabels(item.asset).map((label) => `<span>${label}</span>`).join("")}
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <h2>市场消化状态</h2>
+      <p>${item.absorbed}</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>决策提示</h2>
+      <p>${item.decision}</p>
+    </section>
+  `;
+}
+
+function impactLabels(assetText) {
+  const map = {
+    equity: "股票",
+    bond: "债券",
+    gold: "黄金",
+    fx: "汇率",
+    commodity: "商品",
+  };
+  return Object.entries(map)
+    .filter(([key]) => assetText.includes(key))
+    .map(([, label]) => label);
 }
 
 function horizonName(value) {
@@ -264,4 +373,5 @@ renderFeed("#featuredList");
 renderFeed("#allSignalList");
 renderAssets();
 renderScenarios();
+renderDetail();
 bindFilters();
