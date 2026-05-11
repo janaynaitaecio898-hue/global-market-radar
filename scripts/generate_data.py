@@ -350,12 +350,56 @@ ASSET_LABELS = {
     "commodity": "Commodities",
 }
 
+HIGH_IMPACT_PHRASES = [
+    "fomc statement",
+    "federal funds rate",
+    "interest rate",
+    "consumer price",
+    "cpi",
+    "inflation",
+    "unemployment",
+    "nonfarm payroll",
+    "payrolls",
+    "treasury yields",
+    "refunding",
+    "auction",
+    "oil inventory",
+    "crude oil",
+    "sanction",
+    "insider trading",
+]
+
+LOW_IMPACT_PHRASES = [
+    "approval of application",
+    "approval of related applications",
+    "termination of enforcement actions",
+    "former employee",
+    "community bankshares",
+    "commencement",
+    "conference",
+    "retirement plans for small businesses",
+]
+
 
 def fetch_text(url: str) -> str:
     request = Request(url, headers={"User-Agent": "GlobalMarketRadar/1.1"})
     with urlopen(request, timeout=25) as response:
         raw = response.read()
     return raw.decode("utf-8", errors="replace")
+
+
+def fetch_json_post(url: str, payload: dict[str, Any]) -> dict[str, Any]:
+    request = Request(
+        url,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Content-Type": "application/json",
+            "User-Agent": "GlobalMarketRadar/1.2",
+        },
+    )
+    with urlopen(request, timeout=25) as response:
+        raw = response.read()
+    return json.loads(raw.decode("utf-8", errors="replace"))
 
 
 def strip_html(value: str) -> str:
@@ -475,7 +519,84 @@ def parse_treasury_html_source(source: dict[str, Any]) -> list[dict[str, Any]]:
     return entries
 
 
+def parse_float(value: Any) -> float | None:
+    try:
+        return float(str(value).replace(",", ""))
+    except (TypeError, ValueError):
+        return None
+
+
+def parse_bls_api_source(source: dict[str, Any]) -> list[dict[str, Any]]:
+    series_configs = source.get("series", [])
+    series_ids = [item["id"] for item in series_configs if item.get("id")]
+    if not series_ids:
+        return []
+
+    now = datetime.now(timezone.utc)
+    payload = {
+        "seriesid": series_ids,
+        "startyear": str(now.year - 1),
+        "endyear": str(now.year),
+    }
+    response = fetch_json_post(source["url"], payload)
+    if response.get("status") != "REQUEST_SUCCEEDED":
+        raise ValueError(f"BLS API status: {response.get('status')} {response.get('message')}")
+
+    config_by_id = {item["id"]: item for item in series_configs}
+    entries = []
+    for series in response.get("Results", {}).get("series", []):
+        series_id = series.get("seriesID") or series.get("seriesId")
+        config = config_by_id.get(series_id, {})
+        points = series.get("data", [])
+        if not points:
+            continue
+
+        latest = points[0]
+        previous = points[1] if len(points) > 1 else None
+        latest_value = parse_float(latest.get("value"))
+        previous_value = parse_float(previous.get("value")) if previous else None
+        if latest_value is None:
+            continue
+
+        if previous_value is None:
+            change_text = "previous observation unavailable"
+        else:
+            delta = latest_value - previous_value
+            change_text = f"change from previous observation {delta:+.2f}"
+
+        period = latest.get("periodName") or latest.get("period") or "latest period"
+        year = latest.get("year") or str(now.year)
+        unit = config.get("unit", "")
+        title = f"{config.get('name', series_id)} latest reading: {latest_value:g} {unit} ({period} {year})"
+        asset_text = config.get("asset", source.get("asset_hint", "equity bond gold fx"))
+        summary = (
+            f"Official BLS series {series_id} reported {latest_value:g} {unit} for {period} {year}; "
+            f"{change_text}. This is a core {config.get('topic', 'macro')} input for rates, equities, bonds, gold, and FX."
+        )
+        entries.append(
+            {
+                "title": title,
+                "summary": summary,
+                "link": source["url"],
+                "published": now,
+                "source": source,
+                "category": config.get("category", source.get("category_hint", "macro")),
+                "horizon": config.get("horizon", "short"),
+                "asset": asset_text,
+            }
+        )
+    return entries
+
+
 def classify_entry(entry: dict[str, Any]) -> dict[str, str]:
+    if entry.get("category") and entry.get("horizon") and entry.get("asset"):
+        return {
+            "category": entry["category"],
+            "horizon": entry["horizon"],
+            "asset": entry["asset"],
+            "hits": "4",
+        }
+
     source = entry["source"]
     text = f"{entry['title']} {entry.get('summary', '')}".lower()
     best_rule = None
@@ -505,7 +626,8 @@ def classify_entry(entry: dict[str, Any]) -> dict[str, str]:
 def score_entry(entry: dict[str, Any], classification: dict[str, str]) -> int:
     source = entry["source"]
     score = int(source.get("base_score", 70))
-    score += min(8, int(classification["hits"]) * 2)
+    hits = int(classification["hits"])
+    score += min(8, hits * 2)
     age_hours = max(0.0, (datetime.now(timezone.utc) - entry["published"]).total_seconds() / 3600)
     if age_hours <= 24:
         score += 5
@@ -513,6 +635,14 @@ def score_entry(entry: dict[str, Any], classification: dict[str, str]) -> int:
         score -= 8
     if source.get("rank") == "S":
         score += 3
+    if hits == 0:
+        score -= 18
+
+    text = f"{entry.get('title', '')} {entry.get('summary', '')}".lower()
+    high_hits = sum(1 for phrase in HIGH_IMPACT_PHRASES if phrase in text)
+    low_hits = sum(1 for phrase in LOW_IMPACT_PHRASES if phrase in text)
+    score += min(18, high_hits * 6)
+    score -= min(35, low_hits * 14)
     return max(45, min(98, score))
 
 
@@ -563,6 +693,8 @@ def build_live_signals() -> tuple[list[dict[str, Any]], list[str]]:
         try:
             if source.get("type") == "rss":
                 entries = parse_rss_source(source)
+            elif source.get("type") == "bls_api":
+                entries = parse_bls_api_source(source)
             elif source.get("type") == "treasury_html":
                 entries = parse_treasury_html_source(source)
             else:

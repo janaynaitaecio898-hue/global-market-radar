@@ -1,13 +1,11 @@
 {
   "generated_at": "2026-05-15T19:52:44.128650+00:00",
-  "version": "1.1",
+  "version": "1.2",
   "status": "live",
   "notes": [
-    "Generated 24 market signals from configured official sources.",
-    "Market quotes degrade to fallback values if a source is unavailable.",
-    "Signals are classified by source rank, keywords, asset coverage, and freshness."
+    "v1.2 replaces BLS RSS with the BLS Public Data API.",
+    "GitHub Actions fetches RSS/official pages and generates signals, daily, assets, scenarios, and market_snapshot data.",
+    "Scoring boosts high-impact macro events and downranks low-impact administrative announcements."
   ],
-  "source_errors": [
-    "bls_latest: HTTP Error 403: Forbidden"
-  ]
+  "source_errors": []
 }

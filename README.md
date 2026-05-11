@@ -17,6 +17,7 @@
 - `data/*.json` 正式数据层
 - `sources.json` 官方信源配置
 - `data/daily.json` 自动日报数据
+- v1.2：BLS 官方 API、宏观高影响事件升权、低影响公告降权
 
 ## 文件
 
