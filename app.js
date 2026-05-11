@@ -189,6 +189,7 @@ let dataMeta = {
 };
 
 let marketSnapshot = null;
+let dailyReport = null;
 
 function setActiveNav() {
   const page = document.body.dataset.page;
@@ -363,6 +364,46 @@ function renderMarketSnapshot() {
   `;
 }
 
+function renderDailyReport() {
+  const root = document.querySelector("#dailyReport");
+  if (!root) return;
+
+  const report =
+    dailyReport || {
+      title: "5月11日",
+      summary:
+        "市场主线仍是降息预期和经济韧性的拉扯。短期看美债收益率与美元，长期看通胀、盈利和财政赤字。",
+      sections: [
+        { title: "宏观与利率", items: ["关注 CPI、就业、美债收益率和主要央行表态。"] },
+        { title: "股票与基金", items: ["关注盈利指引、估值分位和 ETF 资金流。"] },
+        { title: "黄金与商品", items: ["关注实际利率、美元、央行购金和原油库存。"] },
+      ],
+      watch: ["CPI / 通胀数据", "美债收益率", "美元指数", "黄金 ETF 资金流"],
+    };
+
+  root.innerHTML = `
+    <h2>${report.title}</h2>
+    <section>
+      <h3>今日结论</h3>
+      <p>${report.summary}</p>
+    </section>
+    ${(report.sections || [])
+      .map(
+        (section) => `
+          <section>
+            <h3>${section.title}</h3>
+            <ul>${(section.items || []).map((item) => `<li>${item}</li>`).join("")}</ul>
+          </section>
+        `,
+      )
+      .join("")}
+    <section>
+      <h3>明日观察</h3>
+      <p>${(report.watch || []).join("、")}</p>
+    </section>
+  `;
+}
+
 function renderScenarios() {
   const grid = document.querySelector("#scenarioGrid");
   if (!grid) return;
@@ -425,12 +466,13 @@ async function loadProductionData() {
   }
 
   try {
-    const [signalsData, assetsData, scenariosData, metaData, marketData] = await Promise.all([
+    const [signalsData, assetsData, scenariosData, metaData, marketData, dailyData] = await Promise.all([
       fetchJson("data/signals.json"),
       fetchJson("data/assets.json"),
       fetchJson("data/scenarios.json"),
       fetchJson("data/meta.json"),
       fetchJson("data/market_snapshot.json"),
+      fetchJson("data/daily.json"),
     ]);
 
     if (Array.isArray(signalsData.items)) signals = signalsData.items;
@@ -442,6 +484,7 @@ async function loadProductionData() {
       notes: metaData.notes || [],
     };
     marketSnapshot = marketData;
+    dailyReport = dailyData;
   } catch (error) {
     dataMeta = {
       status: "fallback",
@@ -482,6 +525,7 @@ async function init() {
   renderMarketSnapshot();
   renderScenarios();
   renderDetail();
+  renderDailyReport();
   bindFilters();
 }
 

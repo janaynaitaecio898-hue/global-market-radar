@@ -15,6 +15,8 @@
 - Agent / RSS / API 接入设计
 - GitHub Actions 定时数据生成
 - `data/*.json` 正式数据层
+- `sources.json` 官方信源配置
+- `data/daily.json` 自动日报数据
 
 ## 文件
 
@@ -31,6 +33,7 @@
 - `scripts/generate_data.py`：正式版 v1 数据生成脚本
 - `.github/workflows/update-data.yml`：定时更新数据并提交到仓库
 - `data/*.json`：前端读取的结构化数据
+- `sources.json`：Fed、BLS、EIA、SEC、Treasury 等官方信源配置
 
 ## 后续可以接入的数据
 

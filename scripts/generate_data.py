@@ -9,17 +9,21 @@ them with the editorial rule set below, and writes JSON consumed by app.js.
 from __future__ import annotations
 
 import csv
+import html
 import json
+import re
 import sys
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from typing import Any
-from urllib.error import URLError
 from urllib.request import Request, urlopen
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
+SOURCES_PATH = ROOT / "sources.json"
 
 MARKET_INSTRUMENTS = [
     {
@@ -278,6 +282,326 @@ def build_market_snapshot() -> dict[str, Any]:
     }
 
 
+KEYWORD_RULES = [
+    {
+        "category": "macro",
+        "horizon": "short",
+        "asset": "equity bond gold fx",
+        "terms": [
+            "federal reserve",
+            "fomc",
+            "interest rate",
+            "inflation",
+            "consumer price",
+            "cpi",
+            "payroll",
+            "employment",
+            "unemployment",
+            "wage",
+            "gdp",
+        ],
+    },
+    {
+        "category": "bond",
+        "horizon": "mid",
+        "asset": "bond equity fx gold",
+        "terms": ["treasury", "yield", "debt", "auction", "deficit", "fiscal", "financing"],
+    },
+    {
+        "category": "commodity",
+        "horizon": "short",
+        "asset": "commodity equity bond",
+        "terms": ["oil", "gas", "crude", "energy", "inventory", "eia", "opec", "petroleum"],
+    },
+    {
+        "category": "equity",
+        "horizon": "mid",
+        "asset": "equity",
+        "terms": ["earnings", "sec", "securities", "company", "disclosure", "fund", "etf"],
+    },
+    {
+        "category": "risk",
+        "horizon": "short",
+        "asset": "equity bond gold fx",
+        "terms": ["risk", "volatility", "sanction", "bank", "credit", "liquidity", "enforcement"],
+    },
+    {
+        "category": "gold",
+        "horizon": "mid",
+        "asset": "gold fx bond",
+        "terms": ["gold", "reserve", "central bank"],
+    },
+]
+
+CATEGORY_LABELS = {
+    "macro": "Macro",
+    "bond": "Bonds",
+    "commodity": "Commodities",
+    "equity": "Equities",
+    "risk": "Risk",
+    "gold": "Gold",
+}
+
+ASSET_LABELS = {
+    "equity": "Equities",
+    "bond": "Bonds",
+    "gold": "Gold",
+    "fx": "FX",
+    "commodity": "Commodities",
+}
+
+
+def fetch_text(url: str) -> str:
+    request = Request(url, headers={"User-Agent": "GlobalMarketRadar/1.1"})
+    with urlopen(request, timeout=25) as response:
+        raw = response.read()
+    return raw.decode("utf-8", errors="replace")
+
+
+def strip_html(value: str) -> str:
+    text = re.sub(r"<[^>]+>", " ", value or "")
+    text = html.unescape(text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
+
+
+def child_text(node: ET.Element, name: str) -> str:
+    for child in list(node):
+        if child.tag.lower().endswith(name.lower()):
+            return child.text or ""
+    return ""
+
+
+def child_link(node: ET.Element) -> str:
+    link = child_text(node, "link")
+    if link:
+        return link.strip()
+    for child in list(node):
+        if child.tag.lower().endswith("link"):
+            return child.attrib.get("href", "").strip()
+    return ""
+
+
+def parse_datetime(value: str | None) -> datetime:
+    if not value:
+        return datetime.now(timezone.utc)
+    try:
+        parsed = parsedate_to_datetime(value)
+    except (TypeError, ValueError):
+        try:
+            parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        except ValueError:
+            parsed = datetime.now(timezone.utc)
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    return parsed.astimezone(timezone.utc)
+
+
+def format_cn_date(dt: datetime) -> str:
+    return f"{dt.month}月{dt.day}日"
+
+
+def slugify(value: str, prefix: str) -> str:
+    slug = re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
+    return f"{prefix}-{slug[:64] or 'item'}"
+
+
+def load_sources() -> list[dict[str, Any]]:
+    try:
+        payload = json.loads(SOURCES_PATH.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return []
+    return payload.get("sources", [])
+
+
+def parse_rss_source(source: dict[str, Any]) -> list[dict[str, Any]]:
+    text = fetch_text(source["url"])
+    root = ET.fromstring(text)
+    nodes = [
+        node
+        for node in root.iter()
+        if node.tag.lower().endswith("item") or node.tag.lower().endswith("entry")
+    ]
+    entries = []
+    for node in nodes[:12]:
+        title = strip_html(child_text(node, "title"))
+        if not title:
+            continue
+        description = strip_html(child_text(node, "description") or child_text(node, "summary"))
+        published = parse_datetime(
+            child_text(node, "pubDate")
+            or child_text(node, "published")
+            or child_text(node, "updated")
+            or child_text(node, "date")
+        )
+        entries.append(
+            {
+                "title": title,
+                "summary": description,
+                "link": child_link(node),
+                "published": published,
+                "source": source,
+            }
+        )
+    return entries
+
+
+def parse_treasury_html_source(source: dict[str, Any]) -> list[dict[str, Any]]:
+    text = fetch_text(source["url"])
+    matches = re.findall(
+        r'<a[^>]+href="([^"]*press-releases/[^"]+)"[^>]*>(.*?)</a>',
+        text,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    entries = []
+    seen: set[str] = set()
+    for href, raw_title in matches:
+        title = strip_html(raw_title)
+        if not title or title in seen:
+            continue
+        seen.add(title)
+        link = href if href.startswith("http") else f"https://home.treasury.gov{href}"
+        entries.append(
+            {
+                "title": title,
+                "summary": "",
+                "link": link,
+                "published": datetime.now(timezone.utc),
+                "source": source,
+            }
+        )
+        if len(entries) >= 8:
+            break
+    return entries
+
+
+def classify_entry(entry: dict[str, Any]) -> dict[str, str]:
+    source = entry["source"]
+    text = f"{entry['title']} {entry.get('summary', '')}".lower()
+    best_rule = None
+    best_hits = 0
+    for rule in KEYWORD_RULES:
+        hits = sum(1 for term in rule["terms"] if term in text)
+        if hits > best_hits:
+            best_rule = rule
+            best_hits = hits
+
+    if not best_rule:
+        return {
+            "category": source.get("category_hint", "macro"),
+            "horizon": "mid",
+            "asset": source.get("asset_hint", "equity bond gold fx"),
+            "hits": "0",
+        }
+
+    return {
+        "category": best_rule["category"],
+        "horizon": best_rule["horizon"],
+        "asset": best_rule["asset"],
+        "hits": str(best_hits),
+    }
+
+
+def score_entry(entry: dict[str, Any], classification: dict[str, str]) -> int:
+    source = entry["source"]
+    score = int(source.get("base_score", 70))
+    score += min(8, int(classification["hits"]) * 2)
+    age_hours = max(0.0, (datetime.now(timezone.utc) - entry["published"]).total_seconds() / 3600)
+    if age_hours <= 24:
+        score += 5
+    elif age_hours > 168:
+        score -= 8
+    if source.get("rank") == "S":
+        score += 3
+    return max(45, min(98, score))
+
+
+def build_signal_from_entry(entry: dict[str, Any]) -> dict[str, Any]:
+    source = entry["source"]
+    classification = classify_entry(entry)
+    score = score_entry(entry, classification)
+    category = classification["category"]
+    assets = [
+        label
+        for key, label in ASSET_LABELS.items()
+        if key in classification["asset"]
+    ]
+    asset_text = ", ".join(assets) or "multiple assets"
+    summary = entry.get("summary") or f"{entry['title']}."
+    if len(summary) > 220:
+        summary = f"{summary[:220].rstrip()}..."
+
+    return {
+        "id": slugify(entry["title"], source["id"]),
+        "date": format_cn_date(entry["published"]),
+        "time": entry["published"].strftime("%H:%M"),
+        "source": source["name"],
+        "sourceUrl": entry.get("link", source["url"]),
+        "avatar": source.get("avatar", source["name"][:1]),
+        "score": score,
+        "category": category,
+        "horizon": classification["horizon"],
+        "asset": classification["asset"],
+        "title": entry["title"],
+        "summary": summary,
+        "tags": [CATEGORY_LABELS.get(category, "Market"), source.get("rank", "A") + "-rank source", asset_text],
+        "reason": f"Official/high-priority source: {source['name']}. The item may affect {asset_text}. Score is based on source rank, keyword hits, freshness, and asset coverage.",
+        "sourceRank": source.get("rank", "A") + "-rank",
+        "absorbed": "Not fully priced" if score >= 80 else "Partly priced",
+        "shortTerm": f"Watch whether this item triggers short-term price confirmation in {asset_text}.",
+        "midTerm": f"Combine follow-up data and flows to judge whether the {CATEGORY_LABELS.get(category, 'Market')} theme persists.",
+        "longTerm": "Long-term relevance depends on whether it changes the rate, earnings, inflation, or risk-premium baseline.",
+        "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation.",
+    }
+
+
+def build_live_signals() -> tuple[list[dict[str, Any]], list[str]]:
+    signals: list[dict[str, Any]] = []
+    errors: list[str] = []
+    seen_titles: set[str] = set()
+    for source in load_sources():
+        try:
+            if source.get("type") == "rss":
+                entries = parse_rss_source(source)
+            elif source.get("type") == "treasury_html":
+                entries = parse_treasury_html_source(source)
+            else:
+                entries = []
+        except Exception as exc:  # noqa: BLE001 - keep the pipeline alive
+            errors.append(f"{source.get('id', 'source')}: {exc}")
+            continue
+
+        for entry in entries:
+            normalized_title = entry["title"].casefold()
+            if normalized_title in seen_titles:
+                continue
+            seen_titles.add(normalized_title)
+            signals.append(build_signal_from_entry(entry))
+
+    signals.sort(key=lambda item: (item["score"], item["date"], item["time"]), reverse=True)
+    return signals[:24], errors
+
+
+def build_daily(signals: list[dict[str, Any]], generated_at: str) -> dict[str, Any]:
+    sections = []
+    for category, label in CATEGORY_LABELS.items():
+        titles = [item["title"] for item in signals if item.get("category") == category][:4]
+        if titles:
+            sections.append({"title": label, "items": titles})
+    if not sections:
+        sections.append({"title": "Market", "items": [item["title"] for item in signals[:5]]})
+
+    top = signals[0] if signals else {"title": "No high-priority event yet"}
+    now = datetime.now(timezone.utc)
+    return {
+        "generated_at": generated_at,
+        "title": f"{now.month}/{now.day}",
+        "summary": f"Top priority event: {top['title']}. The report is generated from source rank, keywords, asset coverage, and freshness.",
+        "sections": sections,
+        "watch": ["CPI / inflation data", "Treasury yields", "US dollar index", "Gold ETF flows", "Major central-bank remarks"],
+    }
+
+
 def write_json(path: Path, payload: Any) -> None:
     path.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
@@ -289,27 +613,32 @@ def main() -> int:
     DATA_DIR.mkdir(exist_ok=True)
     market_snapshot = build_market_snapshot()
     generated_at = market_snapshot["generated_at"]
+    live_signals, source_errors = build_live_signals()
+    output_signals = live_signals or BASE_SIGNALS
 
-    write_json(DATA_DIR / "signals.json", {"generated_at": generated_at, "items": BASE_SIGNALS})
+    write_json(DATA_DIR / "signals.json", {"generated_at": generated_at, "items": output_signals})
     write_json(DATA_DIR / "assets.json", {"generated_at": generated_at, "items": ASSETS})
     write_json(DATA_DIR / "scenarios.json", {"generated_at": generated_at, "items": SCENARIOS})
     write_json(DATA_DIR / "market_snapshot.json", market_snapshot)
+    write_json(DATA_DIR / "daily.json", build_daily(output_signals, generated_at))
     write_json(
         DATA_DIR / "meta.json",
         {
             "generated_at": generated_at,
-            "version": "1.0",
-            "status": market_snapshot["status"],
+            "version": "1.1",
+            "status": "live" if live_signals and market_snapshot["status"] == "live" else "degraded",
             "notes": [
-                "Static data is generated for GitHub Pages.",
-                "Signals are rule-based editorial templates until live news ingestion is connected.",
+                f"Generated {len(output_signals)} market signals from configured official sources.",
                 "Market quotes degrade to fallback values if a source is unavailable.",
+                "Signals are classified by source rank, keywords, asset coverage, and freshness.",
             ],
+            "source_errors": source_errors,
         },
     )
-    if market_snapshot["errors"]:
+    all_errors = market_snapshot["errors"] + source_errors
+    if all_errors:
         print("Generated with degraded quote data:", file=sys.stderr)
-        for error in market_snapshot["errors"]:
+        for error in all_errors:
             print(f"- {error}", file=sys.stderr)
     return 0
 

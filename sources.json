@@ -1,0 +1,60 @@
+{
+  "version": "1.1",
+  "sources": [
+    {
+      "id": "fed_press",
+      "name": "Federal Reserve Press Releases",
+      "url": "https://www.federalreserve.gov/feeds/press_all.xml",
+      "type": "rss",
+      "rank": "S",
+      "avatar": "F",
+      "category_hint": "macro",
+      "asset_hint": "equity bond gold fx",
+      "base_score": 88
+    },
+    {
+      "id": "bls_latest",
+      "name": "BLS Latest Releases",
+      "url": "https://www.bls.gov/feed/bls_latest.rss",
+      "type": "rss",
+      "rank": "S",
+      "avatar": "B",
+      "category_hint": "macro",
+      "asset_hint": "equity bond gold fx",
+      "base_score": 86
+    },
+    {
+      "id": "eia_energy",
+      "name": "EIA Today in Energy",
+      "url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "type": "rss",
+      "rank": "S",
+      "avatar": "E",
+      "category_hint": "commodity",
+      "asset_hint": "commodity equity bond",
+      "base_score": 78
+    },
+    {
+      "id": "sec_press",
+      "name": "SEC Press Releases",
+      "url": "https://www.sec.gov/news/pressreleases.rss",
+      "type": "rss",
+      "rank": "S",
+      "avatar": "S",
+      "category_hint": "equity",
+      "asset_hint": "equity",
+      "base_score": 74
+    },
+    {
+      "id": "treasury_press",
+      "name": "U.S. Treasury Press Releases",
+      "url": "https://home.treasury.gov/news/press-releases",
+      "type": "treasury_html",
+      "rank": "S",
+      "avatar": "T",
+      "category_hint": "bond",
+      "asset_hint": "bond fx gold equity",
+      "base_score": 80
+    }
+  ]
+}
