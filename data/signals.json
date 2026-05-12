@@ -1,32 +1,6 @@
 {
-  "generated_at": "2026-05-12T08:52:48.977768+00:00",
+  "generated_at": "2026-05-12T14:49:03.589124+00:00",
   "items": [
-    {
-      "id": "eia_energy-the-united-states-set-record-energy-production-in-2025-again",
-      "date": "5月11日",
-      "time": "14:00",
-      "source": "EIA Today in Energy",
-      "sourceUrl": "https://www.eia.gov/todayinenergy/detail.php?id=67684",
-      "avatar": "E",
-      "score": 94,
-      "category": "commodity",
-      "horizon": "short",
-      "asset": "commodity equity bond",
-      "title": "The United States set record energy production in 2025, again",
-      "summary": "Total energy production in the United States increased to a new record of 107 quadrillion British thermal units (quads) in 2025, a 3.4% increase from the previous record set in 2024, according to new data in our Monthly...",
-      "tags": [
-        "Commodities",
-        "S-rank source",
-        "Equities, Bonds, Commodities"
-      ],
-      "reason": "Official/high-priority source: EIA Today in Energy. The item may affect Equities, Bonds, Commodities. Score is based on source rank, keyword hits, freshness, and asset coverage.",
-      "sourceRank": "S-rank",
-      "absorbed": "Not fully priced",
-      "shortTerm": "Watch whether this item triggers short-term price confirmation in Equities, Bonds, Commodities.",
-      "midTerm": "Combine follow-up data and flows to judge whether the Commodities theme persists.",
-      "longTerm": "Long-term relevance depends on whether it changes the rate, earnings, inflation, or risk-premium baseline.",
-      "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
-    },
     {
       "id": "fed_press-federal-reserve-board-announces-approval-of-related-applications",
       "date": "5月8日",
@@ -56,7 +30,7 @@
     {
       "id": "treasury_press-economic-fury-ramps-up-pressure-on-iran-s-islamic-revolutionary-",
       "date": "5月12日",
-      "time": "08:53",
+      "time": "14:49",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0498",
       "avatar": "T",
@@ -82,7 +56,7 @@
     {
       "id": "treasury_press-u-s-department-of-the-treasury-hosts-convening-with-state-insura",
       "date": "5月12日",
-      "time": "08:53",
+      "time": "14:49",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0493",
       "avatar": "T",
@@ -108,7 +82,7 @@
     {
       "id": "treasury_press-remarks-by-u-s-secretary-of-the-treasury-scott-bessent-at-univer",
       "date": "5月12日",
-      "time": "08:53",
+      "time": "14:49",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0497",
       "avatar": "T",
@@ -134,7 +108,7 @@
     {
       "id": "treasury_press-remarks-by-secretary-of-the-treasury-scott-bessent-before-the-ex",
       "date": "5月12日",
-      "time": "08:53",
+      "time": "14:49",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0481",
       "avatar": "T",
@@ -160,7 +134,7 @@
     {
       "id": "treasury_press-assistant-secretary-chris-pilkerton-s-remarks-at-aci-cfius-confe",
       "date": "5月12日",
-      "time": "08:53",
+      "time": "14:49",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0467",
       "avatar": "T",
@@ -184,9 +158,35 @@
       "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
     },
     {
+      "id": "eia_energy-the-united-states-set-record-energy-production-in-2025-again",
+      "date": "5月11日",
+      "time": "14:00",
+      "source": "EIA Today in Energy",
+      "sourceUrl": "https://www.eia.gov/todayinenergy/detail.php?id=67684",
+      "avatar": "E",
+      "score": 89,
+      "category": "commodity",
+      "horizon": "short",
+      "asset": "commodity equity bond",
+      "title": "The United States set record energy production in 2025, again",
+      "summary": "Total energy production in the United States increased to a new record of 107 quadrillion British thermal units (quads) in 2025, a 3.4% increase from the previous record set in 2024, according to new data in our Monthly...",
+      "tags": [
+        "Commodities",
+        "S-rank source",
+        "Equities, Bonds, Commodities"
+      ],
+      "reason": "Official/high-priority source: EIA Today in Energy. The item may affect Equities, Bonds, Commodities. Score is based on source rank, keyword hits, freshness, and asset coverage.",
+      "sourceRank": "S-rank",
+      "absorbed": "Not fully priced",
+      "shortTerm": "Watch whether this item triggers short-term price confirmation in Equities, Bonds, Commodities.",
+      "midTerm": "Combine follow-up data and flows to judge whether the Commodities theme persists.",
+      "longTerm": "Long-term relevance depends on whether it changes the rate, earnings, inflation, or risk-premium baseline.",
+      "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
+    },
+    {
       "id": "treasury_press-economic-fury-disrupts-networks-supplying-weapons-and-uav-compon",
       "date": "5月12日",
-      "time": "08:53",
+      "time": "14:49",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0496",
       "avatar": "T",
@@ -212,7 +212,7 @@
     {
       "id": "treasury_press-remarks-and-statements",
       "date": "5月12日",
-      "time": "08:53",
+      "time": "14:49",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/statements-remarks",
       "avatar": "T",
@@ -238,7 +238,7 @@
     {
       "id": "treasury_press-view-all-remarks-and-statements",
       "date": "5月12日",
-      "time": "08:53",
+      "time": "14:49",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/statements-remarks",
       "avatar": "T",
