@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-12T20:06:10.623959+00:00",
+  "generated_at": "2026-05-13T04:10:44.857771+00:00",
   "items": [
     {
       "id": "fed_press-federal-reserve-board-announces-termination-of-enforcement-actio",
@@ -55,8 +55,8 @@
     },
     {
       "id": "treasury_press-economic-fury-ramps-up-pressure-on-iran-s-islamic-revolutionary-",
-      "date": "5月12日",
-      "time": "20:06",
+      "date": "5月13日",
+      "time": "04:11",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0498",
       "avatar": "T",
@@ -81,8 +81,8 @@
     },
     {
       "id": "treasury_press-u-s-department-of-the-treasury-hosts-convening-with-state-insura",
-      "date": "5月12日",
-      "time": "20:06",
+      "date": "5月13日",
+      "time": "04:11",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0493",
       "avatar": "T",
@@ -107,8 +107,8 @@
     },
     {
       "id": "treasury_press-remarks-by-u-s-secretary-of-the-treasury-scott-bessent-at-univer",
-      "date": "5月12日",
-      "time": "20:06",
+      "date": "5月13日",
+      "time": "04:11",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0497",
       "avatar": "T",
@@ -133,8 +133,8 @@
     },
     {
       "id": "treasury_press-remarks-by-secretary-of-the-treasury-scott-bessent-before-the-ex",
-      "date": "5月12日",
-      "time": "20:06",
+      "date": "5月13日",
+      "time": "04:11",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0481",
       "avatar": "T",
@@ -159,8 +159,8 @@
     },
     {
       "id": "treasury_press-assistant-secretary-chris-pilkerton-s-remarks-at-aci-cfius-confe",
-      "date": "5月12日",
-      "time": "20:06",
+      "date": "5月13日",
+      "time": "04:11",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0467",
       "avatar": "T",
@@ -211,8 +211,8 @@
     },
     {
       "id": "treasury_press-economic-fury-disrupts-networks-supplying-weapons-and-uav-compon",
-      "date": "5月12日",
-      "time": "20:06",
+      "date": "5月13日",
+      "time": "04:11",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0496",
       "avatar": "T",
@@ -237,8 +237,8 @@
     },
     {
       "id": "treasury_press-remarks-and-statements",
-      "date": "5月12日",
-      "time": "20:06",
+      "date": "5月13日",
+      "time": "04:11",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/statements-remarks",
       "avatar": "T",
@@ -263,8 +263,8 @@
     },
     {
       "id": "treasury_press-view-all-remarks-and-statements",
-      "date": "5月12日",
-      "time": "20:06",
+      "date": "5月13日",
+      "time": "04:11",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/statements-remarks",
       "avatar": "T",
@@ -600,28 +600,28 @@
       "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
     },
     {
-      "id": "sec_press-sec-divisions-of-investment-management-and-corporation-finance-i",
-      "date": "5月5日",
-      "time": "20:23",
-      "source": "SEC Press Releases",
-      "sourceUrl": "https://www.sec.gov/newsroom/press-releases/2026-43-sec-divisions-investment-management-corporation-finance-issue-staff-guidance-supporting-retirement",
-      "avatar": "S",
+      "id": "eia_energy-doe-has-released-17-5-million-barrels-from-the-strategic-petrole",
+      "date": "4月30日",
+      "time": "14:00",
+      "source": "EIA Today in Energy",
+      "sourceUrl": "https://www.eia.gov/todayinenergy/detail.php?id=67625",
+      "avatar": "E",
       "score": 81,
-      "category": "equity",
-      "horizon": "mid",
-      "asset": "equity",
-      "title": "SEC Divisions of Investment Management and Corporation Finance Issue Staff Guidance Supporting Retirement Plans for Small Businesses",
-      "summary": "Staff in the Securities and Exchange Commission’s Divisions of Investment Management and Corporation Finance issued guidance addressing certain questions regarding the application of the federal securities laws to pooled...",
+      "category": "commodity",
+      "horizon": "short",
+      "asset": "commodity equity bond",
+      "title": "DOE has released 17.5 million barrels from the Strategic Petroleum Reserve since March",
+      "summary": "Between the week ending March 20 and the week ending April 24, the U.S. Department of Energy (DOE) released a total of 17.5 million barrels of crude oil from the U.S. Strategic Petroleum Reserve (SPR), according to data...",
       "tags": [
-        "Equities",
+        "Commodities",
         "S-rank source",
-        "Equities"
+        "Equities, Bonds, Commodities"
       ],
-      "reason": "Official/high-priority source: SEC Press Releases. The item may affect Equities. Score is based on source rank, keyword hits, freshness, and asset coverage.",
+      "reason": "Official/high-priority source: EIA Today in Energy. The item may affect Equities, Bonds, Commodities. Score is based on source rank, keyword hits, freshness, and asset coverage.",
       "sourceRank": "S-rank",
       "absorbed": "Not fully priced",
-      "shortTerm": "Watch whether this item triggers short-term price confirmation in Equities.",
-      "midTerm": "Combine follow-up data and flows to judge whether the Equities theme persists.",
+      "shortTerm": "Watch whether this item triggers short-term price confirmation in Equities, Bonds, Commodities.",
+      "midTerm": "Combine follow-up data and flows to judge whether the Commodities theme persists.",
       "longTerm": "Long-term relevance depends on whether it changes the rate, earnings, inflation, or risk-premium baseline.",
       "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
     }
