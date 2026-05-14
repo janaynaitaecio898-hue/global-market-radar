@@ -1,58 +1,58 @@
 {
-  "generated_at": "2026-05-14T14:38:10.879205+00:00",
+  "generated_at": "2026-05-14T20:01:06.002362+00:00",
   "quotes": [
     {
       "symbol": "spy.us",
       "name": "S&P 500 ETF",
       "asset": "equity",
-      "close": 746.3,
+      "close": 748.355,
       "date": "2026-05-14",
-      "time": "16:23:09",
+      "time": "21:46:04",
       "status": "live"
     },
     {
       "symbol": "qqq.us",
       "name": "Nasdaq 100 ETF",
       "asset": "equity",
-      "close": 719.1301,
+      "close": 720.47,
       "date": "2026-05-14",
-      "time": "16:23:10",
+      "time": "21:46:05",
       "status": "live"
     },
     {
       "symbol": "tlt.us",
       "name": "20+ Year Treasury ETF",
       "asset": "bond",
-      "close": 85.215,
+      "close": 84.9751,
       "date": "2026-05-14",
-      "time": "16:23:02",
+      "time": "21:46:06",
       "status": "live"
     },
     {
       "symbol": "gld.us",
       "name": "Gold ETF",
       "asset": "gold",
-      "close": 431.3,
+      "close": 427.44,
       "date": "2026-05-14",
-      "time": "16:23:12",
+      "time": "21:46:06",
       "status": "live"
     },
     {
       "symbol": "uso.us",
       "name": "Oil ETF",
       "asset": "commodity",
-      "close": 141.89,
+      "close": 142.63,
       "date": "2026-05-14",
-      "time": "16:23:04",
+      "time": "21:46:06",
       "status": "live"
     },
     {
       "symbol": "uup.us",
       "name": "US Dollar ETF",
       "asset": "fx",
-      "close": 27.5401,
+      "close": 27.62,
       "date": "2026-05-14",
-      "time": "16:22:18",
+      "time": "21:45:50",
       "status": "live"
     }
   ],

@@ -1,6 +1,32 @@
 {
-  "generated_at": "2026-05-14T14:38:10.879205+00:00",
+  "generated_at": "2026-05-14T20:01:06.002362+00:00",
   "items": [
+    {
+      "id": "fed_press-stephen-i-miran-submits-his-resignation-as-a-member-of-the-feder",
+      "date": "5月14日",
+      "time": "18:00",
+      "source": "Federal Reserve Press Releases",
+      "sourceUrl": "https://www.federalreserve.gov/newsevents/pressreleases/other20260514b.htm",
+      "avatar": "F",
+      "score": 98,
+      "category": "macro",
+      "horizon": "short",
+      "asset": "equity bond gold fx",
+      "title": "Stephen I. Miran submits his resignation as a member of the Federal Reserve Board, effective when or shortly before his successor on the Board is sworn in",
+      "summary": "Stephen I. Miran submits his resignation as a member of the Federal Reserve Board, effective when or shortly before his successor on the Board is sworn in",
+      "tags": [
+        "Macro",
+        "S-rank source",
+        "Equities, Bonds, Gold, FX"
+      ],
+      "reason": "Official/high-priority source: Federal Reserve Press Releases. The item may affect Equities, Bonds, Gold, FX. Score is based on source rank, keyword hits, freshness, and asset coverage.",
+      "sourceRank": "S-rank",
+      "absorbed": "Not fully priced",
+      "shortTerm": "Watch whether this item triggers short-term price confirmation in Equities, Bonds, Gold, FX.",
+      "midTerm": "Combine follow-up data and flows to judge whether the Macro theme persists.",
+      "longTerm": "Long-term relevance depends on whether it changes the rate, earnings, inflation, or risk-premium baseline.",
+      "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
+    },
     {
       "id": "fed_press-federal-reserve-board-releases-results-from-two-surveys-of-senio",
       "date": "5月14日",
@@ -28,18 +54,18 @@
       "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
     },
     {
-      "id": "fed_press-federal-reserve-board-issues-economic-well-being-of-u-s-househol",
-      "date": "5月13日",
-      "time": "15:30",
+      "id": "fed_press-federal-reserve-board-announces-approval-of-related-applications",
+      "date": "5月8日",
+      "time": "21:00",
       "source": "Federal Reserve Press Releases",
-      "sourceUrl": "https://www.federalreserve.gov/newsevents/pressreleases/other20260513a.htm",
+      "sourceUrl": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260508a.htm",
       "avatar": "F",
-      "score": 98,
+      "score": 93,
       "category": "macro",
       "horizon": "short",
       "asset": "equity bond gold fx",
-      "title": "Federal Reserve Board issues Economic Well-Being of U.S. Households in 2025 report",
-      "summary": "Federal Reserve Board issues Economic Well-Being of U.S. Households in 2025 report",
+      "title": "Federal Reserve Board announces approval of related applications by Columbia Bank MHC, and Columbia Financial, Inc.",
+      "summary": "Federal Reserve Board announces approval of related applications by Columbia Bank MHC, and Columbia Financial, Inc.",
       "tags": [
         "Macro",
         "S-rank source",
@@ -54,18 +80,18 @@
       "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
     },
     {
-      "id": "fed_press-federal-reserve-board-announces-approval-of-related-applications",
-      "date": "5月8日",
-      "time": "21:00",
+      "id": "fed_press-federal-reserve-board-issues-economic-well-being-of-u-s-househol",
+      "date": "5月13日",
+      "time": "15:30",
       "source": "Federal Reserve Press Releases",
-      "sourceUrl": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260508a.htm",
+      "sourceUrl": "https://www.federalreserve.gov/newsevents/pressreleases/other20260513a.htm",
       "avatar": "F",
       "score": 93,
       "category": "macro",
       "horizon": "short",
       "asset": "equity bond gold fx",
-      "title": "Federal Reserve Board announces approval of related applications by Columbia Bank MHC, and Columbia Financial, Inc.",
-      "summary": "Federal Reserve Board announces approval of related applications by Columbia Bank MHC, and Columbia Financial, Inc.",
+      "title": "Federal Reserve Board issues Economic Well-Being of U.S. Households in 2025 report",
+      "summary": "Federal Reserve Board issues Economic Well-Being of U.S. Households in 2025 report",
       "tags": [
         "Macro",
         "S-rank source",
@@ -108,7 +134,7 @@
     {
       "id": "treasury_press-economic-fury-ramps-up-pressure-on-iran-s-islamic-revolutionary-",
       "date": "5月14日",
-      "time": "14:38",
+      "time": "20:01",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0498",
       "avatar": "T",
@@ -134,7 +160,7 @@
     {
       "id": "treasury_press-u-s-department-of-the-treasury-hosts-convening-with-state-insura",
       "date": "5月14日",
-      "time": "14:38",
+      "time": "20:01",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0493",
       "avatar": "T",
@@ -160,7 +186,7 @@
     {
       "id": "treasury_press-remarks-by-u-s-secretary-of-the-treasury-scott-bessent-at-univer",
       "date": "5月14日",
-      "time": "14:38",
+      "time": "20:01",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0497",
       "avatar": "T",
@@ -186,7 +212,7 @@
     {
       "id": "treasury_press-remarks-by-secretary-of-the-treasury-scott-bessent-before-the-ex",
       "date": "5月14日",
-      "time": "14:38",
+      "time": "20:01",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0481",
       "avatar": "T",
@@ -212,7 +238,7 @@
     {
       "id": "treasury_press-assistant-secretary-chris-pilkerton-s-remarks-at-aci-cfius-confe",
       "date": "5月14日",
-      "time": "14:38",
+      "time": "20:01",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0467",
       "avatar": "T",
@@ -264,7 +290,7 @@
     {
       "id": "treasury_press-economic-fury-disrupts-networks-supplying-weapons-and-uav-compon",
       "date": "5月14日",
-      "time": "14:38",
+      "time": "20:01",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0496",
       "avatar": "T",
@@ -290,7 +316,7 @@
     {
       "id": "treasury_press-remarks-and-statements",
       "date": "5月14日",
-      "time": "14:38",
+      "time": "20:01",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/statements-remarks",
       "avatar": "T",
@@ -316,7 +342,7 @@
     {
       "id": "treasury_press-view-all-remarks-and-statements",
       "date": "5月14日",
-      "time": "14:38",
+      "time": "20:01",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/statements-remarks",
       "avatar": "T",
@@ -544,32 +570,6 @@
       "absorbed": "Not fully priced",
       "shortTerm": "Watch whether this item triggers short-term price confirmation in Equities, Bonds, Commodities.",
       "midTerm": "Combine follow-up data and flows to judge whether the Commodities theme persists.",
-      "longTerm": "Long-term relevance depends on whether it changes the rate, earnings, inflation, or risk-premium baseline.",
-      "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
-    },
-    {
-      "id": "fed_press-minutes-of-the-board-s-discount-rate-meetings-on-february-9-and-",
-      "date": "4月14日",
-      "time": "18:00",
-      "source": "Federal Reserve Press Releases",
-      "sourceUrl": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260414a.htm",
-      "avatar": "F",
-      "score": 83,
-      "category": "macro",
-      "horizon": "mid",
-      "asset": "equity bond gold fx",
-      "title": "Minutes of the Board’s discount rate meetings on February 9 and March 18, 2026",
-      "summary": "Minutes of the Board’s discount rate meetings on February 9 and March 18, 2026",
-      "tags": [
-        "Macro",
-        "S-rank source",
-        "Equities, Bonds, Gold, FX"
-      ],
-      "reason": "Official/high-priority source: Federal Reserve Press Releases. The item may affect Equities, Bonds, Gold, FX. Score is based on source rank, keyword hits, freshness, and asset coverage.",
-      "sourceRank": "S-rank",
-      "absorbed": "Not fully priced",
-      "shortTerm": "Watch whether this item triggers short-term price confirmation in Equities, Bonds, Gold, FX.",
-      "midTerm": "Combine follow-up data and flows to judge whether the Macro theme persists.",
       "longTerm": "Long-term relevance depends on whether it changes the rate, earnings, inflation, or risk-premium baseline.",
       "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
     },
