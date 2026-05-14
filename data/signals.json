@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-13T20:07:08.405494+00:00",
+  "generated_at": "2026-05-14T04:10:57.743328+00:00",
   "items": [
     {
       "id": "fed_press-federal-reserve-board-issues-economic-well-being-of-u-s-househol",
@@ -81,8 +81,8 @@
     },
     {
       "id": "treasury_press-economic-fury-ramps-up-pressure-on-iran-s-islamic-revolutionary-",
-      "date": "5月13日",
-      "time": "20:07",
+      "date": "5月14日",
+      "time": "04:11",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0498",
       "avatar": "T",
@@ -107,8 +107,8 @@
     },
     {
       "id": "treasury_press-u-s-department-of-the-treasury-hosts-convening-with-state-insura",
-      "date": "5月13日",
-      "time": "20:07",
+      "date": "5月14日",
+      "time": "04:11",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0493",
       "avatar": "T",
@@ -133,8 +133,8 @@
     },
     {
       "id": "treasury_press-remarks-by-u-s-secretary-of-the-treasury-scott-bessent-at-univer",
-      "date": "5月13日",
-      "time": "20:07",
+      "date": "5月14日",
+      "time": "04:11",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0497",
       "avatar": "T",
@@ -159,8 +159,8 @@
     },
     {
       "id": "treasury_press-remarks-by-secretary-of-the-treasury-scott-bessent-before-the-ex",
-      "date": "5月13日",
-      "time": "20:07",
+      "date": "5月14日",
+      "time": "04:11",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0481",
       "avatar": "T",
@@ -185,8 +185,8 @@
     },
     {
       "id": "treasury_press-assistant-secretary-chris-pilkerton-s-remarks-at-aci-cfius-confe",
-      "date": "5月13日",
-      "time": "20:07",
+      "date": "5月14日",
+      "time": "04:11",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0467",
       "avatar": "T",
@@ -237,8 +237,8 @@
     },
     {
       "id": "treasury_press-economic-fury-disrupts-networks-supplying-weapons-and-uav-compon",
-      "date": "5月13日",
-      "time": "20:07",
+      "date": "5月14日",
+      "time": "04:11",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0496",
       "avatar": "T",
@@ -263,8 +263,8 @@
     },
     {
       "id": "treasury_press-remarks-and-statements",
-      "date": "5月13日",
-      "time": "20:07",
+      "date": "5月14日",
+      "time": "04:11",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/statements-remarks",
       "avatar": "T",
@@ -289,8 +289,8 @@
     },
     {
       "id": "treasury_press-view-all-remarks-and-statements",
-      "date": "5月13日",
-      "time": "20:07",
+      "date": "5月14日",
+      "time": "04:11",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/statements-remarks",
       "avatar": "T",
@@ -600,28 +600,28 @@
       "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
     },
     {
-      "id": "sec_press-sec-charges-21-individuals-with-alleged-wide-reaching-insider-tr",
-      "date": "5月6日",
-      "time": "23:24",
-      "source": "SEC Press Releases",
-      "sourceUrl": "https://www.sec.gov/newsroom/press-releases/2026-44-sec-charges-21-individuals-alleged-wide-reaching-insider-trading-scheme",
-      "avatar": "S",
+      "id": "eia_energy-doe-has-released-17-5-million-barrels-from-the-strategic-petrole",
+      "date": "4月30日",
+      "time": "14:00",
+      "source": "EIA Today in Energy",
+      "sourceUrl": "https://www.eia.gov/todayinenergy/detail.php?id=67625",
+      "avatar": "E",
       "score": 81,
-      "category": "equity",
-      "horizon": "mid",
-      "asset": "equity",
-      "title": "SEC Charges 21 Individuals With Alleged Wide-Reaching Insider Trading Scheme",
-      "summary": "The Securities and Exchange Commission today charged 21 individuals for their alleged involvement in a decade-long insider trading scheme that used information misappropriated from multiple global law firms and resulted...",
+      "category": "commodity",
+      "horizon": "short",
+      "asset": "commodity equity bond",
+      "title": "DOE has released 17.5 million barrels from the Strategic Petroleum Reserve since March",
+      "summary": "Between the week ending March 20 and the week ending April 24, the U.S. Department of Energy (DOE) released a total of 17.5 million barrels of crude oil from the U.S. Strategic Petroleum Reserve (SPR), according to data...",
       "tags": [
-        "Equities",
+        "Commodities",
         "S-rank source",
-        "Equities"
+        "Equities, Bonds, Commodities"
       ],
-      "reason": "Official/high-priority source: SEC Press Releases. The item may affect Equities. Score is based on source rank, keyword hits, freshness, and asset coverage.",
+      "reason": "Official/high-priority source: EIA Today in Energy. The item may affect Equities, Bonds, Commodities. Score is based on source rank, keyword hits, freshness, and asset coverage.",
       "sourceRank": "S-rank",
       "absorbed": "Not fully priced",
-      "shortTerm": "Watch whether this item triggers short-term price confirmation in Equities.",
-      "midTerm": "Combine follow-up data and flows to judge whether the Equities theme persists.",
+      "shortTerm": "Watch whether this item triggers short-term price confirmation in Equities, Bonds, Commodities.",
+      "midTerm": "Combine follow-up data and flows to judge whether the Commodities theme persists.",
       "longTerm": "Long-term relevance depends on whether it changes the rate, earnings, inflation, or risk-premium baseline.",
       "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
     }
