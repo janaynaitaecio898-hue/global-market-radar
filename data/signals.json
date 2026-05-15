@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-15T09:23:16.106803+00:00",
+  "generated_at": "2026-05-15T14:32:53.420786+00:00",
   "items": [
     {
       "id": "fed_press-stephen-i-miran-submits-his-resignation-as-a-member-of-the-feder",
@@ -28,18 +28,18 @@
       "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
     },
     {
-      "id": "fed_press-federal-reserve-board-releases-results-from-two-surveys-of-senio",
-      "date": "5月14日",
-      "time": "14:00",
+      "id": "fed_press-federal-reserve-board-announces-approval-of-related-applications",
+      "date": "5月8日",
+      "time": "21:00",
       "source": "Federal Reserve Press Releases",
-      "sourceUrl": "https://www.federalreserve.gov/newsevents/pressreleases/other20260514a.htm",
+      "sourceUrl": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260508a.htm",
       "avatar": "F",
-      "score": 98,
+      "score": 93,
       "category": "macro",
       "horizon": "short",
       "asset": "equity bond gold fx",
-      "title": "Federal Reserve Board releases results from two surveys of senior financial officers at banks about their views on discount window operating days and their strategies and practices for managing reserve balances",
-      "summary": "Federal Reserve Board releases results from two surveys of senior financial officers at banks about their views on discount window operating days and their strategies and practices for managing reserve balances",
+      "title": "Federal Reserve Board announces approval of related applications by Columbia Bank MHC, and Columbia Financial, Inc.",
+      "summary": "Federal Reserve Board announces approval of related applications by Columbia Bank MHC, and Columbia Financial, Inc.",
       "tags": [
         "Macro",
         "S-rank source",
@@ -54,18 +54,18 @@
       "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
     },
     {
-      "id": "fed_press-federal-reserve-board-announces-approval-of-related-applications",
-      "date": "5月8日",
-      "time": "21:00",
+      "id": "fed_press-federal-reserve-board-releases-results-from-two-surveys-of-senio",
+      "date": "5月14日",
+      "time": "14:00",
       "source": "Federal Reserve Press Releases",
-      "sourceUrl": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260508a.htm",
+      "sourceUrl": "https://www.federalreserve.gov/newsevents/pressreleases/other20260514a.htm",
       "avatar": "F",
       "score": 93,
       "category": "macro",
       "horizon": "short",
       "asset": "equity bond gold fx",
-      "title": "Federal Reserve Board announces approval of related applications by Columbia Bank MHC, and Columbia Financial, Inc.",
-      "summary": "Federal Reserve Board announces approval of related applications by Columbia Bank MHC, and Columbia Financial, Inc.",
+      "title": "Federal Reserve Board releases results from two surveys of senior financial officers at banks about their views on discount window operating days and their strategies and practices for managing reserve balances",
+      "summary": "Federal Reserve Board releases results from two surveys of senior financial officers at banks about their views on discount window operating days and their strategies and practices for managing reserve balances",
       "tags": [
         "Macro",
         "S-rank source",
@@ -134,7 +134,7 @@
     {
       "id": "treasury_press-economic-fury-ramps-up-pressure-on-iran-s-islamic-revolutionary-",
       "date": "5月15日",
-      "time": "09:23",
+      "time": "14:33",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0498",
       "avatar": "T",
@@ -160,7 +160,7 @@
     {
       "id": "treasury_press-u-s-department-of-the-treasury-hosts-convening-with-state-insura",
       "date": "5月15日",
-      "time": "09:23",
+      "time": "14:33",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0493",
       "avatar": "T",
@@ -186,7 +186,7 @@
     {
       "id": "treasury_press-remarks-by-u-s-secretary-of-the-treasury-scott-bessent-at-univer",
       "date": "5月15日",
-      "time": "09:23",
+      "time": "14:33",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0497",
       "avatar": "T",
@@ -212,7 +212,7 @@
     {
       "id": "treasury_press-remarks-by-secretary-of-the-treasury-scott-bessent-before-the-ex",
       "date": "5月15日",
-      "time": "09:23",
+      "time": "14:33",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0481",
       "avatar": "T",
@@ -238,7 +238,7 @@
     {
       "id": "treasury_press-assistant-secretary-chris-pilkerton-s-remarks-at-aci-cfius-confe",
       "date": "5月15日",
-      "time": "09:23",
+      "time": "14:33",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0467",
       "avatar": "T",
@@ -258,6 +258,32 @@
       "absorbed": "Not fully priced",
       "shortTerm": "Watch whether this item triggers short-term price confirmation in Equities.",
       "midTerm": "Combine follow-up data and flows to judge whether the Equities theme persists.",
+      "longTerm": "Long-term relevance depends on whether it changes the rate, earnings, inflation, or risk-premium baseline.",
+      "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
+    },
+    {
+      "id": "eia_energy-u-s-industrial-natural-gas-consumption-expected-to-hit-records-i",
+      "date": "5月15日",
+      "time": "14:00",
+      "source": "EIA Today in Energy",
+      "sourceUrl": "https://www.eia.gov/todayinenergy/detail.php?id=67686",
+      "avatar": "E",
+      "score": 90,
+      "category": "commodity",
+      "horizon": "short",
+      "asset": "commodity equity bond",
+      "title": "U.S. industrial natural gas consumption expected to hit records in 2026 and 2027",
+      "summary": "We forecast U.S. industrial natural gas consumption will climb to record highs through 2027 in our latest Short-Term Energy Outlook. Industrial consumption averaged a record 23.6 billion cubic feet per day (Bcf/d) in 202...",
+      "tags": [
+        "Commodities",
+        "S-rank source",
+        "Equities, Bonds, Commodities"
+      ],
+      "reason": "Official/high-priority source: EIA Today in Energy. The item may affect Equities, Bonds, Commodities. Score is based on source rank, keyword hits, freshness, and asset coverage.",
+      "sourceRank": "S-rank",
+      "absorbed": "Not fully priced",
+      "shortTerm": "Watch whether this item triggers short-term price confirmation in Equities, Bonds, Commodities.",
+      "midTerm": "Combine follow-up data and flows to judge whether the Commodities theme persists.",
       "longTerm": "Long-term relevance depends on whether it changes the rate, earnings, inflation, or risk-premium baseline.",
       "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
     },
@@ -290,7 +316,7 @@
     {
       "id": "treasury_press-economic-fury-disrupts-networks-supplying-weapons-and-uav-compon",
       "date": "5月15日",
-      "time": "09:23",
+      "time": "14:33",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0496",
       "avatar": "T",
@@ -316,7 +342,7 @@
     {
       "id": "treasury_press-remarks-and-statements",
       "date": "5月15日",
-      "time": "09:23",
+      "time": "14:33",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/statements-remarks",
       "avatar": "T",
@@ -342,7 +368,7 @@
     {
       "id": "treasury_press-view-all-remarks-and-statements",
       "date": "5月15日",
-      "time": "09:23",
+      "time": "14:33",
       "source": "U.S. Treasury Press Releases",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/statements-remarks",
       "avatar": "T",
@@ -594,32 +620,6 @@
       "reason": "Official/high-priority source: EIA Today in Energy. The item may affect Equities, Bonds, Commodities. Score is based on source rank, keyword hits, freshness, and asset coverage.",
       "sourceRank": "S-rank",
       "absorbed": "Not fully priced",
-      "shortTerm": "Watch whether this item triggers short-term price confirmation in Equities, Bonds, Commodities.",
-      "midTerm": "Combine follow-up data and flows to judge whether the Commodities theme persists.",
-      "longTerm": "Long-term relevance depends on whether it changes the rate, earnings, inflation, or risk-premium baseline.",
-      "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation."
-    },
-    {
-      "id": "eia_energy-alaska-proved-reserves-increased-in-2024-while-nationwide-proved",
-      "date": "4月29日",
-      "time": "14:00",
-      "source": "EIA Today in Energy",
-      "sourceUrl": "https://www.eia.gov/todayinenergy/detail.php?id=67624",
-      "avatar": "E",
-      "score": 79,
-      "category": "commodity",
-      "horizon": "short",
-      "asset": "commodity equity bond",
-      "title": "Alaska proved reserves increased in 2024, while nationwide proved reserves fell",
-      "summary": "Oil and gas producers operating in Alaska reported increases in proved reserves in 2024 at a time when low prices triggered a decrease in nationwide proved reserves, according to our recently released U.S. Crude Oil and...",
-      "tags": [
-        "Commodities",
-        "S-rank source",
-        "Equities, Bonds, Commodities"
-      ],
-      "reason": "Official/high-priority source: EIA Today in Energy. The item may affect Equities, Bonds, Commodities. Score is based on source rank, keyword hits, freshness, and asset coverage.",
-      "sourceRank": "S-rank",
-      "absorbed": "Partly priced",
       "shortTerm": "Watch whether this item triggers short-term price confirmation in Equities, Bonds, Commodities.",
       "midTerm": "Combine follow-up data and flows to judge whether the Commodities theme persists.",
       "longTerm": "Long-term relevance depends on whether it changes the rate, earnings, inflation, or risk-premium baseline.",
