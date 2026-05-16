@@ -3,7 +3,7 @@ let signals = [
     id: "us-jobs-rate-path",
     date: "5月11日",
     time: "10:40",
-    source: "Federal Reserve / BLS",
+    source: "美联储 / 美国劳工统计局",
     avatar: "F",
     score: 92,
     category: "macro",
@@ -27,7 +27,7 @@ let signals = [
     id: "gold-etf-central-bank",
     date: "5月11日",
     time: "09:25",
-    source: "ETF Flow Monitor",
+    source: "ETF 资金流监测",
     avatar: "E",
     score: 84,
     category: "gold",
@@ -51,7 +51,7 @@ let signals = [
     id: "ai-earnings-capex",
     date: "5月11日",
     time: "08:50",
-    source: "Earnings Watch",
+    source: "财报观察",
     avatar: "Q",
     score: 79,
     category: "equity",
@@ -75,7 +75,7 @@ let signals = [
     id: "fiscal-deficit-term-premium",
     date: "5月10日",
     time: "22:15",
-    source: "Treasury / Macro Desk",
+    source: "美国财政部 / 宏观台",
     avatar: "T",
     score: 76,
     category: "bond",
@@ -99,7 +99,7 @@ let signals = [
     id: "oil-inventory-geopolitics",
     date: "5月10日",
     time: "20:30",
-    source: "Commodity Desk",
+    source: "商品研究台",
     avatar: "O",
     score: 71,
     category: "commodity",
@@ -123,7 +123,7 @@ let signals = [
     id: "volatility-risk-repricing",
     date: "5月10日",
     time: "17:40",
-    source: "Risk Monitor",
+    source: "风险监测",
     avatar: "R",
     score: 69,
     category: "risk",
@@ -185,7 +185,7 @@ const state = {
 let dataMeta = {
   status: "fallback",
   generated_at: null,
-  notes: ["Using bundled fallback data."],
+  notes: ["正在使用内置兜底数据。"],
 };
 
 let marketSnapshot = null;
@@ -316,6 +316,10 @@ function horizonName(value) {
   return { short: "短期", mid: "中期", long: "长期" }[value] || "全部";
 }
 
+function statusName(value) {
+  return { live: "实时", degraded: "部分降级", fallback: "兜底数据" }[value] || value || "未知";
+}
+
 function renderAssets() {
   const grid = document.querySelector("#assetGrid");
   if (!grid) return;
@@ -346,7 +350,7 @@ function renderMarketSnapshot() {
   root.innerHTML = `
     <div class="snapshot-head">
       <h2>核心资产快照</h2>
-      <span>${marketSnapshot.status === "live" ? "Live" : "Degraded"} · ${marketSnapshot.generated_at || ""}</span>
+      <span>${statusName(marketSnapshot.status)} · ${marketSnapshot.generated_at || ""}</span>
     </div>
     <div class="snapshot-grid">
       ${marketSnapshot.quotes
@@ -355,7 +359,7 @@ function renderMarketSnapshot() {
             <article>
               <span>${quote.name}</span>
               <strong>${quote.close}</strong>
-              <small>${quote.symbol} · ${quote.status}</small>
+              <small>${quote.symbol} · ${statusName(quote.status)}</small>
             </article>
           `,
         )
@@ -460,7 +464,7 @@ async function loadProductionData() {
     dataMeta = {
       status: "fallback",
       generated_at: null,
-      notes: ["Local file preview uses bundled fallback data. GitHub Pages reads data/*.json."],
+      notes: ["本地文件预览使用内置兜底数据；GitHub Pages 正式页面读取 data/*.json。"],
     };
     return;
   }
@@ -489,7 +493,7 @@ async function loadProductionData() {
     dataMeta = {
       status: "fallback",
       generated_at: null,
-      notes: [`Failed to load data/*.json: ${error.message}`],
+      notes: [`读取 data/*.json 失败：${error.message}`],
     };
   }
 }
@@ -506,7 +510,7 @@ function renderDataStatus() {
         : "内置兜底数据";
   const status = document.createElement("section");
   status.className = `data-status ${dataMeta.status === "live" ? "live" : ""}`;
-  const generated = dataMeta.generated_at ? new Date(dataMeta.generated_at).toLocaleString() : "fallback";
+  const generated = dataMeta.generated_at ? new Date(dataMeta.generated_at).toLocaleString() : "未加载";
   status.innerHTML = `
     <strong>${label}</strong>
     <span>更新时间：${generated}</span>

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate static data files for Global Market Radar.
+"""Generate static data files for 全球资产雷达.
 
 The site is hosted on GitHub Pages, so the first production version uses a
 static-data pipeline: this script fetches lightweight market quotes, combines
@@ -9,6 +9,7 @@ them with the editorial rule set below, and writes JSON consumed by app.js.
 from __future__ import annotations
 
 import csv
+import hashlib
 import html
 import json
 import re
@@ -28,37 +29,37 @@ SOURCES_PATH = ROOT / "sources.json"
 MARKET_INSTRUMENTS = [
     {
         "symbol": "spy.us",
-        "name": "S&P 500 ETF",
+        "name": "标普500 ETF",
         "asset": "equity",
         "fallback_close": 520.0,
     },
     {
         "symbol": "qqq.us",
-        "name": "Nasdaq 100 ETF",
+        "name": "纳斯达克100 ETF",
         "asset": "equity",
         "fallback_close": 445.0,
     },
     {
         "symbol": "tlt.us",
-        "name": "20+ Year Treasury ETF",
+        "name": "20年以上美债 ETF",
         "asset": "bond",
         "fallback_close": 90.0,
     },
     {
         "symbol": "gld.us",
-        "name": "Gold ETF",
+        "name": "黄金 ETF",
         "asset": "gold",
         "fallback_close": 215.0,
     },
     {
         "symbol": "uso.us",
-        "name": "Oil ETF",
+        "name": "原油 ETF",
         "asset": "commodity",
         "fallback_close": 75.0,
     },
     {
         "symbol": "uup.us",
-        "name": "US Dollar ETF",
+        "name": "美元指数 ETF",
         "asset": "fx",
         "fallback_close": 29.0,
     },
@@ -69,7 +70,7 @@ BASE_SIGNALS = [
         "id": "us-jobs-rate-path",
         "date": "5月11日",
         "time": "10:40",
-        "source": "Federal Reserve / BLS",
+        "source": "美联储 / 美国劳工统计局",
         "avatar": "F",
         "score": 92,
         "category": "macro",
@@ -90,7 +91,7 @@ BASE_SIGNALS = [
         "id": "gold-etf-central-bank",
         "date": "5月11日",
         "time": "09:25",
-        "source": "ETF Flow Monitor",
+        "source": "ETF 资金流监测",
         "avatar": "E",
         "score": 84,
         "category": "gold",
@@ -111,7 +112,7 @@ BASE_SIGNALS = [
         "id": "ai-earnings-capex",
         "date": "5月11日",
         "time": "08:50",
-        "source": "Earnings Watch",
+        "source": "财报观察",
         "avatar": "Q",
         "score": 79,
         "category": "equity",
@@ -132,7 +133,7 @@ BASE_SIGNALS = [
         "id": "fiscal-deficit-term-premium",
         "date": "5月10日",
         "time": "22:15",
-        "source": "Treasury / Macro Desk",
+        "source": "美国财政部 / 宏观台",
         "avatar": "T",
         "score": 76,
         "category": "bond",
@@ -153,7 +154,7 @@ BASE_SIGNALS = [
         "id": "oil-inventory-geopolitics",
         "date": "5月10日",
         "time": "20:30",
-        "source": "Commodity Desk",
+        "source": "商品研究台",
         "avatar": "O",
         "score": 71,
         "category": "commodity",
@@ -174,7 +175,7 @@ BASE_SIGNALS = [
         "id": "volatility-risk-repricing",
         "date": "5月10日",
         "time": "17:40",
-        "source": "Risk Monitor",
+        "source": "风险监测",
         "avatar": "R",
         "score": 69,
         "category": "risk",
@@ -278,7 +279,7 @@ def build_market_snapshot() -> dict[str, Any]:
         "quotes": quotes,
         "status": "live" if not errors else "degraded",
         "errors": errors,
-        "source": "Stooq delayed quote CSV with built-in fallback values",
+        "source": "Stooq 延迟行情 CSV；源不可用时使用内置兜底值",
     }
 
 
@@ -334,20 +335,20 @@ KEYWORD_RULES = [
 ]
 
 CATEGORY_LABELS = {
-    "macro": "Macro",
-    "bond": "Bonds",
-    "commodity": "Commodities",
-    "equity": "Equities",
-    "risk": "Risk",
-    "gold": "Gold",
+    "macro": "宏观",
+    "bond": "债券",
+    "commodity": "商品",
+    "equity": "股票",
+    "risk": "风险",
+    "gold": "黄金",
 }
 
 ASSET_LABELS = {
-    "equity": "Equities",
-    "bond": "Bonds",
-    "gold": "Gold",
-    "fx": "FX",
-    "commodity": "Commodities",
+    "equity": "股票",
+    "bond": "债券",
+    "gold": "黄金",
+    "fx": "汇率",
+    "commodity": "商品",
 }
 
 HIGH_IMPACT_PHRASES = [
@@ -445,9 +446,52 @@ def format_cn_date(dt: datetime) -> str:
     return f"{dt.month}月{dt.day}日"
 
 
+def format_period_cn(value: str) -> str:
+    month_names = {
+        "january": "1月",
+        "february": "2月",
+        "march": "3月",
+        "april": "4月",
+        "may": "5月",
+        "june": "6月",
+        "july": "7月",
+        "august": "8月",
+        "september": "9月",
+        "october": "10月",
+        "november": "11月",
+        "december": "12月",
+    }
+    return month_names.get(value.lower(), value)
+
+
 def slugify(value: str, prefix: str) -> str:
+    digest = hashlib.sha1(value.encode("utf-8")).hexdigest()[:8]
     slug = re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
-    return f"{prefix}-{slug[:64] or 'item'}"
+    if slug:
+        return f"{prefix}-{slug[:52]}-{digest}"
+    return f"{prefix}-{digest}"
+
+
+def display_title_cn(source: dict[str, Any], category: str, asset_text: str) -> str:
+    source_id = source.get("id")
+    if source_id == "fed_press":
+        return "美联储发布影响利率预期和风险资产定价的官方更新"
+    if source_id == "eia_energy":
+        return "美国能源信息署发布能源供需与通胀线索更新"
+    if source_id == "sec_press":
+        return "美国 SEC 发布资本市场监管与上市公司风险更新"
+    if source_id == "treasury_press":
+        return "美国财政部发布财政、债务或跨境资金相关更新"
+    category_label = CATEGORY_LABELS.get(category, "市场")
+    return f"{source.get('name', '官方信源')}发布{category_label}类市场更新"
+
+
+def display_summary_cn(source: dict[str, Any], category: str, asset_text: str) -> str:
+    category_label = CATEGORY_LABELS.get(category, "市场")
+    return (
+        f"{source.get('name', '官方信源')}发布新信息，系统将其归入{category_label}类影响因素，"
+        f"重点观察它对{asset_text}的传导。正式决策应结合原文链接、后续数据和价格确认。"
+    )
 
 
 def load_sources() -> list[dict[str, Any]]:
@@ -559,19 +603,19 @@ def parse_bls_api_source(source: dict[str, Any]) -> list[dict[str, Any]]:
             continue
 
         if previous_value is None:
-            change_text = "previous observation unavailable"
+            change_text = "暂无上一期对比数据"
         else:
             delta = latest_value - previous_value
-            change_text = f"change from previous observation {delta:+.2f}"
+            change_text = f"较上一期变化 {delta:+.2f}"
 
-        period = latest.get("periodName") or latest.get("period") or "latest period"
+        period = format_period_cn(latest.get("periodName") or latest.get("period") or "最新周期")
         year = latest.get("year") or str(now.year)
         unit = config.get("unit", "")
-        title = f"{config.get('name', series_id)} latest reading: {latest_value:g} {unit} ({period} {year})"
+        title = f"{config.get('name', series_id)}最新读数：{latest_value:g} {unit}（{year}年{period}）"
         asset_text = config.get("asset", source.get("asset_hint", "equity bond gold fx"))
         summary = (
-            f"Official BLS series {series_id} reported {latest_value:g} {unit} for {period} {year}; "
-            f"{change_text}. This is a core {config.get('topic', 'macro')} input for rates, equities, bonds, gold, and FX."
+            f"美国劳工统计局官方序列 {series_id} 在 {year}年{period} 的读数为 {latest_value:g} {unit}；"
+            f"{change_text}。这是判断利率、股票、债券、黄金和汇率的重要{config.get('topic', '宏观')}输入。"
         )
         entries.append(
             {
@@ -656,8 +700,14 @@ def build_signal_from_entry(entry: dict[str, Any]) -> dict[str, Any]:
         for key, label in ASSET_LABELS.items()
         if key in classification["asset"]
     ]
-    asset_text = ", ".join(assets) or "multiple assets"
-    summary = entry.get("summary") or f"{entry['title']}."
+    asset_text = "、".join(assets) or "多类资产"
+    title = entry.get("title_cn") or (
+        entry["title"] if entry.get("category") else display_title_cn(source, category, asset_text)
+    )
+    summary = entry.get("summary_cn") or (
+        entry.get("summary") if entry.get("category") else display_summary_cn(source, category, asset_text)
+    )
+    summary = summary or f"{title}。"
     if len(summary) > 220:
         summary = f"{summary[:220].rstrip()}..."
 
@@ -672,16 +722,16 @@ def build_signal_from_entry(entry: dict[str, Any]) -> dict[str, Any]:
         "category": category,
         "horizon": classification["horizon"],
         "asset": classification["asset"],
-        "title": entry["title"],
+        "title": title,
         "summary": summary,
-        "tags": [CATEGORY_LABELS.get(category, "Market"), source.get("rank", "A") + "-rank source", asset_text],
-        "reason": f"Official/high-priority source: {source['name']}. The item may affect {asset_text}. Score is based on source rank, keyword hits, freshness, and asset coverage.",
-        "sourceRank": source.get("rank", "A") + "-rank",
-        "absorbed": "Not fully priced" if score >= 80 else "Partly priced",
-        "shortTerm": f"Watch whether this item triggers short-term price confirmation in {asset_text}.",
-        "midTerm": f"Combine follow-up data and flows to judge whether the {CATEGORY_LABELS.get(category, 'Market')} theme persists.",
-        "longTerm": "Long-term relevance depends on whether it changes the rate, earnings, inflation, or risk-premium baseline.",
-        "decision": "Use as research and risk-control input, not as a standalone trading signal. Wait for price, data, and source confirmation.",
+        "tags": [CATEGORY_LABELS.get(category, "市场"), source.get("rank", "A") + "级信源", asset_text],
+        "reason": f"来自 {source['name']} 的高优先级信息，可能影响{asset_text}。评分综合信源等级、关键词命中、发布时间和影响资产范围。",
+        "sourceRank": source.get("rank", "A") + "级",
+        "absorbed": "尚未完全消化" if score >= 80 else "部分消化",
+        "shortTerm": f"短期观察该信息是否在{asset_text}价格中形成确认。",
+        "midTerm": f"中期结合后续数据和资金流，判断{CATEGORY_LABELS.get(category, '市场')}主线是否延续。",
+        "longTerm": "长期意义取决于它是否改变利率、盈利、通胀或风险溢价的基准假设。",
+        "decision": "仅作为研究和风控输入，不作为单独交易信号；等待价格、数据和信源交叉确认。",
     }
 
 
@@ -721,16 +771,16 @@ def build_daily(signals: list[dict[str, Any]], generated_at: str) -> dict[str, A
         if titles:
             sections.append({"title": label, "items": titles})
     if not sections:
-        sections.append({"title": "Market", "items": [item["title"] for item in signals[:5]]})
+        sections.append({"title": "市场", "items": [item["title"] for item in signals[:5]]})
 
-    top = signals[0] if signals else {"title": "No high-priority event yet"}
+    top = signals[0] if signals else {"title": "暂无高优先级事件"}
     now = datetime.now(timezone.utc)
     return {
         "generated_at": generated_at,
-        "title": f"{now.month}/{now.day}",
-        "summary": f"Top priority event: {top['title']}. The report is generated from source rank, keywords, asset coverage, and freshness.",
+        "title": f"{now.month}月{now.day}日",
+        "summary": f"今日最高优先级事件：{top['title']}。日报根据官方信源等级、关键词、影响资产范围和发布时间自动生成。",
         "sections": sections,
-        "watch": ["CPI / inflation data", "Treasury yields", "US dollar index", "Gold ETF flows", "Major central-bank remarks"],
+        "watch": ["CPI / 通胀数据", "美债收益率", "美元指数", "黄金 ETF 资金流", "主要央行表态"],
     }
 
 
@@ -757,19 +807,19 @@ def main() -> int:
         DATA_DIR / "meta.json",
         {
             "generated_at": generated_at,
-            "version": "1.1",
+            "version": "1.2",
             "status": "live" if live_signals and market_snapshot["status"] == "live" else "degraded",
             "notes": [
-                f"Generated {len(output_signals)} market signals from configured official sources.",
-                "Market quotes degrade to fallback values if a source is unavailable.",
-                "Signals are classified by source rank, keywords, asset coverage, and freshness.",
+                f"已从配置的官方信源生成 {len(output_signals)} 条市场影响因素。",
+                "行情源不可用时会自动降级为内置兜底值。",
+                "市场动态会根据信源等级、关键词、影响资产范围和发布时间进行分类评分。",
             ],
             "source_errors": source_errors,
         },
     )
     all_errors = market_snapshot["errors"] + source_errors
     if all_errors:
-        print("Generated with degraded quote data:", file=sys.stderr)
+        print("数据已生成，但部分行情或信源降级：", file=sys.stderr)
         for error in all_errors:
             print(f"- {error}", file=sys.stderr)
     return 0

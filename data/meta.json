@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-05-15T19:52:44.128650+00:00",
+  "generated_at": "2026-05-16T12:10:35.728746+00:00",
   "version": "1.2",
   "status": "live",
   "notes": [
-    "v1.2 replaces BLS RSS with the BLS Public Data API.",
-    "GitHub Actions fetches RSS/official pages and generates signals, daily, assets, scenarios, and market_snapshot data.",
-    "Scoring boosts high-impact macro events and downranks low-impact administrative announcements."
+    "已从配置的官方信源生成 24 条市场影响因素。",
+    "行情源不可用时会自动降级为内置兜底值。",
+    "市场动态会根据信源等级、关键词、影响资产范围和发布时间进行分类评分。"
   ],
   "source_errors": []
 }

@@ -1,55 +1,53 @@
 {
-  "generated_at": "2026-05-15T19:52:44.128650+00:00",
-  "title": "5/15",
-  "summary": "Top priority event: Federal Reserve Board announces termination of enforcement actions with UBS Group AG, Credit Suisse AG, Credit Suisse Holdings (USA), Inc., and Credit Suisse AG, New York Branch. The report is generated from source rank, keywords, asset coverage, and freshness.",
+  "generated_at": "2026-05-16T12:10:35.728746+00:00",
+  "title": "5月16日",
+  "summary": "今日最高优先级事件：美国 CPI-U 全项目最新读数：333.02 指数（2026年4月）。日报根据官方信源等级、关键词、影响资产范围和发布时间自动生成。",
   "sections": [
     {
-      "title": "Macro",
+      "title": "宏观",
       "items": [
-        "Federal Reserve Board announces approval of related applications by Columbia Bank MHC, and Columbia Financial, Inc.",
-        "Stephen I. Miran submits his resignation as a member of the Federal Reserve Board, effective when or shortly before his successor on the Board is sworn in",
-        "Federal Reserve Board releases results from two surveys of senior financial officers at banks about their views on discount window operating days and their strategies and practices for managing reserve balances",
-        "Federal Reserve Board issues Economic Well-Being of U.S. Households in 2025 report"
+        "美国 CPI-U 全项目最新读数：333.02 指数（2026年4月）",
+        "美国失业率最新读数：4.3 %（2026年4月）",
+        "美国非农就业总人数最新读数：158736 千人（2026年4月）",
+        "美联储发布影响利率预期和风险资产定价的官方更新"
       ]
     },
     {
-      "title": "Bonds",
+      "title": "债券",
       "items": [
-        "U.S. Department of the Treasury Hosts Convening with State Insurance Commissioners on Private Credit and the Insurance Sector",
-        "Remarks by U.S. Secretary of the Treasury Scott Bessent at University of South Carolina Commencement",
-        "Remarks by Secretary of the Treasury Scott Bessent Before the EXIM Annual Conference",
-        "Economic Fury Disrupts Networks Supplying Weapons and UAV Components to Iran"
+        "美国财政部发布财政、债务或跨境资金相关更新",
+        "美国财政部发布财政、债务或跨境资金相关更新",
+        "美国财政部发布财政、债务或跨境资金相关更新"
       ]
     },
     {
-      "title": "Commodities",
+      "title": "商品",
       "items": [
-        "Economic Fury Ramps Up Pressure on Iran’s Islamic Revolutionary Guard Corps Oil Operations",
-        "U.S. industrial natural gas consumption expected to hit records in 2026 and 2027",
-        "The United States set record energy production in 2025, again",
-        "Electricity generation from solar could exceed coal in ERCOT for the first time in 2026"
+        "美国能源信息署发布能源供需与通胀线索更新",
+        "美国财政部发布财政、债务或跨境资金相关更新",
+        "美国能源信息署发布能源供需与通胀线索更新",
+        "美国能源信息署发布能源供需与通胀线索更新"
       ]
     },
     {
-      "title": "Equities",
+      "title": "股票",
       "items": [
-        "Assistant Secretary Chris Pilkerton's Remarks at ACI CFIUS Conference"
+        "美国 SEC 发布资本市场监管与上市公司风险更新",
+        "美国财政部发布财政、债务或跨境资金相关更新"
       ]
     },
     {
-      "title": "Risk",
+      "title": "风险",
       "items": [
-        "Federal Reserve Board announces termination of enforcement actions with UBS Group AG, Credit Suisse AG, Credit Suisse Holdings (USA), Inc., and Credit Suisse AG, New York Branch",
-        "Federal Reserve Board issues enforcement action with former employee of First Financial Bank",
-        "Agencies finalize changes to enhance community bank leverage ratio"
+        "美联储发布影响利率预期和风险资产定价的官方更新"
       ]
     }
   ],
   "watch": [
-    "CPI / inflation data",
-    "Treasury yields",
-    "US dollar index",
-    "Gold ETF flows",
-    "Major central-bank remarks"
+    "CPI / 通胀数据",
+    "美债收益率",
+    "美元指数",
+    "黄金 ETF 资金流",
+    "主要央行表态"
   ]
 }

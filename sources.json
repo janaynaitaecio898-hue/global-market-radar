@@ -3,7 +3,7 @@
   "sources": [
     {
       "id": "fed_press",
-      "name": "Federal Reserve Press Releases",
+      "name": "美联储新闻稿",
       "url": "https://www.federalreserve.gov/feeds/press_all.xml",
       "type": "rss",
       "rank": "S",
@@ -14,7 +14,7 @@
     },
     {
       "id": "bls_macro",
-      "name": "BLS Public Data API",
+      "name": "美国劳工统计局公开数据 API",
       "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
       "type": "bls_api",
       "rank": "S",
@@ -25,17 +25,17 @@
       "series": [
         {
           "id": "CUUR0000SA0",
-          "name": "CPI-U: All items",
-          "topic": "inflation",
-          "unit": "index",
+          "name": "美国 CPI-U 全项目",
+          "topic": "通胀",
+          "unit": "指数",
           "category": "macro",
           "horizon": "short",
           "asset": "equity bond gold fx"
         },
         {
           "id": "LNS14000000",
-          "name": "Unemployment Rate",
-          "topic": "employment",
+          "name": "美国失业率",
+          "topic": "就业",
           "unit": "%",
           "category": "macro",
           "horizon": "short",
@@ -43,9 +43,9 @@
         },
         {
           "id": "CES0000000001",
-          "name": "Total Nonfarm Payrolls",
-          "topic": "employment",
-          "unit": "thousands",
+          "name": "美国非农就业总人数",
+          "topic": "就业",
+          "unit": "千人",
           "category": "macro",
           "horizon": "short",
           "asset": "equity bond gold fx"
@@ -54,7 +54,7 @@
     },
     {
       "id": "eia_energy",
-      "name": "EIA Today in Energy",
+      "name": "美国能源信息署能源日报",
       "url": "https://www.eia.gov/rss/todayinenergy.xml",
       "type": "rss",
       "rank": "S",
@@ -65,7 +65,7 @@
     },
     {
       "id": "sec_press",
-      "name": "SEC Press Releases",
+      "name": "美国 SEC 新闻稿",
       "url": "https://www.sec.gov/news/pressreleases.rss",
       "type": "rss",
       "rank": "S",
@@ -76,7 +76,7 @@
     },
     {
       "id": "treasury_press",
-      "name": "U.S. Treasury Press Releases",
+      "name": "美国财政部新闻稿",
       "url": "https://home.treasury.gov/news/press-releases",
       "type": "treasury_html",
       "rank": "S",

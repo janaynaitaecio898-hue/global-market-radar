@@ -1,62 +1,62 @@
 {
-  "generated_at": "2026-05-15T19:52:44.128650+00:00",
+  "generated_at": "2026-05-16T12:10:35.728746+00:00",
   "quotes": [
     {
       "symbol": "spy.us",
-      "name": "S&P 500 ETF",
+      "name": "标普500 ETF",
       "asset": "equity",
-      "close": 740.51,
+      "close": 739.17,
       "date": "2026-05-15",
-      "time": "21:37:41",
+      "time": "22:00:20",
       "status": "live"
     },
     {
       "symbol": "qqq.us",
-      "name": "Nasdaq 100 ETF",
+      "name": "纳斯达克100 ETF",
       "asset": "equity",
-      "close": 711.11,
+      "close": 708.93,
       "date": "2026-05-15",
-      "time": "21:37:42",
+      "time": "22:00:19",
       "status": "live"
     },
     {
       "symbol": "tlt.us",
-      "name": "20+ Year Treasury ETF",
+      "name": "20年以上美债 ETF",
       "asset": "bond",
-      "close": 83.655,
+      "close": 83.66,
       "date": "2026-05-15",
-      "time": "21:37:39",
+      "time": "22:00:19",
       "status": "live"
     },
     {
       "symbol": "gld.us",
-      "name": "Gold ETF",
+      "name": "黄金 ETF",
       "asset": "gold",
-      "close": 417.95,
+      "close": 417.29,
       "date": "2026-05-15",
-      "time": "21:37:43",
+      "time": "22:00:18",
       "status": "live"
     },
     {
       "symbol": "uso.us",
-      "name": "Oil ETF",
+      "name": "原油 ETF",
       "asset": "commodity",
-      "close": 147.979,
+      "close": 148.23,
       "date": "2026-05-15",
-      "time": "21:37:40",
+      "time": "22:00:20",
       "status": "live"
     },
     {
       "symbol": "uup.us",
-      "name": "US Dollar ETF",
+      "name": "美元指数 ETF",
       "asset": "fx",
-      "close": 27.745,
+      "close": 27.77,
       "date": "2026-05-15",
-      "time": "21:37:26",
+      "time": "22:00:15",
       "status": "live"
     }
   ],
   "status": "live",
   "errors": [],
-  "source": "Stooq delayed quote CSV with built-in fallback values"
+  "source": "Stooq 延迟行情 CSV；源不可用时使用内置兜底值"
 }
