@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-05-16T12:31:56.738121+00:00",
+  "generated_at": "2026-05-16T12:34:24.444060+00:00",
   "items": [
     {
       "id": "bls_macro-cpi-u-333-02-2026-4-a0f27630",
       "date": "5月16日",
-      "time": "12:32",
+      "time": "12:34",
       "sourceId": "bls_macro",
       "source": "美国劳工统计局公开数据 API",
       "sourceUrl": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
@@ -41,7 +41,7 @@
     {
       "id": "bls_macro-4-3-2026-4-7eb4a151",
       "date": "5月16日",
-      "time": "12:32",
+      "time": "12:34",
       "sourceId": "bls_macro",
       "source": "美国劳工统计局公开数据 API",
       "sourceUrl": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
@@ -78,7 +78,7 @@
     {
       "id": "bls_macro-158736-2026-4-c0596985",
       "date": "5月16日",
-      "time": "12:32",
+      "time": "12:34",
       "sourceId": "bls_macro",
       "source": "美国劳工统计局公开数据 API",
       "sourceUrl": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
@@ -300,7 +300,7 @@
     {
       "id": "treasury_press-economic-fury-ramps-up-pressure-on-iran-s-islamic-re-87f9eb10",
       "date": "5月16日",
-      "time": "12:32",
+      "time": "12:34",
       "sourceId": "treasury_press",
       "source": "美国财政部新闻稿",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0498",
@@ -337,7 +337,7 @@
     {
       "id": "treasury_press-u-s-department-of-the-treasury-hosts-convening-with--8f4a65b8",
       "date": "5月16日",
-      "time": "12:32",
+      "time": "12:34",
       "sourceId": "treasury_press",
       "source": "美国财政部新闻稿",
       "sourceUrl": "https://home.treasury.gov/news/press-releases/sb0493",
