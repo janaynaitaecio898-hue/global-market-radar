@@ -65,6 +65,57 @@ MARKET_INSTRUMENTS = [
     },
 ]
 
+FACTOR_INSTRUMENTS = [
+    {
+        "symbol": "hyg.us",
+        "name": "高收益债 ETF",
+        "asset": "credit",
+        "fallback_close": 79.0,
+    },
+    {
+        "symbol": "lqd.us",
+        "name": "投资级债 ETF",
+        "asset": "credit",
+        "fallback_close": 108.0,
+    },
+    {
+        "symbol": "ief.us",
+        "name": "7-10年美债 ETF",
+        "asset": "bond",
+        "fallback_close": 94.0,
+    },
+    {
+        "symbol": "shy.us",
+        "name": "1-3年美债 ETF",
+        "asset": "bond",
+        "fallback_close": 82.0,
+    },
+    {
+        "symbol": "dx.f",
+        "name": "美元指数期货",
+        "asset": "fx",
+        "fallback_close": 99.0,
+    },
+    {
+        "symbol": "xauusd",
+        "name": "现货黄金",
+        "asset": "gold",
+        "fallback_close": 4500.0,
+    },
+    {
+        "symbol": "cl.f",
+        "name": "WTI 原油期货",
+        "asset": "commodity",
+        "fallback_close": 100.0,
+    },
+    {
+        "symbol": "hg.f",
+        "name": "铜期货",
+        "asset": "commodity",
+        "fallback_close": 620.0,
+    },
+]
+
 BASE_SIGNALS = [
     {
         "id": "us-jobs-rate-path",
@@ -243,36 +294,48 @@ def fetch_stooq_quote(symbol: str) -> dict[str, Any]:
     return row
 
 
+def pct_change(close: float, open_value: float | None) -> float | None:
+    if open_value is None or open_value == 0:
+        return None
+    return round((close - open_value) / open_value * 100, 2)
+
+
+def quote_snapshot(instrument: dict[str, Any], generated_at: str, errors: list[str]) -> dict[str, Any]:
+    try:
+        row = fetch_stooq_quote(instrument["symbol"])
+        status = "live"
+        close = float(row["Close"])
+        open_value = parse_float(row.get("Open"))
+        date = row.get("Date")
+        time = row.get("Time")
+    except Exception as exc:  # noqa: BLE001 - generation should degrade gracefully
+        status = "fallback"
+        close = instrument["fallback_close"]
+        open_value = None
+        date = generated_at[:10]
+        time = generated_at[11:16]
+        errors.append(f"{instrument['symbol']}: {exc}")
+
+    return {
+        "symbol": instrument["symbol"],
+        "name": instrument["name"],
+        "asset": instrument["asset"],
+        "close": close,
+        "open": open_value,
+        "changePct": pct_change(close, open_value),
+        "date": date,
+        "time": time,
+        "status": status,
+    }
+
+
 def build_market_snapshot() -> dict[str, Any]:
     generated_at = datetime.now(timezone.utc).isoformat()
     quotes: list[dict[str, Any]] = []
     errors: list[str] = []
 
     for instrument in MARKET_INSTRUMENTS:
-        try:
-            row = fetch_stooq_quote(instrument["symbol"])
-            status = "live"
-            close = float(row["Close"])
-            date = row.get("Date")
-            time = row.get("Time")
-        except Exception as exc:  # noqa: BLE001 - generation should degrade gracefully
-            status = "fallback"
-            close = instrument["fallback_close"]
-            date = generated_at[:10]
-            time = generated_at[11:16]
-            errors.append(f"{instrument['symbol']}: {exc}")
-
-        quotes.append(
-            {
-                "symbol": instrument["symbol"],
-                "name": instrument["name"],
-                "asset": instrument["asset"],
-                "close": close,
-                "date": date,
-                "time": time,
-                "status": status,
-            }
-        )
+        quotes.append(quote_snapshot(instrument, generated_at, errors))
 
     return {
         "generated_at": generated_at,
@@ -280,6 +343,147 @@ def build_market_snapshot() -> dict[str, Any]:
         "status": "live" if not errors else "degraded",
         "errors": errors,
         "source": "Stooq 延迟行情 CSV；源不可用时使用内置兜底值",
+    }
+
+
+def quote_lookup(quotes: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    return {item["symbol"].lower(): item for item in quotes}
+
+
+def average_change(quotes: dict[str, dict[str, Any]], symbols: list[str]) -> float | None:
+    values = [
+        quote["changePct"]
+        for symbol in symbols
+        if (quote := quotes.get(symbol.lower())) and quote.get("changePct") is not None
+    ]
+    if not values:
+        return None
+    return round(sum(values) / len(values), 2)
+
+
+def factor_tone(value: float | None, positive_label: str, negative_label: str, neutral_label: str) -> tuple[str, str]:
+    if value is None:
+        return neutral_label, "watch"
+    if value >= 0.2:
+        return positive_label, "positive"
+    if value <= -0.2:
+        return negative_label, "negative"
+    return neutral_label, "watch"
+
+
+def format_metric(quote: dict[str, Any] | None) -> str:
+    if not quote:
+        return "暂无"
+    change = quote.get("changePct")
+    suffix = "" if change is None else f" / {change:+.2f}%"
+    return f"{quote['close']}{suffix}"
+
+
+def metric_items(quotes: dict[str, dict[str, Any]], symbols: list[str]) -> list[dict[str, Any]]:
+    items = []
+    for symbol in symbols:
+        quote = quotes.get(symbol.lower())
+        if not quote:
+            continue
+        items.append(
+            {
+                "name": quote["name"],
+                "symbol": quote["symbol"],
+                "value": quote["close"],
+                "changePct": quote.get("changePct"),
+                "status": quote["status"],
+            }
+        )
+    return items
+
+
+def build_factor_snapshot(market_snapshot: dict[str, Any]) -> dict[str, Any]:
+    generated_at = market_snapshot["generated_at"]
+    errors: list[str] = []
+    extra_quotes = [quote_snapshot(instrument, generated_at, errors) for instrument in FACTOR_INSTRUMENTS]
+    quotes = quote_lookup(market_snapshot["quotes"] + extra_quotes)
+
+    risk_value = average_change(quotes, ["spy.us", "qqq.us", "hyg.us"])
+    duration_value = average_change(quotes, ["tlt.us", "ief.us"])
+    credit_value = None
+    if (hyg := quotes.get("hyg.us")) and (lqd := quotes.get("lqd.us")):
+        if hyg.get("changePct") is not None and lqd.get("changePct") is not None:
+            credit_value = round(hyg["changePct"] - lqd["changePct"], 2)
+    dollar_value = average_change(quotes, ["dx.f", "uup.us"])
+    gold_value = average_change(quotes, ["xauusd", "gld.us"])
+    commodity_value = average_change(quotes, ["cl.f", "uso.us", "hg.f"])
+
+    risk_stance, risk_tone = factor_tone(risk_value, "风险偏好升温", "风险偏好转弱", "风险偏好观望")
+    duration_stance, duration_tone = factor_tone(duration_value, "久期压力缓和", "长端利率压力上行", "久期信号中性")
+    credit_stance, credit_tone = factor_tone(credit_value, "信用风险缓和", "信用风险升温", "信用利差观望")
+    dollar_stance, dollar_tone = factor_tone(dollar_value, "美元走强", "美元走弱", "美元震荡")
+    gold_stance, gold_tone = factor_tone(gold_value, "黄金获得支撑", "黄金短线承压", "黄金震荡")
+    commodity_stance, commodity_tone = factor_tone(commodity_value, "商品通胀线索升温", "商品需求线索转弱", "商品信号分化")
+
+    factors = [
+        {
+            "id": "risk-appetite",
+            "title": "风险偏好验证",
+            "stance": risk_stance,
+            "tone": risk_tone,
+            "summary": f"用标普500、纳指100和高收益债 ETF 观察风险资产是否同步确认。当前综合变化：{risk_value if risk_value is not None else '暂无'}%。",
+            "decision": "若新闻利好但风险资产和高收益债不同步，先降低对单条消息的信任度。",
+            "metrics": metric_items(quotes, ["spy.us", "qqq.us", "hyg.us"]),
+        },
+        {
+            "id": "duration-pressure",
+            "title": "利率与久期压力",
+            "stance": duration_stance,
+            "tone": duration_tone,
+            "summary": f"用长久期和中久期美债 ETF 代理利率压力。TLT：{format_metric(quotes.get('tlt.us'))}，IEF：{format_metric(quotes.get('ief.us'))}。",
+            "decision": "久期资产下跌时，成长股、黄金和长债基金的短线胜率通常下降。",
+            "metrics": metric_items(quotes, ["tlt.us", "ief.us", "shy.us"]),
+        },
+        {
+            "id": "credit-pressure",
+            "title": "信用风险确认",
+            "stance": credit_stance,
+            "tone": credit_tone,
+            "summary": f"用高收益债相对投资级债的表现观察信用风险。HYG-LQD 日内相对变化：{credit_value if credit_value is not None else '暂无'} 个百分点。",
+            "decision": "如果股票上涨但高收益债弱于投资级债，说明风险偏好可能不够扎实。",
+            "metrics": metric_items(quotes, ["hyg.us", "lqd.us"]),
+        },
+        {
+            "id": "dollar",
+            "title": "美元与汇率压力",
+            "stance": dollar_stance,
+            "tone": dollar_tone,
+            "summary": f"用美元指数期货和美元 ETF 观察外汇压力。综合变化：{dollar_value if dollar_value is not None else '暂无'}%。",
+            "decision": "美元走强通常压制黄金、新兴市场和商品货币，需和利率信号一起看。",
+            "metrics": metric_items(quotes, ["dx.f", "uup.us"]),
+        },
+        {
+            "id": "gold",
+            "title": "黄金避险与实际利率",
+            "stance": gold_stance,
+            "tone": gold_tone,
+            "summary": f"用现货黄金和黄金 ETF 检查避险需求。综合变化：{gold_value if gold_value is not None else '暂无'}%。",
+            "decision": "黄金上涨若同时伴随美元和利率上行，要重点判断是避险买盘还是通胀交易。",
+            "metrics": metric_items(quotes, ["xauusd", "gld.us"]),
+        },
+        {
+            "id": "commodity-inflation",
+            "title": "商品通胀线索",
+            "stance": commodity_stance,
+            "tone": commodity_tone,
+            "summary": f"用原油、能源 ETF 和铜观察商品通胀与周期需求。综合变化：{commodity_value if commodity_value is not None else '暂无'}%。",
+            "decision": "原油和铜同步上行更偏通胀/需求确认；只有原油上行则更像供给或地缘冲击。",
+            "metrics": metric_items(quotes, ["cl.f", "uso.us", "hg.f"]),
+        },
+    ]
+
+    return {
+        "generated_at": generated_at,
+        "items": factors,
+        "quotes": extra_quotes,
+        "status": "live" if not errors else "degraded",
+        "errors": errors,
+        "source": "Stooq ETF、期货与现货代理指标；用于验证新闻是否被市场价格确认",
     }
 
 
@@ -904,6 +1108,7 @@ def write_json(path: Path, payload: Any) -> None:
 def main() -> int:
     DATA_DIR.mkdir(exist_ok=True)
     market_snapshot = build_market_snapshot()
+    factor_snapshot = build_factor_snapshot(market_snapshot)
     generated_at = market_snapshot["generated_at"]
     live_signals, source_errors = build_live_signals()
     output_signals = live_signals or BASE_SIGNALS
@@ -912,22 +1117,23 @@ def main() -> int:
     write_json(DATA_DIR / "assets.json", {"generated_at": generated_at, "items": ASSETS})
     write_json(DATA_DIR / "scenarios.json", {"generated_at": generated_at, "items": SCENARIOS})
     write_json(DATA_DIR / "market_snapshot.json", market_snapshot)
+    write_json(DATA_DIR / "factors.json", factor_snapshot)
     write_json(DATA_DIR / "daily.json", build_daily(output_signals, generated_at))
     write_json(
         DATA_DIR / "meta.json",
         {
             "generated_at": generated_at,
-            "version": "1.3",
-            "status": "live" if live_signals and market_snapshot["status"] == "live" else "degraded",
+            "version": "1.4",
+            "status": "live" if live_signals and market_snapshot["status"] == "live" and factor_snapshot["status"] == "live" else "degraded",
             "notes": [
                 f"已从多层信源生成 {len(output_signals)} 条市场影响因素，并加入 AI 速读。",
-                "新增全球央行、国际机构和美国实体经济指标信源；单一信源会做展示限额。",
-                "市场动态会根据信源等级、关键词、影响资产范围、发布时间和重要主题进行分类评分。",
+                "新增市场因子验证：风险偏好、久期压力、信用风险、美元、黄金和商品通胀。",
+                "市场动态会结合新闻来源与价格代理指标，辅助判断信息是否被市场确认。",
             ],
-            "source_errors": source_errors,
+            "source_errors": source_errors + factor_snapshot["errors"],
         },
     )
-    all_errors = market_snapshot["errors"] + source_errors
+    all_errors = market_snapshot["errors"] + factor_snapshot["errors"] + source_errors
     if all_errors:
         print("数据已生成，但部分行情或信源降级：", file=sys.stderr)
         for error in all_errors:

@@ -19,6 +19,7 @@
 - `data/daily.json` 自动日报数据
 - v1.2：BLS 官方 API、宏观高影响事件升权、低影响公告降权
 - v1.3：扩展欧洲央行、日本央行、BIS、美国人口普查局等多层信源，并为每条信息生成 AI 速读、信源简介和观察点
+- v1.4：新增市场因子验证，用 ETF、期货和现货代理指标确认新闻是否被价格响应
 
 ## 文件
 
@@ -35,6 +36,7 @@
 - `scripts/generate_data.py`：正式版 v1 数据生成脚本
 - `.github/workflows/update-data.yml`：定时更新数据并提交到仓库
 - `data/*.json`：前端读取的结构化数据
+- `data/factors.json`：风险偏好、久期压力、信用风险、美元、黄金和商品通胀验证数据
 - `sources.json`：Fed、BLS、EIA、SEC、Treasury、ECB、BOJ、BIS、Census 等信源配置
 
 ## 后续可以接入的数据

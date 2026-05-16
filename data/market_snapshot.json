@@ -1,11 +1,13 @@
 {
-  "generated_at": "2026-05-16T12:34:24.444060+00:00",
+  "generated_at": "2026-05-16T17:13:00.060623+00:00",
   "quotes": [
     {
       "symbol": "spy.us",
       "name": "标普500 ETF",
       "asset": "equity",
       "close": 739.17,
+      "open": 741.79,
+      "changePct": -0.35,
       "date": "2026-05-15",
       "time": "22:00:20",
       "status": "live"
@@ -15,6 +17,8 @@
       "name": "纳斯达克100 ETF",
       "asset": "equity",
       "close": 708.93,
+      "open": 710.14,
+      "changePct": -0.17,
       "date": "2026-05-15",
       "time": "22:00:19",
       "status": "live"
@@ -24,6 +28,8 @@
       "name": "20年以上美债 ETF",
       "asset": "bond",
       "close": 83.66,
+      "open": 83.87,
+      "changePct": -0.25,
       "date": "2026-05-15",
       "time": "22:00:19",
       "status": "live"
@@ -33,6 +39,8 @@
       "name": "黄金 ETF",
       "asset": "gold",
       "close": 417.29,
+      "open": 417.64,
+      "changePct": -0.08,
       "date": "2026-05-15",
       "time": "22:00:18",
       "status": "live"
@@ -42,6 +50,8 @@
       "name": "原油 ETF",
       "asset": "commodity",
       "close": 148.23,
+      "open": 145.55,
+      "changePct": 1.84,
       "date": "2026-05-15",
       "time": "22:00:20",
       "status": "live"
@@ -51,6 +61,8 @@
       "name": "美元指数 ETF",
       "asset": "fx",
       "close": 27.77,
+      "open": 27.72,
+      "changePct": 0.18,
       "date": "2026-05-15",
       "time": "22:00:15",
       "status": "live"

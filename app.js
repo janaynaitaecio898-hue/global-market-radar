@@ -189,6 +189,7 @@ let dataMeta = {
 };
 
 let marketSnapshot = null;
+let marketFactors = null;
 let dailyReport = null;
 
 function setActiveNav() {
@@ -400,6 +401,49 @@ function renderMarketSnapshot() {
   `;
 }
 
+function renderMarketFactors() {
+  const root = document.querySelector("#marketFactors");
+  if (!root) return;
+
+  if (!marketFactors || !Array.isArray(marketFactors.items)) {
+    root.innerHTML = `<p class="empty-state">市场因子验证暂不可用。</p>`;
+    return;
+  }
+
+  root.innerHTML = `
+    <div class="snapshot-head">
+      <h2>市场因子验证</h2>
+      <span>${statusName(marketFactors.status)} · ${marketFactors.generated_at || ""}</span>
+    </div>
+    <div class="factor-grid">
+      ${marketFactors.items
+        .map(
+          (factor) => `
+            <article class="factor-card">
+              <div class="meta-line">${factor.title}</div>
+              <h3 class="${factor.tone || "watch"}">${factor.stance}</h3>
+              <p>${factor.summary}</p>
+              <div class="factor-metrics">
+                ${(factor.metrics || [])
+                  .map(
+                    (metric) => `
+                      <span>
+                        <strong>${metric.name}</strong>
+                        ${metric.value}${metric.changePct === null || metric.changePct === undefined ? "" : ` / ${Number(metric.changePct).toFixed(2)}%`}
+                      </span>
+                    `,
+                  )
+                  .join("")}
+              </div>
+              <p class="reason"><strong>验证提示：</strong>${factor.decision}</p>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+}
+
 function renderDailyReport() {
   const root = document.querySelector("#dailyReport");
   if (!root) return;
@@ -502,12 +546,13 @@ async function loadProductionData() {
   }
 
   try {
-    const [signalsData, assetsData, scenariosData, metaData, marketData, dailyData] = await Promise.all([
+    const [signalsData, assetsData, scenariosData, metaData, marketData, factorData, dailyData] = await Promise.all([
       fetchJson("data/signals.json"),
       fetchJson("data/assets.json"),
       fetchJson("data/scenarios.json"),
       fetchJson("data/meta.json"),
       fetchJson("data/market_snapshot.json"),
+      fetchJson("data/factors.json"),
       fetchJson("data/daily.json"),
     ]);
 
@@ -520,6 +565,7 @@ async function loadProductionData() {
       notes: metaData.notes || [],
     };
     marketSnapshot = marketData;
+    marketFactors = factorData;
     dailyReport = dailyData;
   } catch (error) {
     dataMeta = {
@@ -559,6 +605,7 @@ async function init() {
   renderFeed("#allSignalList");
   renderAssets();
   renderMarketSnapshot();
+  renderMarketFactors();
   renderScenarios();
   renderDetail();
   renderDailyReport();

@@ -418,7 +418,8 @@ select {
 .scenario-list,
 .asset-list,
 .source-list,
-.market-snapshot {
+.market-snapshot,
+.factor-panel {
   display: grid;
   gap: 0;
   border-top: 1px solid var(--line);
@@ -507,6 +508,50 @@ select {
   display: block;
   margin: 8px 0 4px;
   font-size: 22px;
+}
+
+.factor-grid {
+  display: grid;
+  gap: 14px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.factor-card {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+.factor-card h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+}
+
+.factor-card p {
+  margin: 0 0 12px;
+  line-height: 1.72;
+}
+
+.factor-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.factor-metrics span {
+  padding: 7px 9px;
+  border-radius: 6px;
+  background: var(--soft);
+  color: #444444;
+  font-size: 13px;
+}
+
+.factor-metrics strong {
+  margin-right: 6px;
+  color: var(--ink);
 }
 
 .positive {
