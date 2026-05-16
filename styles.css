@@ -301,6 +301,34 @@ select {
   color: #222222;
 }
 
+.ai-brief {
+  margin: 0 0 14px;
+  padding: 12px 13px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+}
+
+.ai-brief strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.ai-brief p {
+  margin: 0;
+  color: #333333;
+  line-height: 1.72;
+}
+
+.ai-brief ul,
+.watch-list {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  color: #444444;
+  line-height: 1.72;
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -326,6 +354,11 @@ select {
 
 .reason strong {
   font-weight: 850;
+}
+
+.original-title {
+  color: var(--muted);
+  font-size: 14px;
 }
 
 .empty-state {

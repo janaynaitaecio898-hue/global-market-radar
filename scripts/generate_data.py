@@ -291,7 +291,13 @@ KEYWORD_RULES = [
         "terms": [
             "federal reserve",
             "fomc",
+            "ecb",
+            "bank of japan",
+            "boj",
+            "central bank",
+            "monetary policy",
             "interest rate",
+            "policy rate",
             "inflation",
             "consumer price",
             "cpi",
@@ -300,31 +306,34 @@ KEYWORD_RULES = [
             "unemployment",
             "wage",
             "gdp",
+            "retail sales",
+            "inventories",
+            "trade",
         ],
     },
     {
         "category": "bond",
         "horizon": "mid",
         "asset": "bond equity fx gold",
-        "terms": ["treasury", "yield", "debt", "auction", "deficit", "fiscal", "financing"],
+        "terms": ["treasury", "yield", "debt", "auction", "deficit", "fiscal", "financing", "bond", "liquidity"],
     },
     {
         "category": "commodity",
         "horizon": "short",
         "asset": "commodity equity bond",
-        "terms": ["oil", "gas", "crude", "energy", "inventory", "eia", "opec", "petroleum"],
+        "terms": ["oil", "gas", "crude", "energy", "inventory", "inventories", "eia", "opec", "petroleum"],
     },
     {
         "category": "equity",
         "horizon": "mid",
         "asset": "equity",
-        "terms": ["earnings", "sec", "securities", "company", "disclosure", "fund", "etf"],
+        "terms": ["earnings", "sec", "securities", "company", "disclosure", "fund", "etf", "retail sales"],
     },
     {
         "category": "risk",
         "horizon": "short",
         "asset": "equity bond gold fx",
-        "terms": ["risk", "volatility", "sanction", "bank", "credit", "liquidity", "enforcement"],
+        "terms": ["risk", "volatility", "sanction", "bank", "credit", "liquidity", "enforcement", "margin", "derivatives"],
     },
     {
         "category": "gold",
@@ -353,8 +362,10 @@ ASSET_LABELS = {
 
 HIGH_IMPACT_PHRASES = [
     "fomc statement",
+    "monetary policy",
     "federal funds rate",
     "interest rate",
+    "policy rate",
     "consumer price",
     "cpi",
     "inflation",
@@ -366,6 +377,8 @@ HIGH_IMPACT_PHRASES = [
     "auction",
     "oil inventory",
     "crude oil",
+    "retail sales",
+    "global liquidity",
     "sanction",
     "insider trading",
 ]
@@ -373,6 +386,9 @@ HIGH_IMPACT_PHRASES = [
 LOW_IMPACT_PHRASES = [
     "approval of application",
     "approval of related applications",
+    "does not object",
+    "names",
+    "resignation",
     "termination of enforcement actions",
     "former employee",
     "community bankshares",
@@ -472,26 +488,90 @@ def slugify(value: str, prefix: str) -> str:
     return f"{prefix}-{digest}"
 
 
-def display_title_cn(source: dict[str, Any], category: str, asset_text: str) -> str:
-    source_id = source.get("id")
-    if source_id == "fed_press":
-        return "美联储发布影响利率预期和风险资产定价的官方更新"
-    if source_id == "eia_energy":
-        return "美国能源信息署发布能源供需与通胀线索更新"
-    if source_id == "sec_press":
-        return "美国 SEC 发布资本市场监管与上市公司风险更新"
-    if source_id == "treasury_press":
-        return "美国财政部发布财政、债务或跨境资金相关更新"
-    category_label = CATEGORY_LABELS.get(category, "市场")
-    return f"{source.get('name', '官方信源')}发布{category_label}类市场更新"
+TOPIC_RULES = [
+    (["fomc", "federal funds", "interest rate", "policy rate", "monetary policy"], "利率政策和央行路径"),
+    (["inflation", "consumer price", "cpi", "price"], "通胀压力和实际利率"),
+    (["unemployment", "payroll", "employment", "wage"], "就业和工资趋势"),
+    (["retail sales", "sales"], "消费需求和企业收入"),
+    (["inventories", "inventory"], "库存周期和供需变化"),
+    (["treasury", "auction", "debt", "deficit", "fiscal"], "财政融资和美债供给"),
+    (["oil", "gas", "crude", "petroleum", "energy"], "能源供需和通胀传导"),
+    (["sec", "securities", "disclosure", "fraud", "insider"], "资本市场监管和公司风险"),
+    (["liquidity", "banking", "credit", "margin", "derivatives", "reserve balances", "discount window"], "全球流动性和金融稳定"),
+    (["sanction", "geopolitical"], "地缘政策和风险偏好"),
+    (["gold", "bullion"], "黄金和官方储备变化"),
+]
 
 
-def display_summary_cn(source: dict[str, Any], category: str, asset_text: str) -> str:
+def infer_topic_cn(entry: dict[str, Any], category: str) -> str:
+    text = f"{entry.get('title', '')} {entry.get('summary', '')}".lower()
+    for terms, topic in TOPIC_RULES:
+        if any(term in text for term in terms):
+            return topic
+
+    source_id = entry["source"].get("id", "")
+    if source_id == "ecb_press":
+        return "欧元区政策、通胀和金融稳定"
+    if source_id == "boj_whatsnew":
+        return "日本利率、日元和套息交易环境"
+    if source_id.startswith("bis_"):
+        return "全球流动性和银行体系风险"
+    if source_id == "census_indicators":
+        return "美国实体经济和需求变化"
+
+    return {
+        "macro": "宏观数据和政策预期",
+        "bond": "利率、债务和期限溢价",
+        "commodity": "商品供需和通胀线索",
+        "equity": "股票市场监管、盈利和资金流",
+        "risk": "风险偏好和金融稳定",
+        "gold": "黄金、实际利率和储备配置",
+    }.get(category, "市场影响因素")
+
+
+def display_title_cn(source: dict[str, Any], topic: str) -> str:
+    return f"{source.get('name', '官方信源')}更新：{topic}"
+
+
+def display_summary_cn(source: dict[str, Any], category: str, asset_text: str, topic: str) -> str:
     category_label = CATEGORY_LABELS.get(category, "市场")
     return (
-        f"{source.get('name', '官方信源')}发布新信息，系统将其归入{category_label}类影响因素，"
+        f"{source.get('name', '官方信源')}发布与{topic}相关的新信息，系统将其归入{category_label}类影响因素，"
         f"重点观察它对{asset_text}的传导。正式决策应结合原文链接、后续数据和价格确认。"
     )
+
+
+def analysis_channel(category: str) -> str:
+    return {
+        "macro": "利率预期、美元方向和估值折现率",
+        "bond": "收益率曲线、期限溢价和美元流动性",
+        "commodity": "通胀预期、成本压力和周期资产表现",
+        "equity": "盈利预期、估值风险和资金偏好",
+        "risk": "波动率、信用利差和避险需求",
+        "gold": "实际利率、美元和央行储备偏好",
+    }.get(category, "风险偏好和资产定价")
+
+
+def build_ai_brief(entry: dict[str, Any], category: str, asset_text: str, score: int, topic: str) -> str:
+    channel = analysis_channel(category)
+    score_text = "优先级很高" if score >= 85 else "值得跟踪" if score >= 70 else "先作为线索观察"
+    return (
+        f"AI速读：这条信息主要讲{topic}，{score_text}。它可能通过{channel}影响{asset_text}，"
+        "需要和原文、价格反应以及后续数据一起确认。"
+    )
+
+
+def build_watch_points(category: str, asset_text: str) -> list[str]:
+    common = [f"{asset_text}是否出现同向价格确认", "同主题是否出现第二个一手信源确认"]
+    category_points = {
+        "macro": ["美债收益率和美元是否同步反应", "降息或加息概率是否重新定价"],
+        "bond": ["长端收益率是否突破近期区间", "财政融资或拍卖需求是否继续恶化"],
+        "commodity": ["库存、供给和现货价格是否同向变化", "通胀预期是否被重新抬升"],
+        "equity": ["相关板块 ETF 和龙头股是否放量反应", "盈利预期或监管风险是否扩散"],
+        "risk": ["VIX、信用利差和美元是否同时上行", "避险资产是否获得持续买盘"],
+        "gold": ["实际利率和美元是否压制金价", "黄金 ETF 或央行购金线索是否延续"],
+    }
+    return (category_points.get(category, []) + common)[:4]
 
 
 def load_sources() -> list[dict[str, Any]]:
@@ -627,6 +707,7 @@ def parse_bls_api_source(source: dict[str, Any]) -> list[dict[str, Any]]:
                 "category": config.get("category", source.get("category_hint", "macro")),
                 "horizon": config.get("horizon", "short"),
                 "asset": asset_text,
+                "topic_cn": config.get("topic", "宏观数据"),
             }
         )
     return entries
@@ -701,11 +782,12 @@ def build_signal_from_entry(entry: dict[str, Any]) -> dict[str, Any]:
         if key in classification["asset"]
     ]
     asset_text = "、".join(assets) or "多类资产"
+    topic = entry.get("topic_cn") or infer_topic_cn(entry, category)
     title = entry.get("title_cn") or (
-        entry["title"] if entry.get("category") else display_title_cn(source, category, asset_text)
+        entry["title"] if entry.get("category") else display_title_cn(source, topic)
     )
     summary = entry.get("summary_cn") or (
-        entry.get("summary") if entry.get("category") else display_summary_cn(source, category, asset_text)
+        entry.get("summary") if entry.get("category") else display_summary_cn(source, category, asset_text, topic)
     )
     summary = summary or f"{title}。"
     if len(summary) > 220:
@@ -715,8 +797,12 @@ def build_signal_from_entry(entry: dict[str, Any]) -> dict[str, Any]:
         "id": slugify(entry["title"], source["id"]),
         "date": format_cn_date(entry["published"]),
         "time": entry["published"].strftime("%H:%M"),
+        "sourceId": source["id"],
         "source": source["name"],
         "sourceUrl": entry.get("link", source["url"]),
+        "sourceBrief": source.get("role", "用于辅助判断市场方向和风险偏好的数据来源。"),
+        "originalTitle": entry["title"],
+        "originalSummary": entry.get("summary", ""),
         "avatar": source.get("avatar", source["name"][:1]),
         "score": score,
         "category": category,
@@ -724,6 +810,8 @@ def build_signal_from_entry(entry: dict[str, Any]) -> dict[str, Any]:
         "asset": classification["asset"],
         "title": title,
         "summary": summary,
+        "aiBrief": build_ai_brief(entry, category, asset_text, score, topic),
+        "watchPoints": build_watch_points(category, asset_text),
         "tags": [CATEGORY_LABELS.get(category, "市场"), source.get("rank", "A") + "级信源", asset_text],
         "reason": f"来自 {source['name']} 的高优先级信息，可能影响{asset_text}。评分综合信源等级、关键词命中、发布时间和影响资产范围。",
         "sourceRank": source.get("rank", "A") + "级",
@@ -761,7 +849,29 @@ def build_live_signals() -> tuple[list[dict[str, Any]], list[str]]:
             signals.append(build_signal_from_entry(entry))
 
     signals.sort(key=lambda item: (item["score"], item["date"], item["time"]), reverse=True)
-    return signals[:24], errors
+    return diversify_signals(signals, limit=24, max_per_source=5), errors
+
+
+def diversify_signals(signals: list[dict[str, Any]], limit: int, max_per_source: int) -> list[dict[str, Any]]:
+    selected: list[dict[str, Any]] = []
+    counts: dict[str, int] = {}
+    skipped: list[dict[str, Any]] = []
+
+    for item in signals:
+        source_id = item.get("sourceId", item.get("source", "source"))
+        if counts.get(source_id, 0) < max_per_source:
+            selected.append(item)
+            counts[source_id] = counts.get(source_id, 0) + 1
+        else:
+            skipped.append(item)
+        if len(selected) >= limit:
+            return selected
+
+    for item in skipped:
+        selected.append(item)
+        if len(selected) >= limit:
+            break
+    return selected
 
 
 def build_daily(signals: list[dict[str, Any]], generated_at: str) -> dict[str, Any]:
@@ -807,12 +917,12 @@ def main() -> int:
         DATA_DIR / "meta.json",
         {
             "generated_at": generated_at,
-            "version": "1.2",
+            "version": "1.3",
             "status": "live" if live_signals and market_snapshot["status"] == "live" else "degraded",
             "notes": [
-                f"已从配置的官方信源生成 {len(output_signals)} 条市场影响因素。",
-                "行情源不可用时会自动降级为内置兜底值。",
-                "市场动态会根据信源等级、关键词、影响资产范围和发布时间进行分类评分。",
+                f"已从多层信源生成 {len(output_signals)} 条市场影响因素，并加入 AI 速读。",
+                "新增全球央行、国际机构和美国实体经济指标信源；单一信源会做展示限额。",
+                "市场动态会根据信源等级、关键词、影响资产范围、发布时间和重要主题进行分类评分。",
             ],
             "source_errors": source_errors,
         },

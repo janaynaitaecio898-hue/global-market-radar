@@ -216,6 +216,20 @@ function filteredSignals() {
   });
 }
 
+function renderAiBrief(item) {
+  if (!item.aiBrief && !item.sourceBrief) return "";
+  const watch = Array.isArray(item.watchPoints) && item.watchPoints.length
+    ? `<ul>${item.watchPoints.map((point) => `<li>${point}</li>`).join("")}</ul>`
+    : "";
+  return `
+    <div class="ai-brief">
+      <strong>AI 速读</strong>
+      ${item.aiBrief ? `<p>${item.aiBrief}</p>` : ""}
+      ${watch}
+    </div>
+  `;
+}
+
 function renderFeed(targetId) {
   const list = document.querySelector(targetId);
   if (!list) return;
@@ -242,6 +256,7 @@ function renderFeed(targetId) {
             </div>
             <h3 class="feed-title"><a href="detail.html?id=${item.id}">${item.title}</a></h3>
             <p class="summary">${item.summary}</p>
+            ${renderAiBrief(item)}
             <div class="tags">${item.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}</div>
             <p class="reason"><strong>推荐理由：</strong>${item.reason}</p>
           </div>
@@ -268,6 +283,23 @@ function renderDetail() {
     <h1>${item.title}</h1>
     <p class="detail-summary">${item.summary}</p>
     <div class="tags">${item.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}</div>
+
+    <section class="detail-section">
+      <h2>AI 速读</h2>
+      <p>${item.aiBrief || item.summary}</p>
+      ${
+        Array.isArray(item.watchPoints) && item.watchPoints.length
+          ? `<ul class="watch-list">${item.watchPoints.map((point) => `<li>${point}</li>`).join("")}</ul>`
+          : ""
+      }
+    </section>
+
+    <section class="detail-section">
+      <h2>信源简介</h2>
+      <p>${item.sourceBrief || "用于辅助判断市场方向和风险偏好的数据来源。"}</p>
+      ${item.originalTitle ? `<p class="original-title"><strong>原文标题：</strong>${item.originalTitle}</p>` : ""}
+      ${item.sourceUrl ? `<p><a href="${item.sourceUrl}" target="_blank" rel="noreferrer">打开原始来源</a></p>` : ""}
+    </section>
 
     <section class="detail-section">
       <h2>推荐理由</h2>

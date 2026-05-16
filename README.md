@@ -18,6 +18,7 @@
 - `sources.json` 官方信源配置
 - `data/daily.json` 自动日报数据
 - v1.2：BLS 官方 API、宏观高影响事件升权、低影响公告降权
+- v1.3：扩展欧洲央行、日本央行、BIS、美国人口普查局等多层信源，并为每条信息生成 AI 速读、信源简介和观察点
 
 ## 文件
 
@@ -34,7 +35,7 @@
 - `scripts/generate_data.py`：正式版 v1 数据生成脚本
 - `.github/workflows/update-data.yml`：定时更新数据并提交到仓库
 - `data/*.json`：前端读取的结构化数据
-- `sources.json`：Fed、BLS、EIA、SEC、Treasury 等官方信源配置
+- `sources.json`：Fed、BLS、EIA、SEC、Treasury、ECB、BOJ、BIS、Census 等信源配置
 
 ## 后续可以接入的数据
 

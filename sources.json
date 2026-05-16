@@ -1,5 +1,5 @@
 {
-  "version": "1.2",
+  "version": "1.3",
   "sources": [
     {
       "id": "fed_press",
@@ -10,7 +10,8 @@
       "avatar": "F",
       "category_hint": "macro",
       "asset_hint": "equity bond gold fx",
-      "base_score": 88
+      "base_score": 88,
+      "role": "美国货币政策、金融监管和利率预期的一手信源。"
     },
     {
       "id": "bls_macro",
@@ -22,6 +23,7 @@
       "category_hint": "macro",
       "asset_hint": "equity bond gold fx",
       "base_score": 90,
+      "role": "通胀、就业和工资数据的官方来源，是利率路径和资产估值的重要输入。",
       "series": [
         {
           "id": "CUUR0000SA0",
@@ -61,7 +63,8 @@
       "avatar": "E",
       "category_hint": "commodity",
       "asset_hint": "commodity equity bond",
-      "base_score": 78
+      "base_score": 78,
+      "role": "能源供需、库存和价格压力的官方线索，主要影响原油、通胀和能源股。"
     },
     {
       "id": "sec_press",
@@ -72,7 +75,8 @@
       "avatar": "S",
       "category_hint": "equity",
       "asset_hint": "equity",
-      "base_score": 74
+      "base_score": 74,
+      "role": "资本市场监管、执法和披露风险的一手信源。"
     },
     {
       "id": "treasury_press",
@@ -83,7 +87,68 @@
       "avatar": "T",
       "category_hint": "bond",
       "asset_hint": "bond fx gold equity",
-      "base_score": 80
+      "base_score": 80,
+      "role": "财政、发债、制裁和跨境资金政策的官方来源，会影响美债、美元和风险偏好。"
+    },
+    {
+      "id": "ecb_press",
+      "name": "欧洲央行新闻与讲话",
+      "url": "https://www.ecb.europa.eu/rss/press.html",
+      "type": "rss",
+      "rank": "S",
+      "avatar": "E",
+      "category_hint": "macro",
+      "asset_hint": "equity bond fx gold",
+      "base_score": 84,
+      "role": "欧元区货币政策、通胀判断和金融稳定的一手信源。"
+    },
+    {
+      "id": "boj_whatsnew",
+      "name": "日本央行最新信息",
+      "url": "https://www.boj.or.jp/rss/whatsnew.xml",
+      "type": "rss",
+      "rank": "S",
+      "avatar": "J",
+      "category_hint": "macro",
+      "asset_hint": "bond fx equity gold",
+      "base_score": 82,
+      "role": "日本利率、日元和全球套息交易风险的重要来源。"
+    },
+    {
+      "id": "bis_press",
+      "name": "国际清算银行新闻",
+      "url": "https://www.bis.org/doclist/all_pressrels.rss",
+      "type": "rss",
+      "rank": "A",
+      "avatar": "I",
+      "category_hint": "risk",
+      "asset_hint": "equity bond fx gold",
+      "base_score": 76,
+      "role": "全球央行协调、金融稳定和银行体系风险的高质量线索。"
+    },
+    {
+      "id": "bis_stats",
+      "name": "国际清算银行统计发布",
+      "url": "https://www.bis.org/doclist/all_statistics.rss",
+      "type": "rss",
+      "rank": "A",
+      "avatar": "D",
+      "category_hint": "risk",
+      "asset_hint": "bond fx equity",
+      "base_score": 74,
+      "role": "全球流动性、跨境银行和杠杆周期的中长期监测来源。"
+    },
+    {
+      "id": "census_indicators",
+      "name": "美国人口普查局经济指标",
+      "url": "https://www.census.gov/economic-indicators/indicator.xml",
+      "type": "rss",
+      "rank": "S",
+      "avatar": "C",
+      "category_hint": "macro",
+      "asset_hint": "equity bond fx commodity",
+      "base_score": 77,
+      "role": "零售、库存、贸易和制造业等实体经济指标的官方来源。"
     }
   ]
 }
