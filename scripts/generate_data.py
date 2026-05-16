@@ -734,11 +734,18 @@ def infer_topic_cn(entry: dict[str, Any], category: str) -> str:
 
 
 def display_title_cn(source: dict[str, Any], topic: str) -> str:
+    if source.get("class") == "media":
+        return f"{source.get('name', '媒体源')}观察：{topic}"
     return f"{source.get('name', '官方信源')}更新：{topic}"
 
 
 def display_summary_cn(source: dict[str, Any], category: str, asset_text: str, topic: str) -> str:
     category_label = CATEGORY_LABELS.get(category, "市场")
+    if source.get("class") == "media":
+        return (
+            f"{source.get('name', '媒体源')}报道了与{topic}相关的市场线索，系统将其归入{category_label}类影响因素。"
+            f"它更适合帮助理解市场叙事和资金情绪，仍需用一手数据和价格反应验证。"
+        )
     return (
         f"{source.get('name', '官方信源')}发布与{topic}相关的新信息，系统将其归入{category_label}类影响因素，"
         f"重点观察它对{asset_text}的传导。正式决策应结合原文链接、后续数据和价格确认。"
@@ -759,6 +766,11 @@ def analysis_channel(category: str) -> str:
 def build_ai_brief(entry: dict[str, Any], category: str, asset_text: str, score: int, topic: str) -> str:
     channel = analysis_channel(category)
     score_text = "优先级很高" if score >= 85 else "值得跟踪" if score >= 70 else "先作为线索观察"
+    if entry["source"].get("class") == "media":
+        return (
+            f"AI速读：这是一条媒体解释源，主要讲{topic}，{score_text}。"
+            f"它有助于理解市场正在交易什么叙事，但不能替代官方数据；需要观察{asset_text}是否给出价格确认。"
+        )
     return (
         f"AI速读：这条信息主要讲{topic}，{score_text}。它可能通过{channel}影响{asset_text}，"
         "需要和原文、价格反应以及后续数据一起确认。"
@@ -996,6 +1008,7 @@ def build_signal_from_entry(entry: dict[str, Any]) -> dict[str, Any]:
     summary = summary or f"{title}。"
     if len(summary) > 220:
         summary = f"{summary[:220].rstrip()}..."
+    source_kind = "媒体解释源" if source.get("class") == "media" else source.get("rank", "A") + "级信源"
 
     return {
         "id": slugify(entry["title"], source["id"]),
@@ -1016,7 +1029,7 @@ def build_signal_from_entry(entry: dict[str, Any]) -> dict[str, Any]:
         "summary": summary,
         "aiBrief": build_ai_brief(entry, category, asset_text, score, topic),
         "watchPoints": build_watch_points(category, asset_text),
-        "tags": [CATEGORY_LABELS.get(category, "市场"), source.get("rank", "A") + "级信源", asset_text],
+        "tags": [CATEGORY_LABELS.get(category, "市场"), source_kind, asset_text],
         "reason": f"来自 {source['name']} 的高优先级信息，可能影响{asset_text}。评分综合信源等级、关键词命中、发布时间和影响资产范围。",
         "sourceRank": source.get("rank", "A") + "级",
         "absorbed": "尚未完全消化" if score >= 80 else "部分消化",
@@ -1053,26 +1066,34 @@ def build_live_signals() -> tuple[list[dict[str, Any]], list[str]]:
             signals.append(build_signal_from_entry(entry))
 
     signals.sort(key=lambda item: (item["score"], item["date"], item["time"]), reverse=True)
-    return diversify_signals(signals, limit=24, max_per_source=5), errors
+    return diversify_signals(signals, limit=40, max_per_source=4), errors
 
 
 def diversify_signals(signals: list[dict[str, Any]], limit: int, max_per_source: int) -> list[dict[str, Any]]:
     selected: list[dict[str, Any]] = []
     counts: dict[str, int] = {}
-    skipped: list[dict[str, Any]] = []
+    selected_ids: set[str] = set()
 
+    # First keep one strong item from every available source, so the feed feels like
+    # a radar instead of a scoreboard dominated by one institution.
     for item in signals:
         source_id = item.get("sourceId", item.get("source", "source"))
-        if counts.get(source_id, 0) < max_per_source:
+        if source_id not in counts:
             selected.append(item)
-            counts[source_id] = counts.get(source_id, 0) + 1
-        else:
-            skipped.append(item)
+            selected_ids.add(item["id"])
+            counts[source_id] = 1
         if len(selected) >= limit:
             return selected
 
-    for item in skipped:
+    for item in signals:
+        if item["id"] in selected_ids:
+            continue
+        source_id = item.get("sourceId", item.get("source", "source"))
+        if counts.get(source_id, 0) >= max_per_source:
+            continue
         selected.append(item)
+        selected_ids.add(item["id"])
+        counts[source_id] = counts.get(source_id, 0) + 1
         if len(selected) >= limit:
             break
     return selected
@@ -1123,14 +1144,14 @@ def main() -> int:
         DATA_DIR / "meta.json",
         {
             "generated_at": generated_at,
-            "version": "1.4",
+            "version": "1.5",
             "status": "live" if live_signals and market_snapshot["status"] == "live" and factor_snapshot["status"] == "live" else "degraded",
             "notes": [
                 f"已从多层信源生成 {len(output_signals)} 条市场影响因素，并加入 AI 速读。",
-                "新增市场因子验证：风险偏好、久期压力、信用风险、美元、黄金和商品通胀。",
-                "市场动态会结合新闻来源与价格代理指标，辅助判断信息是否被市场确认。",
+                "新增 WSJ、CNBC、MarketWatch、Yahoo Finance、Bloomberg、FT、BBC、Guardian 等媒体解释源。",
+                "市场动态会结合官方信源、媒体叙事和价格代理指标，辅助判断信息是否被市场确认。",
             ],
-            "source_errors": source_errors + factor_snapshot["errors"],
+            "source_errors": market_snapshot["errors"] + factor_snapshot["errors"] + source_errors,
         },
     )
     all_errors = market_snapshot["errors"] + factor_snapshot["errors"] + source_errors

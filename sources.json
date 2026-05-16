@@ -1,5 +1,5 @@
 {
-  "version": "1.3",
+  "version": "1.5",
   "sources": [
     {
       "id": "fed_press",
@@ -149,6 +149,123 @@
       "asset_hint": "equity bond fx commodity",
       "base_score": 77,
       "role": "零售、库存、贸易和制造业等实体经济指标的官方来源。"
+    },
+    {
+      "id": "wsj_markets",
+      "name": "华尔街日报市场新闻",
+      "url": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
+      "type": "rss",
+      "rank": "A",
+      "avatar": "W",
+      "class": "media",
+      "category_hint": "equity",
+      "asset_hint": "equity bond gold fx commodity",
+      "base_score": 70,
+      "role": "高可信市场媒体，适合捕捉美股、债券、商品和投资者叙事变化。"
+    },
+    {
+      "id": "cnbc_markets",
+      "name": "CNBC 市场新闻",
+      "url": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
+      "type": "rss",
+      "rank": "A",
+      "avatar": "N",
+      "class": "media",
+      "category_hint": "equity",
+      "asset_hint": "equity bond fx commodity",
+      "base_score": 69,
+      "role": "美国主流财经媒体，适合跟踪股市、科技股、政策交易和投资者情绪。"
+    },
+    {
+      "id": "marketwatch_top",
+      "name": "MarketWatch 头条",
+      "url": "https://feeds.content.dowjones.io/public/rss/mw_topstories",
+      "type": "rss",
+      "rank": "A",
+      "avatar": "M",
+      "class": "media",
+      "category_hint": "equity",
+      "asset_hint": "equity bond fx gold",
+      "base_score": 68,
+      "role": "面向投资者的市场新闻源，适合观察美股、基金和个人投资者叙事。"
+    },
+    {
+      "id": "marketwatch_pulse",
+      "name": "MarketWatch 快讯",
+      "url": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+      "type": "rss",
+      "rank": "A",
+      "avatar": "P",
+      "class": "media",
+      "category_hint": "macro",
+      "asset_hint": "equity bond fx",
+      "base_score": 67,
+      "role": "快讯型市场源，适合捕捉经济数据、央行定价和盘中异动。"
+    },
+    {
+      "id": "yahoo_finance",
+      "name": "Yahoo Finance",
+      "url": "https://finance.yahoo.com/news/rssindex",
+      "type": "rss",
+      "rank": "B",
+      "avatar": "Y",
+      "class": "media",
+      "category_hint": "equity",
+      "asset_hint": "equity bond fx commodity",
+      "base_score": 64,
+      "role": "覆盖面广的财经聚合源，适合补充公司、行业和市场情绪线索。"
+    },
+    {
+      "id": "bloomberg_markets",
+      "name": "Bloomberg Markets",
+      "url": "https://feeds.bloomberg.com/markets/news.rss",
+      "type": "rss",
+      "rank": "A",
+      "avatar": "L",
+      "class": "media",
+      "category_hint": "macro",
+      "asset_hint": "equity bond fx commodity gold",
+      "base_score": 72,
+      "role": "全球市场新闻源，适合捕捉宏观、地缘、央行和资产价格叙事。"
+    },
+    {
+      "id": "ft_home",
+      "name": "Financial Times",
+      "url": "https://www.ft.com/rss/home",
+      "type": "rss",
+      "rank": "A",
+      "avatar": "F",
+      "class": "media",
+      "category_hint": "macro",
+      "asset_hint": "equity bond fx commodity",
+      "base_score": 71,
+      "role": "国际高可信财经媒体，适合跟踪政策、企业、地缘和长期结构变化。"
+    },
+    {
+      "id": "bbc_business",
+      "name": "BBC Business",
+      "url": "https://feeds.bbci.co.uk/news/business/rss.xml",
+      "type": "rss",
+      "rank": "B",
+      "avatar": "B",
+      "class": "media",
+      "category_hint": "macro",
+      "asset_hint": "equity bond fx",
+      "base_score": 62,
+      "role": "国际商业新闻源，适合补充宏观、消费、企业和英国/欧洲风险线索。"
+    },
+    {
+      "id": "guardian_business",
+      "name": "Guardian Business",
+      "url": "https://www.theguardian.com/uk/business/rss",
+      "type": "rss",
+      "rank": "B",
+      "avatar": "G",
+      "class": "media",
+      "category_hint": "macro",
+      "asset_hint": "equity bond fx commodity",
+      "base_score": 60,
+      "role": "英国商业与政策新闻源，适合补充欧洲经济、监管和社会政策影响。"
     }
   ]
 }
