@@ -21,6 +21,7 @@
 - v1.3：扩展欧洲央行、日本央行、BIS、美国人口普查局等多层信源，并为每条信息生成 AI 速读、信源简介和观察点
 - v1.4：新增市场因子验证，用 ETF、期货和现货代理指标确认新闻是否被价格响应
 - v1.5：新增 WSJ、CNBC、MarketWatch、Yahoo Finance、Bloomberg、FT、BBC、Guardian 等媒体解释源，扩展到 40 条混合信息流
+- v1.7：新增 X 财经账号池，支持官方媒体、宏观投资人、市场情绪、中国与亚洲观察四类账号；配置 `X_BEARER_TOKEN` 后自动纳入信息流
 
 ## 文件
 
@@ -38,7 +39,7 @@
 - `.github/workflows/update-data.yml`：定时更新数据并提交到仓库
 - `data/*.json`：前端读取的结构化数据
 - `data/factors.json`：风险偏好、久期压力、信用风险、美元、黄金和商品通胀验证数据
-- `sources.json`：Fed、BLS、EIA、SEC、Treasury、ECB、BOJ、BIS、Census、WSJ、CNBC、MarketWatch、Yahoo Finance、Bloomberg、FT、BBC、Guardian 等信源配置
+- `sources.json`：Fed、BLS、EIA、SEC、Treasury、ECB、BOJ、BIS、Census、WSJ、CNBC、MarketWatch、Yahoo Finance、Bloomberg、FT、BBC、Guardian、X 财经账号池等信源配置
 
 ## 后续可以接入的数据
 
@@ -46,6 +47,7 @@
 - 央行与监管：美联储、欧洲央行、日本央行、中国央行
 - 市场行情：股指、债券收益率、黄金、原油、美元指数
 - 新闻源：Reuters、Bloomberg、WSJ、FT、财新等
+- 社交情绪：X 官方媒体、宏观投资人、交易员、中国与亚洲观察账号池
 - 资金流：ETF 流入流出、基金仓位、北向资金、期货持仓
 - Agent 分析：情景推演、风险归因、资产配置建议
 

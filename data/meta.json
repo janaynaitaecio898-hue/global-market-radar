@@ -1,10 +1,11 @@
 {
-  "generated_at": "2026-05-16T18:04:15.663390+00:00",
-  "version": "1.5",
+  "generated_at": "2026-05-17T07:31:02.786617+00:00",
+  "version": "1.7",
   "status": "live",
   "notes": [
-    "已从多层信源生成 40 条市场影响因素，并加入 AI 速读。",
-    "新增 WSJ、CNBC、MarketWatch、Yahoo Finance、Bloomberg、FT、BBC、Guardian 等媒体解释源。",
+    "已从多层信源生成 56 条市场影响因素，并加入 AI 速读。",
+    "已接入 WSJ、CNBC、MarketWatch、Yahoo Finance、Bloomberg、FT、BBC、Guardian 等媒体解释源。",
+    "v1.7 已内置 4 个 X 财经账号池；配置 X_BEARER_TOKEN 后自动抓取官方媒体、宏观投资人、市场情绪和中国/亚洲观察账号。",
     "市场动态会结合官方信源、媒体叙事和价格代理指标，辅助判断信息是否被市场确认。"
   ],
   "source_errors": []

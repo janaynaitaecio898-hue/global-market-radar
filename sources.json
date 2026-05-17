@@ -1,5 +1,5 @@
 {
-  "version": "1.5",
+  "version": "1.7",
   "sources": [
     {
       "id": "fed_press",
@@ -266,6 +266,70 @@
       "asset_hint": "equity bond fx commodity",
       "base_score": 60,
       "role": "英国商业与政策新闻源，适合补充欧洲经济、监管和社会政策影响。"
+    },
+    {
+      "id": "x_official_media",
+      "name": "X 官方媒体快讯",
+      "url": "https://api.x.com/2/tweets/search/recent",
+      "type": "x_recent",
+      "rank": "C",
+      "avatar": "X",
+      "class": "social",
+      "category_hint": "macro",
+      "asset_hint": "equity bond fx commodity gold",
+      "base_score": 61,
+      "role": "来自 X 的官方媒体账号池，用于捕捉 Reuters、Bloomberg、FT、WSJ、CNBC 等媒体的即时市场叙事；只作为情绪和线索，需要事实源核验。",
+      "accounts": ["Reuters", "business", "FinancialTimes", "WSJ", "CNBC", "MarketWatch", "TheEconomist", "NikkeiAsia", "SCMPNews"],
+      "max_results": 20,
+      "entry_limit": 16
+    },
+    {
+      "id": "x_macro_investors",
+      "name": "X 宏观投资人",
+      "url": "https://api.x.com/2/tweets/search/recent",
+      "type": "x_recent",
+      "rank": "C",
+      "avatar": "M",
+      "class": "social",
+      "category_hint": "macro",
+      "asset_hint": "equity bond fx gold",
+      "base_score": 58,
+      "role": "宏观投资人和利率观察账号池，适合捕捉货币政策、通胀、美元、债券和资产配置叙事变化。",
+      "accounts": ["RayDalio", "elerianm", "biancoresearch", "LizAnnSonders", "lisaabramowicz1", "SoberLook", "Schuldensuehner", "charliebilello", "LynAldenContact"],
+      "max_results": 20,
+      "entry_limit": 16
+    },
+    {
+      "id": "x_market_sentiment",
+      "name": "X 市场情绪账号",
+      "url": "https://api.x.com/2/tweets/search/recent",
+      "type": "x_recent",
+      "rank": "C",
+      "avatar": "S",
+      "class": "social",
+      "category_hint": "risk",
+      "asset_hint": "equity bond fx commodity gold",
+      "base_score": 55,
+      "role": "交易员和市场情绪账号池，适合捕捉盘中异动、热门交易和风险偏好变化；噪音较高，必须等待交叉验证。",
+      "accounts": ["KobeissiLetter", "unusual_whales", "zerohedge", "bespokeinvest", "fundstrat", "jimcramer"],
+      "max_results": 20,
+      "entry_limit": 16
+    },
+    {
+      "id": "x_china_asia",
+      "name": "X 中国与亚洲观察",
+      "url": "https://api.x.com/2/tweets/search/recent",
+      "type": "x_recent",
+      "rank": "C",
+      "avatar": "A",
+      "class": "social",
+      "category_hint": "macro",
+      "asset_hint": "equity bond fx commodity",
+      "base_score": 57,
+      "role": "中国、港股、日本、印度和亚洲宏观观察账号池，适合补充 A 股、港股、日股、人民币和区域政策线索。",
+      "accounts": ["Sino_Market", "ChinaBeigeBook", "DavidInglesTV", "Trinhnomics", "moneycontrolcom", "CNBCTV18News", "LiveMint", "NikkeiAsia", "SCMPNews"],
+      "max_results": 20,
+      "entry_limit": 16
     }
   ]
 }

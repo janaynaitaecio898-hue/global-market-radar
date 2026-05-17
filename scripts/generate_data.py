@@ -12,6 +12,7 @@ import csv
 import hashlib
 import html
 import json
+import os
 import re
 import sys
 import xml.etree.ElementTree as ET
@@ -19,12 +20,35 @@ from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 SOURCES_PATH = ROOT / "sources.json"
+
+DEFAULT_X_QUERY_TERMS = [
+    "market",
+    "markets",
+    "stocks",
+    "equity",
+    "bonds",
+    "yields",
+    "Fed",
+    "inflation",
+    "China",
+    "Asia",
+    "earnings",
+    "oil",
+    "gold",
+    "dollar",
+    "yuan",
+    "ETF",
+    "futures",
+    "recession",
+    "tariff",
+]
 
 MARKET_INSTRUMENTS = [
     {
@@ -623,6 +647,19 @@ def fetch_json_post(url: str, payload: dict[str, Any]) -> dict[str, Any]:
     return json.loads(raw.decode("utf-8", errors="replace"))
 
 
+def fetch_json_get(url: str, bearer_token: str | None = None) -> dict[str, Any]:
+    headers = {
+        "Accept": "application/json",
+        "User-Agent": "GlobalMarketRadar/1.7",
+    }
+    if bearer_token:
+        headers["Authorization"] = f"Bearer {bearer_token}"
+    request = Request(url, headers=headers)
+    with urlopen(request, timeout=25) as response:
+        raw = response.read()
+    return json.loads(raw.decode("utf-8", errors="replace"))
+
+
 def strip_html(value: str) -> str:
     text = re.sub(r"<[^>]+>", " ", value or "")
     text = html.unescape(text)
@@ -734,6 +771,8 @@ def infer_topic_cn(entry: dict[str, Any], category: str) -> str:
 
 
 def display_title_cn(source: dict[str, Any], topic: str) -> str:
+    if source.get("class") == "social":
+        return f"{source.get('name', 'X 财经账号池')}线索：{topic}"
     if source.get("class") == "media":
         return f"{source.get('name', '媒体源')}观察：{topic}"
     return f"{source.get('name', '官方信源')}更新：{topic}"
@@ -741,6 +780,11 @@ def display_title_cn(source: dict[str, Any], topic: str) -> str:
 
 def display_summary_cn(source: dict[str, Any], category: str, asset_text: str, topic: str) -> str:
     category_label = CATEGORY_LABELS.get(category, "市场")
+    if source.get("class") == "social":
+        return (
+            f"{source.get('name', 'X 财经账号池')}出现与{topic}相关的高频讨论，系统将其归入{category_label}类线索。"
+            f"它适合捕捉市场情绪、交易叙事和潜在拐点，但必须用原始新闻、官方数据和{asset_text}价格反应交叉验证。"
+        )
     if source.get("class") == "media":
         return (
             f"{source.get('name', '媒体源')}报道了与{topic}相关的市场线索，系统将其归入{category_label}类影响因素。"
@@ -766,6 +810,11 @@ def analysis_channel(category: str) -> str:
 def build_ai_brief(entry: dict[str, Any], category: str, asset_text: str, score: int, topic: str) -> str:
     channel = analysis_channel(category)
     score_text = "优先级很高" if score >= 85 else "值得跟踪" if score >= 70 else "先作为线索观察"
+    if entry["source"].get("class") == "social":
+        return (
+            f"AI速读：这是一条 X 财经账号线索，主要围绕{topic}，{score_text}。"
+            f"它的价值在于捕捉情绪扩散和交易叙事，不能作为事实确认；需要观察{asset_text}和一手信源是否同步验证。"
+        )
     if entry["source"].get("class") == "media":
         return (
             f"AI速读：这是一条媒体解释源，主要讲{topic}，{score_text}。"
@@ -929,6 +978,82 @@ def parse_bls_api_source(source: dict[str, Any]) -> list[dict[str, Any]]:
     return entries
 
 
+def chunked(items: list[str], size: int) -> list[list[str]]:
+    return [items[index : index + size] for index in range(0, len(items), size)]
+
+
+def format_x_query_term(term: str) -> str:
+    return f'"{term}"' if " " in term else term
+
+
+def clean_x_text(value: str) -> str:
+    text = re.sub(r"https://t\.co/\S+", "", value or "")
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
+
+
+def parse_x_recent_source(source: dict[str, Any]) -> list[dict[str, Any]]:
+    token = os.environ.get("X_BEARER_TOKEN") or os.environ.get("TWITTER_BEARER_TOKEN")
+    if not token:
+        return []
+
+    accounts = [str(account).lstrip("@") for account in source.get("accounts", []) if account]
+    if not accounts:
+        return []
+
+    query_terms = source.get("query_terms") or DEFAULT_X_QUERY_TERMS
+    topic_filter = " OR ".join(format_x_query_term(str(term)) for term in query_terms[:18])
+    entries: list[dict[str, Any]] = []
+    endpoint = source.get("url", "https://api.x.com/2/tweets/search/recent")
+
+    for account_group in chunked(accounts, 6):
+        author_filter = " OR ".join(f"from:{account}" for account in account_group)
+        query = f"({author_filter}) ({topic_filter}) -is:retweet -is:reply"
+        params = {
+            "query": query,
+            "max_results": str(int(source.get("max_results", 20))),
+            "tweet.fields": "created_at,public_metrics,lang",
+            "expansions": "author_id",
+            "user.fields": "name,username,verified,verified_type",
+        }
+        response = fetch_json_get(f"{endpoint}?{urlencode(params)}", token)
+        users = {
+            user.get("id"): user
+            for user in response.get("includes", {}).get("users", [])
+            if user.get("id")
+        }
+
+        for tweet in response.get("data", []):
+            text = clean_x_text(tweet.get("text", ""))
+            if not text:
+                continue
+            author = users.get(tweet.get("author_id"), {})
+            username = author.get("username") or account_group[0]
+            author_name = author.get("name") or f"@{username}"
+            published = parse_datetime(tweet.get("created_at"))
+            metrics = tweet.get("public_metrics", {})
+            engagement = sum(
+                int(metrics.get(key, 0) or 0)
+                for key in ("like_count", "retweet_count", "reply_count", "quote_count")
+            )
+            title_text = text[:96].rstrip()
+            if len(text) > 96:
+                title_text = f"{title_text}..."
+            entries.append(
+                {
+                    "title": f"@{username}: {title_text}",
+                    "summary": f"{author_name} 在 X 上提到：{text}",
+                    "link": f"https://x.com/{username}/status/{tweet.get('id')}",
+                    "published": published,
+                    "source": source,
+                    "engagement": engagement,
+                }
+            )
+
+    entries.sort(key=lambda item: (item.get("engagement", 0), item["published"]), reverse=True)
+    return entries[: int(source.get("entry_limit", 16))]
+
+
 def classify_entry(entry: dict[str, Any]) -> dict[str, str]:
     if entry.get("category") and entry.get("horizon") and entry.get("asset"):
         return {
@@ -984,6 +1109,9 @@ def score_entry(entry: dict[str, Any], classification: dict[str, str]) -> int:
     low_hits = sum(1 for phrase in LOW_IMPACT_PHRASES if phrase in text)
     score += min(18, high_hits * 6)
     score -= min(35, low_hits * 14)
+    if source.get("class") == "social":
+        score += min(6, int(entry.get("engagement", 0)) // 250)
+        score = min(score, 82)
     return max(45, min(98, score))
 
 
@@ -1008,7 +1136,18 @@ def build_signal_from_entry(entry: dict[str, Any]) -> dict[str, Any]:
     summary = summary or f"{title}。"
     if len(summary) > 220:
         summary = f"{summary[:220].rstrip()}..."
-    source_kind = "媒体解释源" if source.get("class") == "media" else source.get("rank", "A") + "级信源"
+    if source.get("class") == "social":
+        source_kind = "社交情绪源"
+    elif source.get("class") == "media":
+        source_kind = "媒体解释源"
+    else:
+        source_kind = source.get("rank", "A") + "级信源"
+    reason = f"来自 {source['name']} 的高优先级信息，可能影响{asset_text}。评分综合信源等级、关键词命中、发布时间和影响资产范围。"
+    if source.get("class") == "social":
+        reason = (
+            f"来自 {source['name']} 的 X 财经账号线索，适合观察情绪扩散和交易叙事，可能影响{asset_text}。"
+            "评分已对社交源做权重上限处理，仍需一手信源和价格确认。"
+        )
 
     return {
         "id": slugify(entry["title"], source["id"]),
@@ -1030,7 +1169,7 @@ def build_signal_from_entry(entry: dict[str, Any]) -> dict[str, Any]:
         "aiBrief": build_ai_brief(entry, category, asset_text, score, topic),
         "watchPoints": build_watch_points(category, asset_text),
         "tags": [CATEGORY_LABELS.get(category, "市场"), source_kind, asset_text],
-        "reason": f"来自 {source['name']} 的高优先级信息，可能影响{asset_text}。评分综合信源等级、关键词命中、发布时间和影响资产范围。",
+        "reason": reason,
         "sourceRank": source.get("rank", "A") + "级",
         "absorbed": "尚未完全消化" if score >= 80 else "部分消化",
         "shortTerm": f"短期观察该信息是否在{asset_text}价格中形成确认。",
@@ -1052,6 +1191,8 @@ def build_live_signals() -> tuple[list[dict[str, Any]], list[str]]:
                 entries = parse_bls_api_source(source)
             elif source.get("type") == "treasury_html":
                 entries = parse_treasury_html_source(source)
+            elif source.get("type") == "x_recent":
+                entries = parse_x_recent_source(source)
             else:
                 entries = []
         except Exception as exc:  # noqa: BLE001 - keep the pipeline alive
@@ -1066,7 +1207,7 @@ def build_live_signals() -> tuple[list[dict[str, Any]], list[str]]:
             signals.append(build_signal_from_entry(entry))
 
     signals.sort(key=lambda item: (item["score"], item["date"], item["time"]), reverse=True)
-    return diversify_signals(signals, limit=40, max_per_source=4), errors
+    return diversify_signals(signals, limit=56, max_per_source=4), errors
 
 
 def diversify_signals(signals: list[dict[str, Any]], limit: int, max_per_source: int) -> list[dict[str, Any]]:
@@ -1133,6 +1274,13 @@ def main() -> int:
     generated_at = market_snapshot["generated_at"]
     live_signals, source_errors = build_live_signals()
     output_signals = live_signals or BASE_SIGNALS
+    x_token_enabled = bool(os.environ.get("X_BEARER_TOKEN") or os.environ.get("TWITTER_BEARER_TOKEN"))
+    x_signal_count = sum(1 for item in output_signals if str(item.get("sourceId", "")).startswith("x_"))
+    x_note = (
+        f"X API 已启用，本次纳入 {x_signal_count} 条 X 财经账号线索。"
+        if x_token_enabled
+        else "v1.7 已内置 4 个 X 财经账号池；配置 X_BEARER_TOKEN 后自动抓取官方媒体、宏观投资人、市场情绪和中国/亚洲观察账号。"
+    )
 
     write_json(DATA_DIR / "signals.json", {"generated_at": generated_at, "items": output_signals})
     write_json(DATA_DIR / "assets.json", {"generated_at": generated_at, "items": ASSETS})
@@ -1144,11 +1292,12 @@ def main() -> int:
         DATA_DIR / "meta.json",
         {
             "generated_at": generated_at,
-            "version": "1.5",
+            "version": "1.7",
             "status": "live" if live_signals and market_snapshot["status"] == "live" and factor_snapshot["status"] == "live" else "degraded",
             "notes": [
                 f"已从多层信源生成 {len(output_signals)} 条市场影响因素，并加入 AI 速读。",
-                "新增 WSJ、CNBC、MarketWatch、Yahoo Finance、Bloomberg、FT、BBC、Guardian 等媒体解释源。",
+                "已接入 WSJ、CNBC、MarketWatch、Yahoo Finance、Bloomberg、FT、BBC、Guardian 等媒体解释源。",
+                x_note,
                 "市场动态会结合官方信源、媒体叙事和价格代理指标，辅助判断信息是否被市场确认。",
             ],
             "source_errors": market_snapshot["errors"] + factor_snapshot["errors"] + source_errors,
