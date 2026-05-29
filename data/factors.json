@@ -1,33 +1,33 @@
 {
-  "generated_at": "2026-05-29T10:12:58.200697+00:00",
+  "generated_at": "2026-05-29T16:07:34.463115+00:00",
   "items": [
     {
       "id": "risk-appetite",
       "title": "风险偏好验证",
-      "stance": "风险偏好升温",
-      "tone": "positive",
-      "summary": "用标普500、纳指100和高收益债 ETF 观察风险资产是否同步确认。当前综合变化：0.52%。",
+      "stance": "风险偏好观望",
+      "tone": "watch",
+      "summary": "用标普500、纳指100和高收益债 ETF 观察风险资产是否同步确认。当前综合变化：0.07%。",
       "decision": "若新闻利好但风险资产和高收益债不同步，先降低对单条消息的信任度。",
       "metrics": [
         {
           "name": "标普500 ETF",
           "symbol": "spy.us",
-          "value": 754.6,
-          "changePct": 0.58,
+          "value": 756.78,
+          "changePct": 0.12,
           "status": "live"
         },
         {
           "name": "纳斯达克100 ETF",
           "symbol": "qqq.us",
-          "value": 735.6,
-          "changePct": 0.8,
+          "value": 738.1,
+          "changePct": 0.04,
           "status": "live"
         },
         {
           "name": "高收益债 ETF",
           "symbol": "hyg.us",
-          "value": 80.23,
-          "changePct": 0.19,
+          "value": 80.31,
+          "changePct": 0.06,
           "status": "live"
         }
       ]
@@ -35,30 +35,30 @@
     {
       "id": "duration-pressure",
       "title": "利率与久期压力",
-      "stance": "久期压力缓和",
-      "tone": "positive",
-      "summary": "用长久期和中久期美债 ETF 代理利率压力。TLT：85.74 / +0.45%，IEF：94.54 / +0.21%。",
+      "stance": "久期信号中性",
+      "tone": "watch",
+      "summary": "用长久期和中久期美债 ETF 代理利率压力。TLT：85.78 / -0.03%，IEF：94.665 / +0.03%。",
       "decision": "久期资产下跌时，成长股、黄金和长债基金的短线胜率通常下降。",
       "metrics": [
         {
           "name": "20年以上美债 ETF",
           "symbol": "tlt.us",
-          "value": 85.74,
-          "changePct": 0.45,
+          "value": 85.78,
+          "changePct": -0.03,
           "status": "live"
         },
         {
           "name": "7-10年美债 ETF",
           "symbol": "ief.us",
-          "value": 94.54,
-          "changePct": 0.21,
+          "value": 94.665,
+          "changePct": 0.03,
           "status": "live"
         },
         {
           "name": "1-3年美债 ETF",
           "symbol": "shy.us",
-          "value": 82.26,
-          "changePct": 0.05,
+          "value": 82.31,
+          "changePct": 0.01,
           "status": "live"
         }
       ]
@@ -68,21 +68,21 @@
       "title": "信用风险确认",
       "stance": "信用利差观望",
       "tone": "watch",
-      "summary": "用高收益债相对投资级债的表现观察信用风险。HYG-LQD 日内相对变化：-0.06 个百分点。",
+      "summary": "用高收益债相对投资级债的表现观察信用风险。HYG-LQD 日内相对变化：-0.05 个百分点。",
       "decision": "如果股票上涨但高收益债弱于投资级债，说明风险偏好可能不够扎实。",
       "metrics": [
         {
           "name": "高收益债 ETF",
           "symbol": "hyg.us",
-          "value": 80.23,
-          "changePct": 0.19,
+          "value": 80.31,
+          "changePct": 0.06,
           "status": "live"
         },
         {
           "name": "投资级债 ETF",
           "symbol": "lqd.us",
-          "value": 109.26,
-          "changePct": 0.25,
+          "value": 109.515,
+          "changePct": 0.11,
           "status": "live"
         }
       ]
@@ -92,21 +92,21 @@
       "title": "美元与汇率压力",
       "stance": "美元震荡",
       "tone": "watch",
-      "summary": "用美元指数期货和美元 ETF 观察外汇压力。综合变化：-0.07%。",
+      "summary": "用美元指数期货和美元 ETF 观察外汇压力。综合变化：-0.19%。",
       "decision": "美元走强通常压制黄金、新兴市场和商品货币，需和利率信号一起看。",
       "metrics": [
         {
           "name": "美元指数期货",
           "symbol": "dx.f",
-          "value": 99.04,
-          "changePct": 0.1,
+          "value": 98.795,
+          "changePct": -0.15,
           "status": "live"
         },
         {
           "name": "美元指数 ETF",
           "symbol": "uup.us",
-          "value": 27.7,
-          "changePct": -0.25,
+          "value": 27.645,
+          "changePct": -0.23,
           "status": "live"
         }
       ]
@@ -116,21 +116,21 @@
       "title": "黄金避险与实际利率",
       "stance": "黄金获得支撑",
       "tone": "positive",
-      "summary": "用现货黄金和黄金 ETF 检查避险需求。综合变化：1.12%。",
+      "summary": "用现货黄金和黄金 ETF 检查避险需求。综合变化：1.23%。",
       "decision": "黄金上涨若同时伴随美元和利率上行，要重点判断是避险买盘还是通胀交易。",
       "metrics": [
         {
           "name": "现货黄金",
           "symbol": "xauusd",
-          "value": 4528.58,
-          "changePct": 0.7,
+          "value": 4567.86,
+          "changePct": 1.57,
           "status": "live"
         },
         {
           "name": "黄金 ETF",
           "symbol": "gld.us",
-          "value": 412.77,
-          "changePct": 1.55,
+          "value": 419.29,
+          "changePct": 0.88,
           "status": "live"
         }
       ]
@@ -140,28 +140,28 @@
       "title": "商品通胀线索",
       "stance": "商品需求线索转弱",
       "tone": "negative",
-      "summary": "用原油、能源 ETF 和铜观察商品通胀与周期需求。综合变化：-1.24%。",
+      "summary": "用原油、能源 ETF 和铜观察商品通胀与周期需求。综合变化：-0.44%。",
       "decision": "原油和铜同步上行更偏通胀/需求确认；只有原油上行则更像供给或地缘冲击。",
       "metrics": [
         {
           "name": "WTI 原油期货",
           "symbol": "cl.f",
-          "value": 87.43,
-          "changePct": -1.42,
+          "value": 87.8,
+          "changePct": -1.0,
           "status": "live"
         },
         {
           "name": "原油 ETF",
           "symbol": "uso.us",
-          "value": 130.78,
-          "changePct": -1.92,
+          "value": 128.34,
+          "changePct": 0.03,
           "status": "live"
         },
         {
           "name": "铜期货",
           "symbol": "hg.f",
-          "value": 639.57,
-          "changePct": -0.37,
+          "value": 639.78,
+          "changePct": -0.34,
           "status": "live"
         }
       ]
@@ -172,88 +172,88 @@
       "symbol": "hyg.us",
       "name": "高收益债 ETF",
       "asset": "credit",
-      "close": 80.23,
-      "open": 80.08,
-      "changePct": 0.19,
-      "date": "2026-05-28",
-      "time": "22:00:16",
+      "close": 80.31,
+      "open": 80.26,
+      "changePct": 0.06,
+      "date": "2026-05-29",
+      "time": "17:52:38",
       "status": "live"
     },
     {
       "symbol": "lqd.us",
       "name": "投资级债 ETF",
       "asset": "credit",
-      "close": 109.26,
-      "open": 108.99,
-      "changePct": 0.25,
-      "date": "2026-05-28",
-      "time": "22:00:17",
+      "close": 109.515,
+      "open": 109.39,
+      "changePct": 0.11,
+      "date": "2026-05-29",
+      "time": "17:52:17",
       "status": "live"
     },
     {
       "symbol": "ief.us",
       "name": "7-10年美债 ETF",
       "asset": "bond",
-      "close": 94.54,
-      "open": 94.345,
-      "changePct": 0.21,
-      "date": "2026-05-28",
-      "time": "22:00:18",
+      "close": 94.665,
+      "open": 94.64,
+      "changePct": 0.03,
+      "date": "2026-05-29",
+      "time": "17:52:36",
       "status": "live"
     },
     {
       "symbol": "shy.us",
       "name": "1-3年美债 ETF",
       "asset": "bond",
-      "close": 82.26,
-      "open": 82.22,
-      "changePct": 0.05,
-      "date": "2026-05-28",
-      "time": "22:00:15",
+      "close": 82.31,
+      "open": 82.3,
+      "changePct": 0.01,
+      "date": "2026-05-29",
+      "time": "17:51:40",
       "status": "live"
     },
     {
       "symbol": "dx.f",
       "name": "美元指数期货",
       "asset": "fx",
-      "close": 99.04,
+      "close": 98.795,
       "open": 98.942,
-      "changePct": 0.1,
+      "changePct": -0.15,
       "date": "2026-05-29",
-      "time": "12:12:56",
+      "time": "18:07:39",
       "status": "live"
     },
     {
       "symbol": "xauusd",
       "name": "现货黄金",
       "asset": "gold",
-      "close": 4528.58,
+      "close": 4567.86,
       "open": 4497.22,
-      "changePct": 0.7,
+      "changePct": 1.57,
       "date": "2026-05-29",
-      "time": "12:13:00",
+      "time": "18:07:36",
       "status": "live"
     },
     {
       "symbol": "cl.f",
       "name": "WTI 原油期货",
       "asset": "commodity",
-      "close": 87.43,
+      "close": 87.8,
       "open": 88.69,
-      "changePct": -1.42,
+      "changePct": -1.0,
       "date": "2026-05-29",
-      "time": "12:12:58",
+      "time": "18:07:39",
       "status": "live"
     },
     {
       "symbol": "hg.f",
       "name": "铜期货",
       "asset": "commodity",
-      "close": 639.57,
+      "close": 639.78,
       "open": 641.95,
-      "changePct": -0.37,
+      "changePct": -0.34,
       "date": "2026-05-29",
-      "time": "12:13:01",
+      "time": "18:07:40",
       "status": "live"
     }
   ],
