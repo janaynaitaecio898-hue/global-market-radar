@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-05-29T20:37:27.051058+00:00",
+  "generated_at": "2026-06-01T05:13:58.694702+00:00",
   "quotes": [
     {
       "symbol": "spy.us",
       "name": "标普500 ETF",
       "asset": "equity",
-      "close": 756.47,
+      "close": 756.48,
       "open": 755.9,
       "changePct": 0.08,
       "date": "2026-05-29",
@@ -38,9 +38,9 @@
       "symbol": "gld.us",
       "name": "黄金 ETF",
       "asset": "gold",
-      "close": 417.2,
+      "close": 417.12,
       "open": 415.62,
-      "changePct": 0.38,
+      "changePct": 0.36,
       "date": "2026-05-29",
       "time": "22:00:23",
       "status": "live"
@@ -60,9 +60,9 @@
       "symbol": "uup.us",
       "name": "美元指数 ETF",
       "asset": "fx",
-      "close": 27.67,
+      "close": 27.66,
       "open": 27.71,
-      "changePct": -0.14,
+      "changePct": -0.18,
       "date": "2026-05-29",
       "time": "22:00:24",
       "status": "live"
