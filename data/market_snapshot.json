@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T21:23:23.032780+00:00",
+  "generated_at": "2026-06-03T05:13:21.469743+00:00",
   "quotes": [
     {
       "symbol": "spy.us",
@@ -27,9 +27,9 @@
       "symbol": "tlt.us",
       "name": "20年以上美债 ETF",
       "asset": "bond",
-      "close": 85.64,
+      "close": 85.65,
       "open": 85.8,
-      "changePct": -0.19,
+      "changePct": -0.17,
       "date": "2026-06-02",
       "time": "22:00:18",
       "status": "live"
