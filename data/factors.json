@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T05:13:21.469743+00:00",
+  "generated_at": "2026-06-03T11:22:17.283601+00:00",
   "items": [
     {
       "id": "risk-appetite",
@@ -92,14 +92,14 @@
       "title": "美元与汇率压力",
       "stance": "美元震荡",
       "tone": "watch",
-      "summary": "用美元指数期货和美元 ETF 观察外汇压力。综合变化：0.02%。",
+      "summary": "用美元指数期货和美元 ETF 观察外汇压力。综合变化：0.04%。",
       "decision": "美元走强通常压制黄金、新兴市场和商品货币，需和利率信号一起看。",
       "metrics": [
         {
           "name": "美元指数期货",
           "symbol": "dx.f",
-          "value": 99.23,
-          "changePct": -0.03,
+          "value": 99.272,
+          "changePct": 0.01,
           "status": "live"
         },
         {
@@ -116,14 +116,14 @@
       "title": "黄金避险与实际利率",
       "stance": "黄金短线承压",
       "tone": "negative",
-      "summary": "用现货黄金和黄金 ETF 检查避险需求。综合变化：-0.46%。",
+      "summary": "用现货黄金和黄金 ETF 检查避险需求。综合变化：-0.57%。",
       "decision": "黄金上涨若同时伴随美元和利率上行，要重点判断是避险买盘还是通胀交易。",
       "metrics": [
         {
           "name": "现货黄金",
           "symbol": "xauusd",
-          "value": 4473.13,
-          "changePct": -0.4,
+          "value": 4462.34,
+          "changePct": -0.64,
           "status": "live"
         },
         {
@@ -140,14 +140,14 @@
       "title": "商品通胀线索",
       "stance": "商品通胀线索升温",
       "tone": "positive",
-      "summary": "用原油、能源 ETF 和铜观察商品通胀与周期需求。综合变化：0.78%。",
+      "summary": "用原油、能源 ETF 和铜观察商品通胀与周期需求。综合变化：0.91%。",
       "decision": "原油和铜同步上行更偏通胀/需求确认；只有原油上行则更像供给或地缘冲击。",
       "metrics": [
         {
           "name": "WTI 原油期货",
           "symbol": "cl.f",
-          "value": 94.82,
-          "changePct": 1.06,
+          "value": 95.83,
+          "changePct": 2.13,
           "status": "live"
         },
         {
@@ -160,8 +160,8 @@
         {
           "name": "铜期货",
           "symbol": "hg.f",
-          "value": 665.45,
-          "changePct": -0.34,
+          "value": 660.87,
+          "changePct": -1.03,
           "status": "live"
         }
       ]
@@ -216,44 +216,44 @@
       "symbol": "dx.f",
       "name": "美元指数期货",
       "asset": "fx",
-      "close": 99.23,
+      "close": 99.272,
       "open": 99.26,
-      "changePct": -0.03,
+      "changePct": 0.01,
       "date": "2026-06-03",
-      "time": "07:13:15",
+      "time": "13:22:01",
       "status": "live"
     },
     {
       "symbol": "xauusd",
       "name": "现货黄金",
       "asset": "gold",
-      "close": 4473.13,
+      "close": 4462.34,
       "open": 4491.18,
-      "changePct": -0.4,
+      "changePct": -0.64,
       "date": "2026-06-03",
-      "time": "07:13:24",
+      "time": "13:22:20",
       "status": "live"
     },
     {
       "symbol": "cl.f",
       "name": "WTI 原油期货",
       "asset": "commodity",
-      "close": 94.82,
+      "close": 95.83,
       "open": 93.83,
-      "changePct": 1.06,
+      "changePct": 2.13,
       "date": "2026-06-03",
-      "time": "07:13:26",
+      "time": "13:22:19",
       "status": "live"
     },
     {
       "symbol": "hg.f",
       "name": "铜期货",
       "asset": "commodity",
-      "close": 665.45,
+      "close": 660.87,
       "open": 667.75,
-      "changePct": -0.34,
+      "changePct": -1.03,
       "date": "2026-06-03",
-      "time": "07:13:17",
+      "time": "13:22:21",
       "status": "live"
     }
   ],

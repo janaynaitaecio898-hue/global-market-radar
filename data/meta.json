@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T05:13:21.469743+00:00",
+  "generated_at": "2026-06-03T11:22:17.283601+00:00",
   "version": "1.7",
   "status": "live",
   "notes": [
@@ -8,7 +8,5 @@
     "v1.7 已内置 4 个 X 财经账号池；配置 X_BEARER_TOKEN 后自动抓取官方媒体、宏观投资人、市场情绪和中国/亚洲观察账号。",
     "市场动态会结合官方信源、媒体叙事和价格代理指标，辅助判断信息是否被市场确认。"
   ],
-  "source_errors": [
-    "bls_macro: Remote end closed connection without response"
-  ]
+  "source_errors": []
 }
