@@ -1,59 +1,59 @@
 {
-  "generated_at": "2026-06-03T17:14:24.795225+00:00",
+  "generated_at": "2026-06-03T21:28:52.243008+00:00",
   "quotes": [
     {
       "symbol": "spy.us",
       "name": "标普500 ETF",
       "asset": "equity",
-      "close": 755.02,
+      "close": 754.21,
       "open": 758.15,
-      "changePct": -0.41,
+      "changePct": -0.52,
       "date": "2026-06-03",
-      "time": "18:59:23",
+      "time": "22:00:23",
       "status": "live"
     },
     {
       "symbol": "qqq.us",
       "name": "纳斯达克100 ETF",
       "asset": "equity",
-      "close": 743.665,
+      "close": 744.32,
       "open": 747.31,
-      "changePct": -0.49,
+      "changePct": -0.4,
       "date": "2026-06-03",
-      "time": "18:59:23",
+      "time": "22:00:19",
       "status": "live"
     },
     {
       "symbol": "tlt.us",
       "name": "20年以上美债 ETF",
       "asset": "bond",
-      "close": 85.22,
+      "close": 85.32,
       "open": 85.28,
-      "changePct": -0.07,
+      "changePct": 0.05,
       "date": "2026-06-03",
-      "time": "18:59:22",
+      "time": "22:00:19",
       "status": "live"
     },
     {
       "symbol": "gld.us",
       "name": "黄金 ETF",
       "asset": "gold",
-      "close": 407.65,
+      "close": 407.89,
       "open": 408.36,
-      "changePct": -0.17,
+      "changePct": -0.12,
       "date": "2026-06-03",
-      "time": "18:59:21",
+      "time": "22:00:23",
       "status": "live"
     },
     {
       "symbol": "uso.us",
       "name": "原油 ETF",
       "asset": "commodity",
-      "close": 140.3301,
+      "close": 140.89,
       "open": 139.46,
-      "changePct": 0.62,
+      "changePct": 1.03,
       "date": "2026-06-03",
-      "time": "18:59:24",
+      "time": "22:00:23",
       "status": "live"
     },
     {
@@ -64,7 +64,7 @@
       "open": 27.86,
       "changePct": 0.04,
       "date": "2026-06-03",
-      "time": "18:57:17",
+      "time": "22:00:22",
       "status": "live"
     }
   ],
