@@ -1,49 +1,49 @@
 {
-  "generated_at": "2026-06-05T15:27:08.002139+00:00",
+  "generated_at": "2026-06-05T20:08:11.800988+00:00",
   "quotes": [
     {
       "symbol": "spy.us",
       "name": "标普500 ETF",
       "asset": "equity",
-      "close": 748.77,
-      "open": 752.31,
-      "changePct": -0.47,
+      "close": 520.0,
+      "open": null,
+      "changePct": null,
       "date": "2026-06-05",
-      "time": "17:12:06",
-      "status": "live"
+      "time": "20:08",
+      "status": "fallback"
     },
     {
       "symbol": "qqq.us",
       "name": "纳斯达克100 ETF",
       "asset": "equity",
-      "close": 723.49,
-      "open": 730.08,
-      "changePct": -0.9,
+      "close": 445.0,
+      "open": null,
+      "changePct": null,
       "date": "2026-06-05",
-      "time": "17:12:06",
-      "status": "live"
+      "time": "20:08",
+      "status": "fallback"
     },
     {
       "symbol": "tlt.us",
       "name": "20年以上美债 ETF",
       "asset": "bond",
-      "close": 85.1601,
-      "open": 84.99,
-      "changePct": 0.2,
+      "close": 90.0,
+      "open": null,
+      "changePct": null,
       "date": "2026-06-05",
-      "time": "17:12:04",
-      "status": "live"
+      "time": "20:08",
+      "status": "fallback"
     },
     {
       "symbol": "gld.us",
       "name": "黄金 ETF",
       "asset": "gold",
-      "close": 215.0,
-      "open": null,
-      "changePct": null,
+      "close": 396.36,
+      "open": 404.38,
+      "changePct": -1.98,
       "date": "2026-06-05",
-      "time": "15:27",
-      "status": "fallback"
+      "time": "21:53:11",
+      "status": "live"
     },
     {
       "symbol": "uso.us",
@@ -53,26 +53,27 @@
       "open": null,
       "changePct": null,
       "date": "2026-06-05",
-      "time": "15:27",
+      "time": "20:08",
       "status": "fallback"
     },
     {
       "symbol": "uup.us",
       "name": "美元指数 ETF",
       "asset": "fx",
-      "close": 29.0,
-      "open": null,
-      "changePct": null,
+      "close": 28.0377,
+      "open": 27.92,
+      "changePct": 0.42,
       "date": "2026-06-05",
-      "time": "15:27",
-      "status": "fallback"
+      "time": "21:53:09",
+      "status": "live"
     }
   ],
   "status": "degraded",
   "errors": [
-    "gld.us: No quote returned for gld.us: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGoi6s5lLb8KmrMnzNliVWN1ogsLNKFLoJJip8XNlH0Z-QGchxNG3kI\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"nb1GbmqMhyZdupcJl5VVRg\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}",
-    "uso.us: No quote returned for uso.us: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGoi6s4ePSNltEk-ykaPF9h7nLU1NKFLoL7Zh4Jxcxg6ETM-d8Smm-c\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"YmNYd9Hxlg1NHC8zdmlj3Q\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}",
-    "uup.us: No quote returned for uup.us: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGoi6s97MM1qtD144hYpvCICZ--vNKFLoAopnn-R-PaZ_FVhw3I6Nzw\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"skpitdHl7k8AFytyetQGVQ\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}"
+    "spy.us: No quote returned for spy.us: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGojLKxhJ0mNKMmxSd0SdVEL-llKNK2iYoPCBbTh8mD1Q1v4WXGSD5w\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"YuVzLdkdsbBP3qYfL4gPNg\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}",
+    "qqq.us: No quote returned for qqq.us: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGojLKwvdVJpikAQWnfgEHoIsOp9NK2iYrQMNd3K9Xz49ehrCyHiaS0\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"sZo8L4Xa4dONAJGWyKAWKw\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}",
+    "tlt.us: No quote returned for tlt.us: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGojLK0cyVfs03m7qtdlS58yxJN0NK2iYjc7EgP_RAWYMbZuRtXYAzs\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"FiDOxK27cwksHHfm98YK4g\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}",
+    "uso.us: No quote returned for uso.us: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGojLK7RNfPF6PVUF1_qfUv_CiOwNK2iYtKyv7uAerr7Mto9fKZfgDw\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"zWxufC_S-bjjuP9GkWDL7g\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}"
   ],
   "source": "Stooq 延迟行情 CSV；源不可用时使用内置兜底值"
 }
