@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-04T20:22:20.590626+00:00",
+  "generated_at": "2026-06-05T04:44:35.968111+00:00",
   "quotes": [
     {
       "symbol": "spy.us",
       "name": "标普500 ETF",
       "asset": "equity",
-      "close": 757.16,
-      "open": 752.1,
-      "changePct": 0.67,
-      "date": "2026-06-04",
-      "time": "22:00:22",
-      "status": "live"
+      "close": 520.0,
+      "open": null,
+      "changePct": null,
+      "date": "2026-06-05",
+      "time": "04:44",
+      "status": "fallback"
     },
     {
       "symbol": "qqq.us",
@@ -27,23 +27,23 @@
       "symbol": "tlt.us",
       "name": "20年以上美债 ETF",
       "asset": "bond",
-      "close": 85.5,
-      "open": 85.605,
-      "changePct": -0.12,
-      "date": "2026-06-04",
-      "time": "22:00:18",
-      "status": "live"
+      "close": 90.0,
+      "open": null,
+      "changePct": null,
+      "date": "2026-06-05",
+      "time": "04:44",
+      "status": "fallback"
     },
     {
       "symbol": "gld.us",
       "name": "黄金 ETF",
       "asset": "gold",
-      "close": 411.27,
-      "open": 413.37,
-      "changePct": -0.51,
-      "date": "2026-06-04",
-      "time": "22:00:22",
-      "status": "live"
+      "close": 215.0,
+      "open": null,
+      "changePct": null,
+      "date": "2026-06-05",
+      "time": "04:44",
+      "status": "fallback"
     },
     {
       "symbol": "uso.us",
@@ -61,14 +61,18 @@
       "name": "美元指数 ETF",
       "asset": "fx",
       "close": 27.84,
-      "open": 27.795,
-      "changePct": 0.16,
+      "open": 27.79,
+      "changePct": 0.18,
       "date": "2026-06-04",
       "time": "22:00:22",
       "status": "live"
     }
   ],
-  "status": "live",
-  "errors": [],
+  "status": "degraded",
+  "errors": [
+    "spy.us: No quote returned for spy.us: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGoiVDRof4aF5i_9OtkC2b51AMderNB_9Cy4cD3zP9qF4CaH7jXzSc4\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"4ifdvwtftVH0K1T2Y-Q0ug\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}",
+    "tlt.us: No quote returned for tlt.us: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGoiVDXGe4nb8U9mW1QxR8roChwKrNB_9JT0cDrzh80P9whxpZINR8Q\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"KBL8DWj5y5X0otdAJ2I1DA\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}",
+    "gld.us: No quote returned for gld.us: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGoiVDXIVLGIBNnRGhJiMGN1jYbNrNB_9DTPeM_pPltIbzDYMhGtZhI\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"e2v-NW84PgAIcOrjZkSRJw\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}"
+  ],
   "source": "Stooq 延迟行情 CSV；源不可用时使用内置兜底值"
 }
