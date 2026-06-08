@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-08T04:59:44.883293+00:00",
+  "generated_at": "2026-06-08T11:19:29.508655+00:00",
   "quotes": [
     {
       "symbol": "spy.us",
@@ -9,7 +9,7 @@
       "open": null,
       "changePct": null,
       "date": "2026-06-08",
-      "time": "04:59",
+      "time": "11:19",
       "status": "fallback"
     },
     {
@@ -20,7 +20,7 @@
       "open": null,
       "changePct": null,
       "date": "2026-06-08",
-      "time": "04:59",
+      "time": "11:19",
       "status": "fallback"
     },
     {
@@ -31,7 +31,7 @@
       "open": null,
       "changePct": null,
       "date": "2026-06-08",
-      "time": "04:59",
+      "time": "11:19",
       "status": "fallback"
     },
     {
@@ -42,7 +42,7 @@
       "open": null,
       "changePct": null,
       "date": "2026-06-08",
-      "time": "04:59",
+      "time": "11:19",
       "status": "fallback"
     },
     {
@@ -53,7 +53,7 @@
       "open": null,
       "changePct": null,
       "date": "2026-06-08",
-      "time": "04:59",
+      "time": "11:19",
       "status": "fallback"
     },
     {
@@ -64,18 +64,18 @@
       "open": null,
       "changePct": null,
       "date": "2026-06-08",
-      "time": "04:59",
+      "time": "11:19",
       "status": "fallback"
     }
   ],
   "status": "degraded",
   "errors": [
-    "spy.us: No quote returned for spy.us: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGomTD6GDtIp4md1jR3kc4dIxAMEFDd_4tXml-DhWjhpubaY7fupCY0\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"DGp15-GKIOP8VJOs8rj5Kw\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}",
-    "qqq.us: No quote returned for qqq.us: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGomTED2kK-o3OBCKi1qVd1QZPz8FDd_4vXe-WWSFnUZVxa-26UPW9k\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"qaAhrDY_uPYvu2_Ljrs7jg\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}",
-    "tlt.us: No quote returned for tlt.us: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGomTEH4P-Fwq7Ofv3SDwR3TMhRIFDd_4qHAQmbRhrKxjClddS70Ky8\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"mWrMlTCcCpL5RsUv59KrBQ\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}",
-    "gld.us: No quote returned for gld.us: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGomTEH7pxGjKa_lCpfd_jY7_ia_FDd_4qN-CRdHpMbjbkp_y_9ygRQ\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"zEE8zsTs5JEAG_2frsIrjQ\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}",
-    "uso.us: No quote returned for uso.us: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGomTEJe_kTfKfHYiP5r2xU8O9-zFDd_4oeYzO5A1OaRSZIgB4BzbvA\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"GGe5-eAfJFz-0j7HNwGq5A\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}",
-    "uup.us: No quote returned for uup.us: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGomTEKgNsY4DViXGpGf8Fk1v_h9FDd_4lSaQrO33AChRwaq28ZXy9I\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"dOWslxUbF2UzsZ5myCsQZw\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}"
+    "spy.us: HTTP Error 404: Not Found",
+    "qqq.us: HTTP Error 404: Not Found",
+    "tlt.us: HTTP Error 404: Not Found",
+    "gld.us: HTTP Error 404: Not Found",
+    "uso.us: HTTP Error 404: Not Found",
+    "uup.us: HTTP Error 404: Not Found"
   ],
   "source": "Stooq 延迟行情 CSV；源不可用时使用内置兜底值"
 }

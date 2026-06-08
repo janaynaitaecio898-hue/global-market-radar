@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-08T04:59:44.883293+00:00",
+  "generated_at": "2026-06-08T11:19:29.508655+00:00",
   "items": [
     {
       "id": "risk-appetite",
@@ -176,7 +176,7 @@
       "open": null,
       "changePct": null,
       "date": "2026-06-08",
-      "time": "04:59",
+      "time": "11:19",
       "status": "fallback"
     },
     {
@@ -187,7 +187,7 @@
       "open": null,
       "changePct": null,
       "date": "2026-06-08",
-      "time": "04:59",
+      "time": "11:19",
       "status": "fallback"
     },
     {
@@ -198,7 +198,7 @@
       "open": null,
       "changePct": null,
       "date": "2026-06-08",
-      "time": "04:59",
+      "time": "11:19",
       "status": "fallback"
     },
     {
@@ -209,7 +209,7 @@
       "open": null,
       "changePct": null,
       "date": "2026-06-08",
-      "time": "04:59",
+      "time": "11:19",
       "status": "fallback"
     },
     {
@@ -220,7 +220,7 @@
       "open": null,
       "changePct": null,
       "date": "2026-06-08",
-      "time": "04:59",
+      "time": "11:19",
       "status": "fallback"
     },
     {
@@ -231,7 +231,7 @@
       "open": null,
       "changePct": null,
       "date": "2026-06-08",
-      "time": "04:59",
+      "time": "11:19",
       "status": "fallback"
     },
     {
@@ -242,7 +242,7 @@
       "open": null,
       "changePct": null,
       "date": "2026-06-08",
-      "time": "04:59",
+      "time": "11:19",
       "status": "fallback"
     },
     {
@@ -253,20 +253,20 @@
       "open": null,
       "changePct": null,
       "date": "2026-06-08",
-      "time": "04:59",
+      "time": "11:19",
       "status": "fallback"
     }
   ],
   "status": "degraded",
   "errors": [
-    "hyg.us: No quote returned for hyg.us: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGomTEHmtLoNSpugQNU5gsHpoSAOFDd_4lI8on97gOlJRQJo4TgWQ1c\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"w6Rucr90koDNsgsgLHOSbQ\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}",
-    "lqd.us: No quote returned for lqd.us: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGomTEEvuvCdjii-FAWe0-oIx-alFDd_4mnptcUqv-Kp3JhUTHgVPNM\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"y2n26nlcv4TfyZAXtI7nBg\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}",
-    "ief.us: No quote returned for ief.us: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGomTEJSM9XyfRa1o4GT4aNdRaGpFDd_4iG8lZbKNzfFx80lbuDrHpg\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"pjBFahtMeMTza_uBGuHvpA\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}",
-    "shy.us: No quote returned for shy.us: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGomTEJLF_YEY1CN2ZTUHrFKJ7gPFDd_4sCyieViZ3u7NV2BU6SakvE\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"a2yOYv6eXMeBXhOSYZi4CA\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}",
-    "dx.f: No quote returned for dx.f: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGomTERdgo4q19szsknJI74UgwrOFDd_4hAcbzw0n8sTL0Iyy90mc-k\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"cFmdYGVaNjqXnZyX0lwp0Q\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}",
-    "xauusd: No quote returned for xauusd: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGomTES7O8Hr-Z86VWuybFk-srBmFDd_4mEK28Yd2Vc8-K8KvpkTvcM\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"CaW3m4iBguQabz8mGk9y2g\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}",
-    "cl.f: No quote returned for cl.f: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGomTEOHUYMuzS8S4C4qQa-csLSUFDd_4tAOQeayBTIWoyFlBrcrneU\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"yyo7RE9sZHJCZufg9ZEMCA\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}",
-    "hg.f: No quote returned for hg.f: {'<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex': '(async()=>{const c=\"AAAAAGomTEX5VyMytj0etGG0YuBWEH9ZFDd_4vM4IDEgM51qE1545A1b1Ug\"', 'nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"AX6kIP1hNuLbdIdHuN5Qhg\">': 'd=4', None: ['t=\"0\".repeat(d)', 'e=new TextEncoder;let n=0;while(1){const h=await crypto.subtle.digest(\"SHA-256\"', 'e.encode(c+n))', 'x=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2', '0)).join(\"\");if(x.startsWith(t))break;n++}const r=await fetch(\"/__verify\"', '{method:\"POST\"', 'headers:{\"Content-Type\":\"application/x-www-form-urlencoded\"}', 'body:\"c=\"+encodeURIComponent(c)+\"&n=\"+n', 'credentials:\"same-origin\"});if(r.ok)location.reload()})();']}"
+    "hyg.us: HTTP Error 404: Not Found",
+    "lqd.us: HTTP Error 404: Not Found",
+    "ief.us: HTTP Error 404: Not Found",
+    "shy.us: HTTP Error 404: Not Found",
+    "dx.f: HTTP Error 404: Not Found",
+    "xauusd: HTTP Error 404: Not Found",
+    "cl.f: HTTP Error 404: Not Found",
+    "hg.f: HTTP Error 404: Not Found"
   ],
   "source": "Stooq ETF、期货与现货代理指标；用于验证新闻是否被市场价格确认"
 }
