@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-09T20:02:00.874740+00:00",
+  "generated_at": "2026-07-10T04:10:44.450322+00:00",
   "items": [
     {
       "id": "risk-appetite",
@@ -175,8 +175,8 @@
       "close": 79.0,
       "open": null,
       "changePct": null,
-      "date": "2026-07-09",
-      "time": "20:02",
+      "date": "2026-07-10",
+      "time": "04:10",
       "status": "fallback"
     },
     {
@@ -186,8 +186,8 @@
       "close": 108.0,
       "open": null,
       "changePct": null,
-      "date": "2026-07-09",
-      "time": "20:02",
+      "date": "2026-07-10",
+      "time": "04:10",
       "status": "fallback"
     },
     {
@@ -197,8 +197,8 @@
       "close": 94.0,
       "open": null,
       "changePct": null,
-      "date": "2026-07-09",
-      "time": "20:02",
+      "date": "2026-07-10",
+      "time": "04:10",
       "status": "fallback"
     },
     {
@@ -208,8 +208,8 @@
       "close": 82.0,
       "open": null,
       "changePct": null,
-      "date": "2026-07-09",
-      "time": "20:02",
+      "date": "2026-07-10",
+      "time": "04:10",
       "status": "fallback"
     },
     {
@@ -219,8 +219,8 @@
       "close": 99.0,
       "open": null,
       "changePct": null,
-      "date": "2026-07-09",
-      "time": "20:02",
+      "date": "2026-07-10",
+      "time": "04:10",
       "status": "fallback"
     },
     {
@@ -230,8 +230,8 @@
       "close": 4500.0,
       "open": null,
       "changePct": null,
-      "date": "2026-07-09",
-      "time": "20:02",
+      "date": "2026-07-10",
+      "time": "04:10",
       "status": "fallback"
     },
     {
@@ -241,8 +241,8 @@
       "close": 100.0,
       "open": null,
       "changePct": null,
-      "date": "2026-07-09",
-      "time": "20:02",
+      "date": "2026-07-10",
+      "time": "04:10",
       "status": "fallback"
     },
     {
@@ -252,8 +252,8 @@
       "close": 620.0,
       "open": null,
       "changePct": null,
-      "date": "2026-07-09",
-      "time": "20:02",
+      "date": "2026-07-10",
+      "time": "04:10",
       "status": "fallback"
     }
   ],
