@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T14:09:52.477020+00:00",
+  "generated_at": "2026-07-14T19:40:48.424234+00:00",
   "version": "1.7",
   "status": "degraded",
   "notes": [
@@ -22,6 +22,7 @@
     "dx.f: HTTP Error 404: Not Found",
     "xauusd: HTTP Error 404: Not Found",
     "cl.f: HTTP Error 404: Not Found",
-    "hg.f: HTTP Error 404: Not Found"
+    "hg.f: HTTP Error 404: Not Found",
+    "bloomberg_markets: HTTP Error 404: Not Found"
   ]
 }
