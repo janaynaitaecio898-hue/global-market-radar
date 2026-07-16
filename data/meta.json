@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T19:33:52.078034+00:00",
+  "generated_at": "2026-07-16T03:32:46.342401+00:00",
   "version": "1.7",
   "status": "degraded",
   "notes": [
@@ -23,7 +23,6 @@
     "xauusd: HTTP Error 404: Not Found",
     "cl.f: HTTP Error 404: Not Found",
     "hg.f: HTTP Error 404: Not Found",
-    "bls_macro: The read operation timed out",
-    "bloomberg_markets: HTTP Error 404: Not Found"
+    "bls_macro: The read operation timed out"
   ]
 }
