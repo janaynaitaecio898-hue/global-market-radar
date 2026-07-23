@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T08:42:55.256437+00:00",
+  "generated_at": "2026-07-23T14:27:30.992882+00:00",
   "version": "1.7",
   "status": "degraded",
   "notes": [
@@ -22,6 +22,7 @@
     "dx.f: HTTP Error 404: Not Found",
     "xauusd: HTTP Error 404: Not Found",
     "cl.f: HTTP Error 404: Not Found",
-    "hg.f: HTTP Error 404: Not Found"
+    "hg.f: HTTP Error 404: Not Found",
+    "bls_macro: The read operation timed out"
   ]
 }
