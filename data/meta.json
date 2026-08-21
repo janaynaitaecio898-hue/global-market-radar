@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T13:08:05.539414+00:00",
+  "generated_at": "2026-08-21T18:52:51.388264+00:00",
   "version": "1.7",
   "status": "degraded",
   "notes": [
@@ -22,7 +22,6 @@
     "dx.f: HTTP Error 404: Not Found",
     "xauusd: HTTP Error 404: Not Found",
     "cl.f: HTTP Error 404: Not Found",
-    "hg.f: HTTP Error 404: Not Found",
-    "boj_whatsnew: not well-formed (invalid token): line 10, column 69"
+    "hg.f: HTTP Error 404: Not Found"
   ]
 }
