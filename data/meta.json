@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T22:15:09.168210+00:00",
+  "generated_at": "2026-08-31T05:27:38.616230+00:00",
   "version": "1.7",
   "status": "degraded",
   "notes": [
@@ -22,6 +22,7 @@
     "dx.f: HTTP Error 404: Not Found",
     "xauusd: HTTP Error 404: Not Found",
     "cl.f: HTTP Error 404: Not Found",
-    "hg.f: HTTP Error 404: Not Found"
+    "hg.f: HTTP Error 404: Not Found",
+    "bis_stats: HTTP Error 404: Not Found"
   ]
 }
