@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T11:16:54.497411+00:00",
+  "generated_at": "2026-09-09T16:34:53.625279+00:00",
   "version": "1.7",
   "status": "degraded",
   "notes": [
@@ -22,7 +22,6 @@
     "dx.f: HTTP Error 404: Not Found",
     "xauusd: HTTP Error 404: Not Found",
     "cl.f: HTTP Error 404: Not Found",
-    "hg.f: HTTP Error 404: Not Found",
-    "bls_macro: BLS API status: REQUEST_NOT_PROCESSED ['Request could not be serviced, as the daily threshold for total number of requests allocated to the user with registration key  has been reached.']"
+    "hg.f: HTTP Error 404: Not Found"
   ]
 }
