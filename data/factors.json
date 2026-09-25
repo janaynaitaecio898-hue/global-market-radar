@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T21:28:04.013720+00:00",
+  "generated_at": "2026-09-25T04:52:06.372677+00:00",
   "items": [
     {
       "id": "risk-appetite",
@@ -175,8 +175,8 @@
       "close": 79.0,
       "open": null,
       "changePct": null,
-      "date": "2026-09-24",
-      "time": "21:28",
+      "date": "2026-09-25",
+      "time": "04:52",
       "status": "fallback"
     },
     {
@@ -186,8 +186,8 @@
       "close": 108.0,
       "open": null,
       "changePct": null,
-      "date": "2026-09-24",
-      "time": "21:28",
+      "date": "2026-09-25",
+      "time": "04:52",
       "status": "fallback"
     },
     {
@@ -197,8 +197,8 @@
       "close": 94.0,
       "open": null,
       "changePct": null,
-      "date": "2026-09-24",
-      "time": "21:28",
+      "date": "2026-09-25",
+      "time": "04:52",
       "status": "fallback"
     },
     {
@@ -208,8 +208,8 @@
       "close": 82.0,
       "open": null,
       "changePct": null,
-      "date": "2026-09-24",
-      "time": "21:28",
+      "date": "2026-09-25",
+      "time": "04:52",
       "status": "fallback"
     },
     {
@@ -219,8 +219,8 @@
       "close": 99.0,
       "open": null,
       "changePct": null,
-      "date": "2026-09-24",
-      "time": "21:28",
+      "date": "2026-09-25",
+      "time": "04:52",
       "status": "fallback"
     },
     {
@@ -230,8 +230,8 @@
       "close": 4500.0,
       "open": null,
       "changePct": null,
-      "date": "2026-09-24",
-      "time": "21:28",
+      "date": "2026-09-25",
+      "time": "04:52",
       "status": "fallback"
     },
     {
@@ -241,8 +241,8 @@
       "close": 100.0,
       "open": null,
       "changePct": null,
-      "date": "2026-09-24",
-      "time": "21:28",
+      "date": "2026-09-25",
+      "time": "04:52",
       "status": "fallback"
     },
     {
@@ -252,21 +252,21 @@
       "close": 620.0,
       "open": null,
       "changePct": null,
-      "date": "2026-09-24",
-      "time": "21:28",
+      "date": "2026-09-25",
+      "time": "04:52",
       "status": "fallback"
     }
   ],
   "status": "degraded",
   "errors": [
-    "hyg.us: HTTP Error 404: Not Found",
-    "lqd.us: HTTP Error 404: Not Found",
-    "ief.us: HTTP Error 404: Not Found",
-    "shy.us: HTTP Error 404: Not Found",
-    "dx.f: HTTP Error 404: Not Found",
-    "xauusd: HTTP Error 404: Not Found",
-    "cl.f: HTTP Error 404: Not Found",
-    "hg.f: HTTP Error 404: Not Found"
+    "hyg.us: <urlopen error timed out>",
+    "lqd.us: <urlopen error timed out>",
+    "ief.us: <urlopen error timed out>",
+    "shy.us: <urlopen error timed out>",
+    "dx.f: <urlopen error timed out>",
+    "xauusd: <urlopen error timed out>",
+    "cl.f: <urlopen error timed out>",
+    "hg.f: <urlopen error timed out>"
   ],
   "source": "Stooq ETF、期货与现货代理指标；用于验证新闻是否被市场价格确认"
 }

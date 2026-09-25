@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T21:28:04.013720+00:00",
+  "generated_at": "2026-09-25T04:52:06.372677+00:00",
   "quotes": [
     {
       "symbol": "spy.us",
@@ -8,8 +8,8 @@
       "close": 520.0,
       "open": null,
       "changePct": null,
-      "date": "2026-09-24",
-      "time": "21:28",
+      "date": "2026-09-25",
+      "time": "04:52",
       "status": "fallback"
     },
     {
@@ -19,8 +19,8 @@
       "close": 445.0,
       "open": null,
       "changePct": null,
-      "date": "2026-09-24",
-      "time": "21:28",
+      "date": "2026-09-25",
+      "time": "04:52",
       "status": "fallback"
     },
     {
@@ -30,8 +30,8 @@
       "close": 90.0,
       "open": null,
       "changePct": null,
-      "date": "2026-09-24",
-      "time": "21:28",
+      "date": "2026-09-25",
+      "time": "04:52",
       "status": "fallback"
     },
     {
@@ -41,8 +41,8 @@
       "close": 215.0,
       "open": null,
       "changePct": null,
-      "date": "2026-09-24",
-      "time": "21:28",
+      "date": "2026-09-25",
+      "time": "04:52",
       "status": "fallback"
     },
     {
@@ -52,8 +52,8 @@
       "close": 75.0,
       "open": null,
       "changePct": null,
-      "date": "2026-09-24",
-      "time": "21:28",
+      "date": "2026-09-25",
+      "time": "04:52",
       "status": "fallback"
     },
     {
@@ -63,19 +63,19 @@
       "close": 29.0,
       "open": null,
       "changePct": null,
-      "date": "2026-09-24",
-      "time": "21:28",
+      "date": "2026-09-25",
+      "time": "04:52",
       "status": "fallback"
     }
   ],
   "status": "degraded",
   "errors": [
-    "spy.us: HTTP Error 404: Not Found",
-    "qqq.us: HTTP Error 404: Not Found",
-    "tlt.us: HTTP Error 404: Not Found",
-    "gld.us: HTTP Error 404: Not Found",
-    "uso.us: HTTP Error 404: Not Found",
-    "uup.us: HTTP Error 404: Not Found"
+    "spy.us: <urlopen error timed out>",
+    "qqq.us: <urlopen error timed out>",
+    "tlt.us: <urlopen error timed out>",
+    "gld.us: <urlopen error timed out>",
+    "uso.us: <urlopen error timed out>",
+    "uup.us: <urlopen error timed out>"
   ],
   "source": "Stooq 延迟行情 CSV；源不可用时使用内置兜底值"
 }

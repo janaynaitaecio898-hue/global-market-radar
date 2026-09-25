@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T21:28:04.013720+00:00",
+  "generated_at": "2026-09-25T04:52:06.372677+00:00",
   "version": "1.7",
   "status": "degraded",
   "notes": [
@@ -9,19 +9,19 @@
     "市场动态会结合官方信源、媒体叙事和价格代理指标，辅助判断信息是否被市场确认。"
   ],
   "source_errors": [
-    "spy.us: HTTP Error 404: Not Found",
-    "qqq.us: HTTP Error 404: Not Found",
-    "tlt.us: HTTP Error 404: Not Found",
-    "gld.us: HTTP Error 404: Not Found",
-    "uso.us: HTTP Error 404: Not Found",
-    "uup.us: HTTP Error 404: Not Found",
-    "hyg.us: HTTP Error 404: Not Found",
-    "lqd.us: HTTP Error 404: Not Found",
-    "ief.us: HTTP Error 404: Not Found",
-    "shy.us: HTTP Error 404: Not Found",
-    "dx.f: HTTP Error 404: Not Found",
-    "xauusd: HTTP Error 404: Not Found",
-    "cl.f: HTTP Error 404: Not Found",
-    "hg.f: HTTP Error 404: Not Found"
+    "spy.us: <urlopen error timed out>",
+    "qqq.us: <urlopen error timed out>",
+    "tlt.us: <urlopen error timed out>",
+    "gld.us: <urlopen error timed out>",
+    "uso.us: <urlopen error timed out>",
+    "uup.us: <urlopen error timed out>",
+    "hyg.us: <urlopen error timed out>",
+    "lqd.us: <urlopen error timed out>",
+    "ief.us: <urlopen error timed out>",
+    "shy.us: <urlopen error timed out>",
+    "dx.f: <urlopen error timed out>",
+    "xauusd: <urlopen error timed out>",
+    "cl.f: <urlopen error timed out>",
+    "hg.f: <urlopen error timed out>"
   ]
 }
