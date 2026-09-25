@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T04:52:06.372677+00:00",
+  "generated_at": "2026-09-25T11:45:39.062203+00:00",
   "quotes": [
     {
       "symbol": "spy.us",
@@ -9,7 +9,7 @@
       "open": null,
       "changePct": null,
       "date": "2026-09-25",
-      "time": "04:52",
+      "time": "11:45",
       "status": "fallback"
     },
     {
@@ -20,7 +20,7 @@
       "open": null,
       "changePct": null,
       "date": "2026-09-25",
-      "time": "04:52",
+      "time": "11:45",
       "status": "fallback"
     },
     {
@@ -31,7 +31,7 @@
       "open": null,
       "changePct": null,
       "date": "2026-09-25",
-      "time": "04:52",
+      "time": "11:45",
       "status": "fallback"
     },
     {
@@ -42,7 +42,7 @@
       "open": null,
       "changePct": null,
       "date": "2026-09-25",
-      "time": "04:52",
+      "time": "11:45",
       "status": "fallback"
     },
     {
@@ -53,7 +53,7 @@
       "open": null,
       "changePct": null,
       "date": "2026-09-25",
-      "time": "04:52",
+      "time": "11:45",
       "status": "fallback"
     },
     {
@@ -64,18 +64,18 @@
       "open": null,
       "changePct": null,
       "date": "2026-09-25",
-      "time": "04:52",
+      "time": "11:45",
       "status": "fallback"
     }
   ],
   "status": "degraded",
   "errors": [
-    "spy.us: <urlopen error timed out>",
-    "qqq.us: <urlopen error timed out>",
-    "tlt.us: <urlopen error timed out>",
-    "gld.us: <urlopen error timed out>",
-    "uso.us: <urlopen error timed out>",
-    "uup.us: <urlopen error timed out>"
+    "spy.us: HTTP Error 404: Not Found",
+    "qqq.us: HTTP Error 404: Not Found",
+    "tlt.us: HTTP Error 404: Not Found",
+    "gld.us: HTTP Error 404: Not Found",
+    "uso.us: HTTP Error 404: Not Found",
+    "uup.us: HTTP Error 404: Not Found"
   ],
   "source": "Stooq 延迟行情 CSV；源不可用时使用内置兜底值"
 }
