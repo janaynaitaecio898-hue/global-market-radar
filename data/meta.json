@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T21:56:47.512896+00:00",
+  "generated_at": "2026-11-17T07:48:44.464101+00:00",
   "version": "1.7",
   "status": "degraded",
   "notes": [
@@ -23,6 +23,7 @@
     "xauusd: HTTP Error 404: Not Found",
     "cl.f: HTTP Error 404: Not Found",
     "hg.f: HTTP Error 404: Not Found",
+    "fed_press: HTTP Error 404: Not Found",
     "yahoo_finance: HTTP Error 404: Not Found"
   ]
 }
