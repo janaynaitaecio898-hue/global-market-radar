@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T23:48:32.465198+00:00",
+  "generated_at": "2026-11-24T09:46:56.568096+00:00",
   "quotes": [
     {
       "symbol": "spy.us",
@@ -8,8 +8,8 @@
       "close": 520.0,
       "open": null,
       "changePct": null,
-      "date": "2026-11-23",
-      "time": "23:48",
+      "date": "2026-11-24",
+      "time": "09:46",
       "status": "fallback"
     },
     {
@@ -19,8 +19,8 @@
       "close": 445.0,
       "open": null,
       "changePct": null,
-      "date": "2026-11-23",
-      "time": "23:48",
+      "date": "2026-11-24",
+      "time": "09:46",
       "status": "fallback"
     },
     {
@@ -30,8 +30,8 @@
       "close": 90.0,
       "open": null,
       "changePct": null,
-      "date": "2026-11-23",
-      "time": "23:48",
+      "date": "2026-11-24",
+      "time": "09:46",
       "status": "fallback"
     },
     {
@@ -41,8 +41,8 @@
       "close": 215.0,
       "open": null,
       "changePct": null,
-      "date": "2026-11-23",
-      "time": "23:48",
+      "date": "2026-11-24",
+      "time": "09:46",
       "status": "fallback"
     },
     {
@@ -52,8 +52,8 @@
       "close": 75.0,
       "open": null,
       "changePct": null,
-      "date": "2026-11-23",
-      "time": "23:48",
+      "date": "2026-11-24",
+      "time": "09:46",
       "status": "fallback"
     },
     {
@@ -63,8 +63,8 @@
       "close": 29.0,
       "open": null,
       "changePct": null,
-      "date": "2026-11-23",
-      "time": "23:48",
+      "date": "2026-11-24",
+      "time": "09:46",
       "status": "fallback"
     }
   ],
